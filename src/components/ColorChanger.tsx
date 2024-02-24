@@ -24,7 +24,7 @@ export default function ColorChanger() {
 					<span data-color="yellow" id="yellow"></span>
 				</div>
 				<div title="Mode" id="toggler">
-					<input id="toggle" type="checkbox" checked />
+					<input id="toggle" type="checkbox" defaultChecked />
 				</div>
 				<div id="default" className="default">
 					Default Color

@@ -103,40 +103,70 @@ export const basicInfo = {
 export const workingHistory = [
 	{
 		title: "Members",
-		count: "4+",
+		count: "4",
 		icon: faUser,
 	},
 	{
 		title: "Finished Projects",
-		count: "10+",
+		count: "10",
 		icon: faTasks,
 	},
 	{
 		title: "Satisfied Peoples",
-		count: "100+",
+		count: "100",
 		icon: faSmileBeam,
 	},
 	{
 		title: "Branches",
-		count: "2+",
+		count: "2",
 		icon: faBuilding,
 	},
 ];
 
 export const services = [
-	{ title: "JS Programming", icon: faJs },
-	{ title: "JS Programming", icon: faJs },
-	{ title: "JS Programming", icon: faJs },
-	{ title: "JS Programming", icon: faJs },
-	{ title: "JS Programming", icon: faJs },
-	{ title: "JS Programming", icon: faJs },
+	{
+		title: "JS Programming",
+		icon: faJs,
+		description:
+			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+	},
+	{
+		title: "JS Programming",
+		icon: faJs,
+		description:
+			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+	},
+	{
+		title: "JS Programming",
+		icon: faJs,
+		description:
+			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+	},
+	{
+		title: "JS Programming",
+		icon: faJs,
+		description:
+			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+	},
+	{
+		title: "JS Programming",
+		icon: faJs,
+		description:
+			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+	},
+	{
+		title: "JS Programming",
+		icon: faJs,
+		description:
+			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+	},
 ];
 
 export const educations = [
 	{
 		title: "Science",
-		institute: "Residential Laboratory College",
-		timeSpan: "2017 - 2019",
+		institute: "K.M. Latif Institution",
+		timeSpan: "2012 - 2017",
 		description:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquam quae voluptatum animi debitis aut.",
 	},
@@ -148,9 +178,9 @@ export const educations = [
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquam quae voluptatum animi debitis aut.",
 	},
 	{
-		title: "Science",
-		institute: "Residential Laboratory College",
-		timeSpan: "2017 - 2019",
+		title: "FSIT",
+		institute: "Daffodil International University",
+		timeSpan: "2020 - 2024",
 		description:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquam quae voluptatum animi debitis aut.",
 	},
@@ -313,15 +343,17 @@ export const testimonials = [
 			"I thought it was impossible to make a website as beautiful as our product, but Minhaz proved me wrong.",
 		name: "Kelly Kennedy",
 		designation: "CFO",
+		star: 5,
 		company: "Acme Co",
 		image: "https://randomuser.me/api/portraits/men/4.jpg",
 	},
 	{
 		testimonial:
-			"I've never met a web developer who truly cares about their clients' success like Minhaz does.",
+			"I've never met a web developer who truly cares about their clients' success like Minhaz does. Like it very much",
 		name: "Chris Brown",
 		designation: "COO",
 		company: "DEF Corp",
+		star: 5,
 		image: "https://randomuser.me/api/portraits/men/5.jpg",
 	},
 	{
@@ -329,8 +361,36 @@ export const testimonials = [
 			"After Minhaz optimized our website, our traffic increased by 50%. We can't thank them enough!",
 		name: "Carl Coleman",
 		designation: "CTO",
+		star: 5,
 		company: "456 Enterprises",
 		image: "https://randomuser.me/api/portraits/men/6.jpg",
+	},
+	{
+		testimonial:
+			"Job done perfectly before the deadline. Code was optimized and scalable too. We will work soon.",
+		name: "Harry Kane",
+		designation: "CEO",
+		star: 5,
+		company: "CoreDamn Enterprises",
+		image: "https://randomuser.me/api/portraits/men/7.jpg",
+	},
+	{
+		testimonial:
+			"Minhaz's attention to detail and dedication to delivering high-quality work is unparalleled. Highly recommend!",
+		name: "Emily Johnson",
+		designation: "CTO",
+		star: 5,
+		company: "GHI Solutions",
+		image: "https://randomuser.me/api/portraits/men/8.jpg",
+	},
+	{
+		testimonial:
+			"Working with Minhaz was a pleasure from start to finish. His expertise and professionalism are commendable.",
+		name: "Michael Smith",
+		designation: "CEO",
+		company: "JKL Enterprises",
+		star: 5,
+		image: "https://randomuser.me/api/portraits/men/9.jpg",
 	},
 ];
 
@@ -342,15 +402,15 @@ export const projects = [
 		tags: [
 			{
 				name: "react",
-				color: "blue",
+				color: "#5ed3f3",
 			},
 			{
 				name: "framer-motion",
-				color: "pink",
+				color: "hotpink",
 			},
 			{
 				name: "tailwind",
-				color: "blue",
+				color: "#66dfcf",
 			},
 		],
 		image: titan,
@@ -364,15 +424,15 @@ export const projects = [
 		tags: [
 			{
 				name: "react",
-				color: "blue",
+				color: "#5ed3f3",
 			},
 			{
 				name: "redux",
-				color: "",
+				color: "#7248b6",
 			},
 			{
 				name: "express",
-				color: "red",
+				color: "#7e7e7e",
 			},
 		],
 		image: mediaid,
@@ -386,15 +446,15 @@ export const projects = [
 		tags: [
 			{
 				name: "ejs",
-				color: "red",
+				color: "#8ba438",
 			},
 			{
 				name: "mongodb",
-				color: "green",
+				color: "#12a54f",
 			},
 			{
 				name: "scss",
-				color: "pink",
+				color: "#c66394",
 			},
 		],
 		image: coffee,
@@ -407,15 +467,15 @@ export const projects = [
 		tags: [
 			{
 				name: "html",
-				color: "red",
+				color: "#dd4b25",
 			},
 			{
 				name: "css",
-				color: "blue",
+				color: "#006ab2",
 			},
 			{
 				name: "jQuery",
-				color: "blue",
+				color: "#0865a7",
 			},
 		],
 		image: admin,
@@ -428,15 +488,15 @@ export const projects = [
 		tags: [
 			{
 				name: "html",
-				color: "red",
+				color: "#dd4b25",
 			},
 			{
 				name: "css",
-				color: "blue",
+				color: "#006ab2",
 			},
 			{
 				name: "js",
-				color: "red",
+				color: "#efd81d",
 			},
 		],
 		image: eCom,
@@ -447,15 +507,17 @@ export const projects = [
 
 export const blogs = [
 	{
+		id: 1,
 		title: "How to forget pain",
 		cover: blog1,
-		publishedDate: "June 21, 2021",
-		body: "Lorem ipsum dolor sit, amet consectetur. Delenitiuer magnam fugiat, ad iure velit reiciendis unde et qui. Lorem ipsumert dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quidem, accusantium dolorem nostrum delectus odio? Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum.",
+		publishedDate: "June 22, 2023",
+		body: "Pain is an inevitable part of life, but it doesn't have to define us. In this blog post, we explore various techniques and strategies for coping with and eventually overcoming pain. From mindfulness practices to seeking support from loved ones, there are many ways to navigate the challenges that pain brings. Join us on this journey of healing and self-discovery.",
 	},
 	{
+		id: 2,
 		title: "How to forget pain",
 		cover: blog2,
-		publishedDate: "June 21, 2021",
-		body: "Lorem ipsum dolor sit, amet consectetur. Delenitiuer magnam fugiat, ad iure velit reiciendis unde et qui. Lorem ipsumert dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quidem, accusantium dolorem nostrum delectus odio? Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum.",
+		publishedDate: "June 29, 2023",
+		body: "In continuation of our exploration of pain and its impact on our lives, this blog post delves deeper into the concept of forgiveness as a means of letting go. Holding onto grudges and resentments can perpetuate our suffering, but forgiveness offers a path to liberation. We discuss practical tips for practicing forgiveness and releasing the burden of past hurts. Join us as we discover the transformative power of forgiveness on our journey toward healing.",
 	},
 ];
