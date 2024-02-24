@@ -78,7 +78,7 @@ export default function Navbar() {
 					</div>
 					<div className="profile-section">
 						<div className="social-media-mo">
-							{[...sidebarSocials].slice(0, 4).map((social: ISocial) => (
+							{sidebarSocials.slice(0, 3).map((social: ISocial) => (
 								<a key={social.id} id={social.id} href={social.link}>
 									<span>
 										<i
@@ -107,7 +107,7 @@ export default function Navbar() {
 			<div className="nav-all-links">
 				<div id="select-nav" className="links nav-pills links-secondary">
 					{navLinks.map((link: ILink) => (
-						<a className="nav-link u-link" href={link.id}>
+						<a key={link.id} className="nav-link u-link" href={link.id}>
 							<span>
 								<FontAwesomeIcon icon={link.icon} />
 							</span>

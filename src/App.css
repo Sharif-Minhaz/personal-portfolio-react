@@ -569,74 +569,69 @@ main {
 }
 
 /* ---------My skills------------- */
-.skills {
-  padding-top: 40px;
-}
-
-.skills h2 {
-  margin-bottom: 20px;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.skills h2:first-child {
-  color: var(--heading-color);
-}
-
-.single-skill {
-  margin-bottom: 25px;
-}
-
-.skill-name-percent {
+.technology {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  row-gap: 40px;
+  column-gap: 80px;
+  flex-wrap: wrap;
 }
 
-.skill-name-percent .skill-name,
-.skill-name-percent .percent {
-  font-size: 16px;
-  color: var(--heading-color);
+/* -------------- hexagon -------------- */
+.hexagon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64.5px;
+  height: 100px;
+  background-image: linear-gradient(90deg, #434343, #151030);
+  border-radius: 10px;
+  transition: transform 400ms ease;
 }
 
-.progress-bar {
-  margin: 10px 0;
-  height: 9px;
-  width: 100%;
-  background-color: #212528;
-  border-radius: 50px;
+.hexagon:before,
+.hexagon:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: inherit;
+  height: inherit;
+  background-image: inherit;
+  border-radius: inherit;
 }
 
-.progress-bar span {
-  width: 90%;
-  height: 9px;
-  background-color: var(--change-color);
+.hexagon:before {
+  transform: rotate(60deg);
 }
 
-.skills .single-skill:nth-child(3) .progress-bar span {
-  width: 85%;
+.hexagon:after {
+  transform: rotate(-60deg);
 }
 
-.skills .single-skill:nth-child(4) .progress-bar span {
-  width: 80%;
+.hexagon .body {
+  object-fit: contain;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  z-index: 10;
+  transition: all 0.3s;
 }
 
-.skills.skills-right .single-skill:nth-child(2) .progress-bar span {
-  width: 85%;
-}
-
-.skills.skills-right .single-skill:nth-child(3) .progress-bar span {
-  width: 90%;
-}
-
-.skills.skills-right .single-skill:nth-child(4) .progress-bar span {
-  width: 85%;
+.hexagon:hover .body {
+  scale: 1.1;
 }
 
 .downloadCv-btn2 {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .downloadCv-btn2 a button {
@@ -652,6 +647,10 @@ main {
 .downloadCv-btn2 a button:hover {
   background-color: tomato;
   color: white;
+}
+
+.vertical-timeline {
+  width: 100% !important;
 }
 
 /* --------------portfolio-------------- */
@@ -701,60 +700,54 @@ button::-moz-focus-inner {
   margin-bottom: 26px;
 }
 
-.control {
+/* ---------------- projects ----------------- */
+.tilt-container {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background-color: #343a40;
+}
+
+.tilt-body {
   position: relative;
-  display: inline-block;
-  width: 5rem;
-  height: 2.7rem;
-  cursor: pointer;
-  font-size: 17px;
-  color: var(--normal-color) !important;
-  transition: all 0.3s;
-}
-
-.control:hover {
-  color: var(--change-color);
-}
-
-.mixitup-control-active {
-  border-bottom: 2px solid var(--change-color);
-}
-
-.mixitup-control-active[data-filter]:after {
-  background: transparent;
-  border-bottom: 2px solid var(--change-color);
-}
-
-.mixitup-container {
-  padding: 12px;
-  text-align: justify;
-}
-
-.mix {
-  display: inline-block;
-  vertical-align: top;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 24px;
-  border-radius: 4px;
-}
-
-.mix img {
-  overflow: hidden;
-  height: 100%;
   width: 100%;
+  height: 230px;
+}
+
+.tilt-body .project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem
+}
+
+.tilt-body .actions {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: end;
+  margin: 12px;
+}
+
+.tilt-body .actions :is(.github, .play) {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.3s;
 }
 
-.mix:hover img {
-  opacity: 0.4;
-  transform: scale(1.1);
-  filter: blur(1px);
-}
-
-.mix:hover .project-details {
-  opacity: 1;
+.tilt-body .actions .github img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 /* ---------------testimonial---------------- */
@@ -908,6 +901,13 @@ button::-moz-focus-inner {
   border-bottom: 1px dotted gray;
 }
 
+.blog-txt p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6
+}
+
 .blog-txt,
 .blog-txt span {
   color: var(--silver-color);
@@ -946,6 +946,23 @@ button::-moz-focus-inner {
 }
 
 /* --------------Contact--------------- */
+.social-media-2 .tilt-div {
+  border-radius: 0.75rem;
+  --tw-shadow: 2px 2px 2px #00000010, inset 2px 2px 10px #00000010;
+  --tw-shadow-colored: 2px 2px 2px var(--tw-shadow-color), inset 2px 2px 10px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  padding: 0.5rem;
+  background-color: #212528;
+  cursor: pointer;
+}
+
+.social-media-2 .tilt-div img {
+  /* w-10 h-10 xs: w-[50px] xs:h-[50px] object-contain */
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
 .contact-container h3 {
   color: var(--heading-color);
   font-size: 20px;
@@ -996,6 +1013,8 @@ button::-moz-focus-inner {
 
 .social-media-2 {
   margin-top: 5px;
+  display: flex;
+  gap: 10px;
 }
 
 .social-media-2 svg {
@@ -1003,26 +1022,6 @@ button::-moz-focus-inner {
   color: var(--extra-light);
   margin-right: 14px;
   transition: all 0.3s;
-}
-
-.social-media-2 a:first-child:hover svg {
-  color: #3b5998;
-}
-
-.social-media-2 a:nth-child(2):hover svg {
-  color: #075e54;
-}
-
-.social-media-2 a:nth-child(3):hover svg {
-  color: #00acee;
-}
-
-.social-media-2 a:nth-child(4):hover svg {
-  color: #8a3ab9;
-}
-
-.social-media-2 a:nth-child(5):hover svg {
-  color: #4078c0;
 }
 
 .messages-box h3 {
