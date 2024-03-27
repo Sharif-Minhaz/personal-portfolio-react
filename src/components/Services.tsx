@@ -2,6 +2,7 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { Heading } from ".";
 import { services } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 interface IService {
 	title: string;
@@ -10,8 +11,9 @@ interface IService {
 }
 
 export default function Services() {
+	const { ref } = useActiveLink("#services");
 	return (
-		<section id="services" className="sectionD section-part">
+		<section ref={ref} id="services" className="sectionD section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<Heading baseTitle="SERVICES" title="What I Do" />

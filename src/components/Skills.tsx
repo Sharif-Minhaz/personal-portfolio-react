@@ -2,10 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Heading } from ".";
 import { technologies } from "../constants";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 export default function Skills() {
+	const { ref } = useActiveLink("#summary");
 	return (
-		<section id="summary" className="sectionD section-part">
+		<section ref={ref} id="summary" className="sectionD section-part">
 			<div className="container-fluid">
 				<section className="row padding">
 					<Heading baseTitle="SKILLS" title="Technology" />
@@ -23,7 +25,7 @@ export default function Skills() {
 					</div>
 					<div className="col-12">
 						<div className="downloadCv-btn2">
-							<a href="./assets/files/demo_resume.pdf" download>
+							<a href="./SHARIF_MD._MINHAZ.pdf" download>
 								<button>
 									Download CV <FontAwesomeIcon icon={faDownload} />
 								</button>

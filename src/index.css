@@ -197,6 +197,6 @@ a .bottom-to-top:hover {
 }
 
 /* active scroll spy styles */
-.active-scroll-spy {
+.active-link {
   color: var(--change-color) !important;
 }

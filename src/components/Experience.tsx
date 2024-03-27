@@ -4,6 +4,7 @@ import { experiences } from "../constants";
 import { Heading } from ".";
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 interface IExperience {
 	date: string;
@@ -55,8 +56,9 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
 };
 
 const Experience = () => {
+	const { ref } = useActiveLink("#summary");
 	return (
-		<section id="summary" className="sectionL section-part">
+		<section ref={ref} id="summary" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<Heading baseTitle="SUMMARY" title="Resume" />

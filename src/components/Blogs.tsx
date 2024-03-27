@@ -3,6 +3,7 @@ import { Heading } from ".";
 import { GITHUB_LINK, blogs } from "../constants";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faMedium } from "@fortawesome/free-brands-svg-icons";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 interface IBlog {
 	id: number;
@@ -14,8 +15,9 @@ interface IBlog {
 }
 
 export default function Blogs() {
+	const { ref } = useActiveLink("#blog");
 	return (
-		<section id="blog" className="sectionD section-part">
+		<section ref={ref} id="blog" className="sectionD section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<div className="col-12">
