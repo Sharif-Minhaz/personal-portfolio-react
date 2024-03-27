@@ -4,6 +4,7 @@ import { basicInfo, socialLinks } from "../constants";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Tilt } from "react-tilt";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { motion } from "framer-motion";
 
 interface ISocial {
 	id: string;
@@ -47,9 +48,13 @@ export default function Contact() {
 							<div className="follow-me">
 								<h3>Follow me</h3>
 								<div className="social-media-2">
-									{socialLinks.map((link: ISocial) => (
+									{socialLinks.map((link: ISocial, index: number) => (
 										<Tilt key={link.id}>
-											<div
+											<motion.div
+												initial={{ opacity: 0, x: -30 }}
+												whileInView={{ opacity: 1, x: 0 }}
+												viewport={{ once: true }}
+												transition={{ delay: (index + 0.2) * 0.2 }}
 												onClick={() => window.open(link.link, "_blank")}
 												className="tilt-div"
 											>
@@ -58,7 +63,7 @@ export default function Contact() {
 													src={link.icon}
 													alt={link.title}
 												/>
-											</div>
+											</motion.div>
 										</Tilt>
 									))}
 								</div>

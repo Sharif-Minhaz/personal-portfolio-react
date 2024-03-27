@@ -1150,14 +1150,6 @@ footer .row .text-end a:hover {
   height: 0px;
 }
 
-#testimonial .heading h2:nth-child(2) {
-  display: none;
-}
-
-#portfolio .heading h2:nth-child(2) {
-  display: none;
-}
-
 .location .main-loc .short-loc {
   display: none;
 }
@@ -1173,16 +1165,6 @@ footer .row .text-end a:hover {
   .mixitup-container {
     width: 67%;
     margin: auto;
-  }
-}
-
-@media screen and (max-width: 1272px) {
-  #testimonial .heading h2:first-child {
-    display: none;
-  }
-
-  #testimonial .heading h2:nth-child(2) {
-    display: block;
   }
 }
 
@@ -1285,14 +1267,6 @@ footer .row .text-end a:hover {
     font-size: 4rem;
   }
 
-  #testimonial .heading h2:first-child {
-    display: block;
-  }
-
-  #testimonial .heading h2:nth-child(2) {
-    display: none;
-  }
-
   .short-des p,
   .blog-txt,
   .contact-container .address,
@@ -1332,22 +1306,6 @@ footer .row .text-end a:hover {
   .basic-info {
     padding-left: 0;
     padding-right: 0;
-  }
-
-  #testimonial .heading h2:first-child {
-    display: none;
-  }
-
-  #testimonial .heading h2:nth-child(2) {
-    display: block;
-  }
-
-  #portfolio .heading h2:first-child {
-    display: none;
-  }
-
-  #portfolio .heading h2:nth-child(2) {
-    display: block;
   }
 
   .row .skills.skills-right h2 {

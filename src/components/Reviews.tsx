@@ -1,3 +1,4 @@
+import { Heading } from ".";
 import { testimonials } from "../constants";
 import { useActiveLink } from "../hooks/useActiveLink";
 import SingleReview from "./SingleReview";
@@ -17,15 +18,7 @@ export default function Reviews() {
 		<section ref={ref} id="testimonial" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
-					<div className="col-12">
-						<div className="heading">
-							<h2>TESTIMONIAL</h2>
-							<h2 style={{ color: "var(--sectionL-heading)" }}>REVIEWS</h2>
-							<p>
-								Clients Ratting<span className="underline"></span>
-							</p>
-						</div>
-					</div>
+					<Heading title="Reviews" baseTitle="RATINGS" />
 					<div className="col-12">
 						<div
 							id="testimonialSlide"

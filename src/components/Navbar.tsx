@@ -4,6 +4,7 @@ import { basicInfo, navLinks, sidebarSocials } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { motion } from "framer-motion";
 
 interface ILink {
 	id: string;
@@ -27,18 +28,27 @@ export default function Navbar() {
 			<nav id="spy" className="main-nav">
 				<div className="aside-content">
 					<div className="profile dark-theme">
-						<div className="image">
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ duration: 2 }}
+							className="image"
+						>
 							<img
 								className="rounded-circle"
 								src={sharifMdMinhaz}
 								alt="Profile-picture"
 							/>
-						</div>
+						</motion.div>
 						<div className="name">{basicInfo.name}</div>
 					</div>
 					<div className="links nav-pills">
-						{navLinks.map((link: ILink) => (
-							<a
+						{navLinks.map((link: ILink, index: number) => (
+							<motion.a
+								initial={{ opacity: 0, y: -20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ delay: (index + 0.1) * 0.1 }}
 								key={link.id}
 								className={`nav-link u-link ${
 									active === link.id ? "active-link" : ""
@@ -49,7 +59,7 @@ export default function Navbar() {
 									<FontAwesomeIcon icon={link.icon} />
 								</span>
 								{link.title}
-							</a>
+							</motion.a>
 						))}
 					</div>
 					<div className="social-media">
@@ -117,8 +127,12 @@ export default function Navbar() {
 						open ? "links-secondary-res" : ""
 					}`}
 				>
-					{navLinks.map((link: ILink) => (
-						<a
+					{navLinks.map((link: ILink, index: number) => (
+						<motion.a
+							initial={{ opacity: 0, y: -20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ delay: (index + 0.1) * 0.1 }}
 							key={link.id}
 							className={`nav-link u-link ${active === link.id ? "active-link" : ""}`}
 							href={link.id}
@@ -127,7 +141,7 @@ export default function Navbar() {
 								<FontAwesomeIcon icon={link.icon} />
 							</span>
 							<span className="dh-H">{link.title}</span>
-						</a>
+						</motion.a>
 					))}
 				</div>
 			</div>

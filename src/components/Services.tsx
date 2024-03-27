@@ -3,6 +3,7 @@ import { Heading } from ".";
 import { services } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { motion } from "framer-motion";
 
 interface IService {
 	title: string;
@@ -20,7 +21,14 @@ export default function Services() {
 					<div className="col-md-6 col-12">
 						<div className="service-side-1">
 							{services.slice(0, 3).map((service: IService, index: number) => (
-								<div key={index} className="service-div">
+								<motion.div
+									initial={{ opacity: 0, y: -150 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ duration: (index + 1) * 0.2 }}
+									key={index}
+									className="service-div"
+								>
 									<div className="service-icon">
 										<span>
 											<FontAwesomeIcon icon={service.icon} />
@@ -30,14 +38,21 @@ export default function Services() {
 										<h2>{service.title}</h2>
 										<p>{service.description}</p>
 									</div>
-								</div>
+								</motion.div>
 							))}
 						</div>
 					</div>
 					<div className="col-md-6 col-12">
 						<div className="service-side-2">
 							{services.slice(3, 6).map((service: IService, index: number) => (
-								<div key={index} className="service-div">
+								<motion.div
+									initial={{ opacity: 0, y: -150 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ duration: (index + 1) * 0.3 }}
+									key={index}
+									className="service-div"
+								>
 									<div className="service-icon">
 										<span>
 											<FontAwesomeIcon icon={service.icon} />
@@ -47,7 +62,7 @@ export default function Services() {
 										<h2>{service.title}</h2>
 										<p>{service.description}</p>
 									</div>
-								</div>
+								</motion.div>
 							))}
 						</div>
 					</div>
