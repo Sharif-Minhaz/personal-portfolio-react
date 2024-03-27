@@ -4,6 +4,7 @@ import { GITHUB_LINK, blogs } from "../constants";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faMedium } from "@fortawesome/free-brands-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { motion } from "framer-motion";
 
 interface IBlog {
 	id: number;
@@ -23,8 +24,15 @@ export default function Blogs() {
 					<div className="col-12">
 						<Heading baseTitle="BLOGS" title="My Blog" />
 					</div>
-					{blogs.map((blog: IBlog) => (
-						<div key={blog.id} className="col-md-6 col-12">
+					{blogs.map((blog: IBlog, index: number) => (
+						<motion.div
+							initial={{ opacity: 0, y: -150 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: (index + 1) * 0.7 }}
+							key={blog.id}
+							className="col-md-6 col-12"
+						>
 							<div className="blog-container">
 								<div className="blog-img">
 									<img src={blog.cover} alt="blog1" />
@@ -65,7 +73,7 @@ export default function Blogs() {
 									</div>
 								</div>
 							</div>
-						</div>
+						</motion.div>
 					))}
 				</div>
 				<div className="downloadCv-btn2" style={{ marginTop: "30px" }}>

@@ -1,11 +1,11 @@
 import { projects } from "../constants";
 import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
-import { fadeIn } from "../utils";
 import { github, play } from "../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { Heading } from ".";
 
 interface ITag {
 	name: string;
@@ -32,7 +32,12 @@ const ProjectCard = ({
 	live_link,
 }: IProject) => {
 	return (
-		<motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+		<motion.div
+			initial={{ opacity: 0, y: -150 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ delay: (index + 1) * 0.2 }}
+		>
 			<Tilt
 				options={{
 					max: 45,
@@ -97,16 +102,7 @@ export default function Projects() {
 		<section ref={ref} id="portfolio" className="sectionD section-part">
 			<div className="container-fluid">
 				<div className="row padding">
-					<div className="col-12">
-						<div className="heading">
-							<h2>PORTFOLIO</h2>
-							<h2 style={{ color: "var(--sectionD-heading)" }}>PROJECT</h2>
-							<p>
-								My Projects
-								<span className="underline" />
-							</p>
-						</div>
-					</div>
+					<Heading title="My Project" baseTitle="PROJECTS" />
 					<div className="col-12 p-0">
 						<div className="row d-flex flex-wrap row-gap-4">
 							{projects.map((project, index) => (

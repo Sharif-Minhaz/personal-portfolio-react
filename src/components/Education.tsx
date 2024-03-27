@@ -1,6 +1,7 @@
 import { Heading } from ".";
 import { educations } from "../constants";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { motion } from "framer-motion";
 
 interface IEducation {
 	title: string;
@@ -19,28 +20,42 @@ export default function Education() {
 					<div className="col-md-6 col-12">
 						<div className="educationEx">
 							{educations.slice(0, 2).map((education: IEducation, index: number) => (
-								<div key={index} className="eduEx-section">
+								<motion.div
+									initial={{ opacity: 0, y: -150 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ delay: (index + 1) * 0.5 }}
+									key={index}
+									className="eduEx-section"
+								>
 									<div className="year">
 										<span>{education.timeSpan}</span>
 									</div>
 									<div className="subject">{education.title}</div>
 									<div className="institute">{education.institute}</div>
 									<div className="description">{education.description}</div>
-								</div>
+								</motion.div>
 							))}
 						</div>
 					</div>
 					<div className="col-md-6 col-12">
 						<div className="educationEx experience">
 							{educations.slice(2).map((education: IEducation, index: number) => (
-								<div key={index} className="eduEx-section">
+								<motion.div
+									initial={{ opacity: 0, y: -150 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ duration: (index + 1) * 1.2 }}
+									key={index}
+									className="eduEx-section"
+								>
 									<div className="year">
 										<span>{education.timeSpan}</span>
 									</div>
 									<div className="subject">{education.title}</div>
 									<div className="institute">{education.institute}</div>
 									<div className="description">{education.description}</div>
-								</div>
+								</motion.div>
 							))}
 						</div>
 					</div>
