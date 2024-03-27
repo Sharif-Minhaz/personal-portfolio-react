@@ -258,7 +258,7 @@ main {
 }
 
 #home {
-  background-image: url(/main_bg.jpg);
+  background-image: url(/main_bg.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

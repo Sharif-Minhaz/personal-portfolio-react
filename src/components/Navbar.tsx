@@ -63,16 +63,18 @@ export default function Navbar() {
 						))}
 					</div>
 					<div className="social-media">
-						{sidebarSocials.map((social: ISocial) => (
-							<a
+						{sidebarSocials.map((social: ISocial, index: number) => (
+							<motion.a
+								initial={{ opacity: 0, x: -20 }}
+								whileInView={{ opacity: 1, x: 0 }}
+								viewport={{ once: true }}
+								transition={{ delay: (index + 0.1) * 0.1 }}
 								key={social.title}
 								href={social.link}
-								data-bs-toggle="tooltip"
-								data-bs-placement="top"
 								title={social.title}
 							>
 								<FontAwesomeIcon icon={social.icon} />
-							</a>
+							</motion.a>
 						))}
 					</div>
 				</div>
@@ -95,8 +97,16 @@ export default function Navbar() {
 					</div>
 					<div className="profile-section">
 						<div className="social-media-mo">
-							{sidebarSocials.slice(0, 3).map((social: ISocial) => (
-								<a key={social.id} id={social.id} href={social.link}>
+							{sidebarSocials.slice(0, 3).map((social: ISocial, index: number) => (
+								<motion.a
+									initial={{ opacity: 0, x: -20 }}
+									whileInView={{ opacity: 1, x: 0 }}
+									viewport={{ once: true }}
+									transition={{ delay: (index + 0.1) * 0.1 }}
+									key={social.id}
+									id={social.id}
+									href={social.link}
+								>
 									<span>
 										<FontAwesomeIcon
 											title={social.title}
@@ -105,7 +115,7 @@ export default function Navbar() {
 											icon={social.icon}
 										/>
 									</span>
-								</a>
+								</motion.a>
 							))}
 						</div>
 						<div
