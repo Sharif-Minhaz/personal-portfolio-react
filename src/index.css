@@ -5,27 +5,47 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-:root {
-  --nav-link: #ffffffe6;
+html body {
+  --nav-link: #292929e6;
   --change-color: #33ddff;
   --focus-color: rgb(0, 172, 238);
   --low-color: rgba(51, 221, 255, 0.1);
   --indicators: #00ffff2d;
   --hover-indicators: #1a4b59;
+  --aside-color: #f8fcfe;
+  --sectionL-bg: #f3f3f3;
+  --sectionD-bg: #eaeaea;
+  --sectionL-heading: #e4e4e4;
+  --sectionD-heading: #dcdcdc;
+  --silver-color: #505050;
+  --box-icon: #ffffff;
+  --extra-light: rgb(19 19 19 / 70%);
+  --heading-color: #343a39;
+  --normal-color: #4a4a4a;
+  --normal-lColor: 3c3c3ccc;
+  --messages-box-bg: #ffffff;
+  --footer-bg: #ffffff;
+  --light-border: rgb(0 0 0 / 10%);
+  --card-bg: #f8fcfe;
+}
+
+html body.dark {
+  --nav-link: #ffffffe6;
   --aside-color: #111419;
-  --sectionL-bg: #343a40;
+  --sectionL-bg: #343A40;
   --sectionD-bg: #212528;
   --sectionL-heading: #394045;
-  --sectionD-heading: #282d30;
-  --silver-color: #9a9da0;
-  --box-icon: #343a40;
-  --extra-light: rgba(255, 255, 255, 0.7);
+  --sectionD-heading: #282D30;
   --heading-color: #ffffff;
+  --silver-color: #9a9da0;
+  --extra-light: rgba(255, 255, 255, 0.7);
+  --box-icon: #343A40;
   --normal-color: #ffffff;
-  --normal-lColor: rgba(255, 255, 255, 0.8);
+  --normal-lColor: rgba(255, 255, 255, 0.7);
   --messages-box-bg: #212528;
   --footer-bg: #212528;
   --light-border: rgba(255, 255, 255, 0.1);
+  --card-bg: #343a40;
 }
 
 ::selection {
@@ -162,22 +182,18 @@ a .bottom-to-top:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--nav-link);
   width: 39px;
   height: 42px;
-  background-color: #111419;
+  background-color: var(--aside-color);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  border: 1px solid var(--light-border);
+  border-right: none;
 }
 
 #colors .icon button svg {
   font-size: 23px;
-  color: white;
-}
-
-.black-gradient {
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #434343, #000000);
-  background: linear-gradient(to right, #434343, #000000);
 }
 
 /* active scroll spy styles */

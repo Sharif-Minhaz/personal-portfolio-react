@@ -2,6 +2,7 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import sharifMdMinhaz from "../assets/images/sharif-md-minhaz.jpg";
 import { basicInfo, navLinks, sidebarSocials } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 interface ILink {
 	id: string;
@@ -17,6 +18,8 @@ interface ISocial {
 }
 
 export default function Navbar() {
+	const [open, setOpen] = useState(false);
+
 	return (
 		<>
 			<nav id="spy" className="main-nav">
@@ -82,31 +85,35 @@ export default function Navbar() {
 							{sidebarSocials.slice(0, 3).map((social: ISocial) => (
 								<a key={social.id} id={social.id} href={social.link}>
 									<span>
-										<i
+										<FontAwesomeIcon
+											title={social.title}
 											data-bs-toggle="tooltip"
 											data-bs-placement="bottom"
-											title="facebook"
-											className="fab fa-facebook"
-										></i>
+											icon={social.icon}
+										/>
 									</span>
 								</a>
 							))}
 						</div>
 						<div
-							className="navBtn"
+							className={`navBtn ${open ? "change" : ""}`}
 							id="nav-expand"
-							onClick={() => "clickF();crossing(this);"}
+							onClick={() => setOpen((prev) => !prev)}
 						>
 							{["bar1", "bar2", "bar3"].map((bar: string) => (
-								<div key={bar} className={bar} />
+								<span key={bar} className={bar} />
 							))}
 						</div>
 					</div>
-					s
 				</div>
 			</nav>
 			<div className="nav-all-links">
-				<div id="select-nav" className="links nav-pills links-secondary">
+				<div
+					id="select-nav"
+					className={`links nav-pills links-secondary ${
+						open ? "links-secondary-res" : ""
+					}`}
+				>
 					{navLinks.map((link: ILink) => (
 						<a
 							data-to-scrollspy-id={link.id.split("#")[1]}

@@ -2,6 +2,8 @@ import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeli
 import "react-vertical-timeline-component/style.min.css";
 import { experiences } from "../constants";
 import { Heading } from ".";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 interface IExperience {
 	date: string;
@@ -13,11 +15,13 @@ interface IExperience {
 }
 
 const ExperienceCard = ({ experience }: { experience: IExperience }) => {
+	const { theme } = useContext(ThemeContext);
+
 	return (
 		<VerticalTimelineElement
 			contentStyle={{
-				background: "#3a505c",
-				color: "#fff",
+				background: theme === "dark" ? "#3a505c" : "#e7e7e7",
+				color: theme === "dark" ? "#fff" : "#3a505c",
 			}}
 			contentArrowStyle={{ borderRight: "7px solid #3a505c" }}
 			date={experience.date}

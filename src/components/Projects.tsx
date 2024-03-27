@@ -66,11 +66,11 @@ const ProjectCard = ({
 					</div>
 				</div>
 
-				<div className="mt-3">
-					<h3 className="text-white font-bold" style={{ fontSize: "24px" }}>
+				<div className="mt-3 tilt-text-container">
+					<h3 className="font-bold" style={{ fontSize: "24px" }}>
 						{name}
 					</h3>
-					<p className="mt-2 text-light" style={{ fontSize: "14px" }}>
+					<p className="mt-2" style={{ fontSize: "14px" }}>
 						{description}
 					</p>
 				</div>
