@@ -32,11 +32,12 @@ export default function Navbar() {
 						<div className="name">{basicInfo.name}</div>
 					</div>
 					<div className="links nav-pills">
-						{navLinks.map((link: ILink, index: number) => (
+						{navLinks.map((link: ILink) => (
 							<a
 								key={link.id}
-								className={`nav-link u-link ${index === 0 ? "newColor" : ""}`}
+								className={`nav-link u-link`}
 								href={link.id}
+								data-to-scrollspy-id={link.id.split("#")[1]} //#home -> home
 							>
 								<span>
 									<FontAwesomeIcon icon={link.icon} />
@@ -107,7 +108,12 @@ export default function Navbar() {
 			<div className="nav-all-links">
 				<div id="select-nav" className="links nav-pills links-secondary">
 					{navLinks.map((link: ILink) => (
-						<a key={link.id} className="nav-link u-link" href={link.id}>
+						<a
+							data-to-scrollspy-id={link.id.split("#")[1]}
+							key={link.id}
+							className="nav-link u-link"
+							href={link.id}
+						>
 							<span>
 								<FontAwesomeIcon icon={link.icon} />
 							</span>

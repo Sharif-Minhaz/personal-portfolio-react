@@ -11,11 +11,17 @@ import {
 	faTasks,
 	faSmileBeam,
 	faBuilding,
+	faBusinessTime,
+	faObjectGroup,
+	faLaptopCode,
+	faServer,
+	faBugSlash,
+	faFileCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import {
 	faFacebook,
+	faFigma,
 	faGithub,
-	faJs,
 	faLinkedin,
 	faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
@@ -45,6 +51,8 @@ import {
 	blog1,
 	blog2,
 } from "../assets";
+
+export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
 
 export const navLinks = [
 	{
@@ -94,30 +102,30 @@ export const basicInfo = {
 	address: "Pirojpur, Barishal, Bangladesh",
 	email: "smmr.career@gmail.com",
 	age: getAge("2001-10-06"),
-	moto1: "I will help you build brand for your business at an affordable price. Many clients have procured exceptional results while working with our dedicated team. When an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-	moto2: "Delivering work within time and budget which meets client’s requirements is our moto. Lorem Ipsum has been the industry's standard dummy text ever when an unknown printer took a galley.",
+	moto1: "I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Next.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!",
+	moto2: "Delivering work within time and budget which meets the client’s requirements is my moto. With attention to detail and effective communication, I strive to exceed expectations and foster long-term client satisfaction.",
 	mobile1: "+880 1308673831",
-	mobile2: "+880 1308566474",
+	mobile2: "+880 1608566474",
 };
 
 export const workingHistory = [
 	{
-		title: "Members",
-		count: "4",
-		icon: faUser,
+		title: "Experience",
+		count: "2",
+		icon: faBusinessTime,
 	},
 	{
 		title: "Finished Projects",
-		count: "10",
+		count: "15",
 		icon: faTasks,
 	},
 	{
 		title: "Satisfied Peoples",
-		count: "100",
+		count: "10",
 		icon: faSmileBeam,
 	},
 	{
-		title: "Branches",
+		title: "Company",
 		count: "2",
 		icon: faBuilding,
 	},
@@ -125,40 +133,40 @@ export const workingHistory = [
 
 export const services = [
 	{
-		title: "JS Programming",
-		icon: faJs,
+		title: "Web Design",
+		icon: faObjectGroup,
 		description:
-			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+			"Get a stunning static website crafted from scratch using HTML, CSS, and Js or modern frameworks like React, Next.js, and Astro. I provide customizable and optimized codebases tailored to your unique needs.",
 	},
 	{
-		title: "JS Programming",
-		icon: faJs,
+		title: "Web Development",
+		icon: faLaptopCode,
 		description:
-			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+			"Elevate your online presence with expert web development services with dynamic and responsive web applications using the latest technologies like React, Next, Express, Mongodb, Flask and best practices.",
 	},
 	{
-		title: "JS Programming",
-		icon: faJs,
+		title: "API Development",
+		icon: faServer,
 		description:
-			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+			"Unlock the power of data and functionality with my API development services. From designing robust APIs to implementing scalable solutions, I will help you build the backbone of your digital ecosystem.",
 	},
 	{
-		title: "JS Programming",
-		icon: faJs,
+		title: "PSD to HTML",
+		icon: faFileCircleCheck,
 		description:
-			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+			"Transform your design concepts into pixel-perfect HTML websites. My PSD to HTML service ensures seamless conversion with attention to detail, resulting in visually appealing and functional web pages.",
 	},
 	{
-		title: "JS Programming",
-		icon: faJs,
+		title: "Figma to HTML",
+		icon: faFigma,
 		description:
-			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+			"Bring your Figma designs to life with my Figma to HTML conversion service. I will meticulously translate your design files into clean, semantic HTML code, preserving design integrity and fidelity.",
 	},
 	{
-		title: "JS Programming",
-		icon: faJs,
+		title: "Code Review (MERN)",
+		icon: faBugSlash,
 		description:
-			"Lorem ipsum, dolor sit amet consectetur elit adipisicing. Sequi, dicta incidunt dolorem nihil reprehend dolorum possim.",
+			"Ensure code quality and maintainability with my comprehensive code review service. I will conduct thorough evaluations of your codebase, providing actionable feedback and recommendations for improvement.",
 	},
 ];
 
@@ -508,16 +516,18 @@ export const projects = [
 export const blogs = [
 	{
 		id: 1,
-		title: "How to forget pain",
+		title: "Unleashing the Power of Progressive Web Apps: The Future of Web Development",
+		url: "https://medium.com/@smmr.career/unleashing-the-power-of-progressive-web-apps-the-future-of-web-development-ac4a092b7b6e",
 		cover: blog1,
-		publishedDate: "June 22, 2023",
-		body: "Pain is an inevitable part of life, but it doesn't have to define us. In this blog post, we explore various techniques and strategies for coping with and eventually overcoming pain. From mindfulness practices to seeking support from loved ones, there are many ways to navigate the challenges that pain brings. Join us on this journey of healing and self-discovery.",
+		publishedDate: "March 27, 2024",
+		body: "In the current swiftly transforming digital sphere, providing a top-notch user experience is crucial. With people depending more and more on mobile gadgets and seeking quick, effortless interactions, developers are continuously striving to find ground-breaking techniques that fuse native apps with web experiences. This is where Progressive Web Apps (PWAs) come in as revolutionary tools for web development.",
 	},
 	{
 		id: 2,
-		title: "How to forget pain",
+		title: "Building Robust REST APIs with Python Flask: A Guide for Developers",
 		cover: blog2,
-		publishedDate: "June 29, 2023",
-		body: "In continuation of our exploration of pain and its impact on our lives, this blog post delves deeper into the concept of forgiveness as a means of letting go. Holding onto grudges and resentments can perpetuate our suffering, but forgiveness offers a path to liberation. We discuss practical tips for practicing forgiveness and releasing the burden of past hurts. Join us as we discover the transformative power of forgiveness on our journey toward healing.",
+		url: "https://medium.com/@smmr.career/building-robust-rest-apis-with-python-flask-a-guide-for-developers-b809a19bd57c",
+		publishedDate: "March 27, 2024",
+		body: "In the realm of web development, creating robust and efficient RESTful APIs is essential for building scalable and interoperable applications. With the rise in demand for dynamic web services, developers are turning to lightweight frameworks like Flask to streamline the development process and deliver powerful APIs with minimal overhead. In this guide, we’ll explore how to leverage Python Flask to build RESTful APIs that meet the needs of modern web applications.",
 	},
 ];

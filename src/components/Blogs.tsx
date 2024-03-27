@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Heading } from ".";
-import { blogs } from "../constants";
+import { GITHUB_LINK, blogs } from "../constants";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { faMedium } from "@fortawesome/free-brands-svg-icons";
 
 interface IBlog {
 	id: number;
@@ -10,6 +10,7 @@ interface IBlog {
 	cover: string;
 	publishedDate: string;
 	body: string;
+	url: string;
 }
 
 export default function Blogs() {
@@ -21,50 +22,57 @@ export default function Blogs() {
 						<Heading baseTitle="BLOGS" title="My Blog" />
 					</div>
 					{blogs.map((blog: IBlog) => (
-						<div className="col-md-6 col-12">
+						<div key={blog.id} className="col-md-6 col-12">
 							<div className="blog-container">
 								<div className="blog-img">
 									<img src={blog.cover} alt="blog1" />
 									<div className="float-text">
-										<p>Explore Nature</p>
-										<span>Details</span>
+										<p>{blog.title}</p>
+										<a target="_blank" href={blog.url}>
+											<span>Details</span>
+										</a>
 									</div>
 								</div>
 								<div className="blog-des">
 									<div className="blog-heading">
-										<h3>{blog.title}</h3>
+										<h3 className="line-clamp-2" title={blog.title}>
+											{blog.title}
+										</h3>
 									</div>
 									<div className="timeAndDate">
 										<p>
 											{blog.publishedDate}{" "}
 											<span>
-												<a href="#">Minhaz</a>
+												<a href={GITHUB_LINK}>Minhaz</a>
 											</span>
 										</p>
 									</div>
 									<div className="blog-txt">
 										<p>{blog.body}</p>
 										<div className="readMore">
-											<Link to="/">
-												<div
-													className="innerReadMe"
-													onClick={() => "readMore(0);"}
-												>
-													<span className="txt-btn" data-state="close">
-														Read more
-													</span>
-													<FontAwesomeIcon
-														color="#ff6347"
-														icon={faChevronRight}
-													/>
-												</div>
-											</Link>
+											<a target="_blank" href={blog.url}>
+												<span className="txt-btn" data-state="close">
+													Read more
+												</span>
+												<FontAwesomeIcon
+													color="#ff6347"
+													icon={faChevronRight}
+												/>
+											</a>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					))}
+				</div>
+				<div className="downloadCv-btn2" style={{ marginTop: "30px" }}>
+					<a target="_blank" href="https://medium.com/@smmr.career">
+						<button>
+							<span className="inline-block mr-2">Read More</span>
+							<FontAwesomeIcon icon={faMedium} />
+						</button>
+					</a>
 				</div>
 			</div>
 		</section>

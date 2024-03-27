@@ -1,9 +1,11 @@
+import ScrollSpy from "react-ui-scrollspy";
 import {
 	About,
 	Blogs,
 	Contact,
 	Education,
 	Experience,
+	Footer,
 	Home,
 	Projects,
 	Reviews,
@@ -14,16 +16,19 @@ import {
 export default function RootPage() {
 	return (
 		<main>
-			<Home />
-			<About />
-			<Services />
-			<Education />
-			<Skills />
-			<Experience />
-			<Projects />
-			<Reviews />
-			<Blogs />
-			<Contact />
+			<ScrollSpy useBoxMethod={false}>
+				<Home />
+				<About />
+				<Services />
+				<Education />
+				<Skills />
+				<Experience />
+				<Projects />
+				<Reviews />
+				<Blogs />
+				<Contact />
+			</ScrollSpy>
+			<Footer />
 		</main>
 	);
 }

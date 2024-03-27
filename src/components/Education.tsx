@@ -13,11 +13,11 @@ export default function Education() {
 		<section id="summary" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
-					<Heading baseTitle="SUMMARY" title="Resume" />
+					<Heading baseTitle="SUMMARY" title="Education" />
 					<div className="col-md-6 col-12">
 						<div className="educationEx">
-							{educations.slice(0, 2).map((education: IEducation) => (
-								<div key={education.title} className="eduEx-section">
+							{educations.slice(0, 2).map((education: IEducation, index: number) => (
+								<div key={index} className="eduEx-section">
 									<div className="year">
 										<span>{education.timeSpan}</span>
 									</div>
@@ -30,8 +30,8 @@ export default function Education() {
 					</div>
 					<div className="col-md-6 col-12">
 						<div className="educationEx experience">
-							{educations.slice(2).map((education: IEducation) => (
-								<div key={education.title} className="eduEx-section">
+							{educations.slice(2).map((education: IEducation, index: number) => (
+								<div key={index} className="eduEx-section">
 									<div className="year">
 										<span>{education.timeSpan}</span>
 									</div>

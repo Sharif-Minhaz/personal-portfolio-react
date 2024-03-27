@@ -25,7 +25,7 @@ import admin from "./projects/admin.png";
 import coffee from "./projects/coffee.png";
 import eCom from "./projects/e-com.png";
 
-import blog1 from "./blogs/blog1.jpg";
+import blog1 from "./blogs/blog1.png";
 import blog2 from "./blogs/blog2.jpg";
 
 export {
