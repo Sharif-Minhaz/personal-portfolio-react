@@ -534,10 +534,7 @@ main {
   padding: 25px;
   border: 1px solid var(--light-border);
   border-radius: 5px;
-}
-
-.educationEx .eduEx-section:last-child {
-  margin-top: 27px;
+  margin-bottom: 24px;
 }
 
 .eduEx-section .year span {
@@ -855,14 +852,21 @@ button::-moz-focus-inner {
   top: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 30px;
+  font-size: 18px;
   text-align: center;
   opacity: 0;
 }
 
 .float-text span {
   font-family: cursive;
-  font-size: 24px;
+  font-size: 15px;
+  color: whitesmoke;
+  transition: all 0.4s;
+}
+
+.float-text span:hover {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
 }
 
 .blog-img img {
@@ -870,6 +874,8 @@ button::-moz-focus-inner {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s;
+  object-fit: cover;
+  height: 300px;
 }
 
 .blog-img:hover img {
@@ -888,7 +894,7 @@ button::-moz-focus-inner {
 
 .blog-des h3 {
   color: #ff6347;
-  font-size: 38px;
+  font-size: 30px;
   margin-top: 15px;
 }
 

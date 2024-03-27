@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Tilt } from "react-tilt";
 import { fadeIn } from "../utils";
 import { github, play } from "../assets";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 interface ITag {
 	name: string;
@@ -106,7 +108,7 @@ export default function Projects() {
 					<div className="col-12 p-0">
 						<div className="row d-flex flex-wrap row-gap-4">
 							{projects.map((project, index) => (
-								<div className="col-12 col-sm-6 col-md-4">
+								<div key={index} className="col-12 col-sm-6 col-md-4">
 									<ProjectCard
 										key={`project-${index}`}
 										index={index}
@@ -116,6 +118,14 @@ export default function Projects() {
 							))}
 						</div>
 					</div>
+				</div>
+				<div className="downloadCv-btn2" style={{ marginTop: "30px" }}>
+					<a target="_blank" href="https://github.com/Sharif-Minhaz?tab=repositories">
+						<button>
+							<span className="inline-block mr-2">View More</span>
+							<FontAwesomeIcon icon={faGithub} />
+						</button>
+					</a>
 				</div>
 			</div>
 		</section>
