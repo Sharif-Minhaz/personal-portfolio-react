@@ -1,4 +1,5 @@
 import { testimonials } from "../constants";
+import { useActiveLink } from "../hooks/useActiveLink";
 import SingleReview from "./SingleReview";
 
 export interface IReview {
@@ -11,8 +12,9 @@ export interface IReview {
 }
 
 export default function Reviews() {
+	const { ref } = useActiveLink("#testimonial");
 	return (
-		<section id="testimonial" className="sectionL section-part">
+		<section ref={ref} id="testimonial" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<div className="col-12">

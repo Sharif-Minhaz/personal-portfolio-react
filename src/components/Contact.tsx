@@ -3,6 +3,7 @@ import { ContactForm, Heading } from ".";
 import { basicInfo, socialLinks } from "../constants";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Tilt } from "react-tilt";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 interface ISocial {
 	id: string;
@@ -12,8 +13,10 @@ interface ISocial {
 }
 
 export default function Contact() {
+	const { ref } = useActiveLink("#contact");
+
 	return (
-		<section id="contact" className="sectionL section-part">
+		<section ref={ref} id="contact" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<Heading baseTitle="CONTACT" title="Get in Touch" />

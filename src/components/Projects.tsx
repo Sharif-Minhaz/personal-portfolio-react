@@ -5,6 +5,7 @@ import { fadeIn } from "../utils";
 import { github, play } from "../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 interface ITag {
 	name: string;
@@ -91,8 +92,9 @@ const ProjectCard = ({
 };
 
 export default function Projects() {
+	const { ref } = useActiveLink("#portfolio");
 	return (
-		<section id="portfolio" className="sectionD section-part">
+		<section ref={ref} id="portfolio" className="sectionD section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<div className="col-12">

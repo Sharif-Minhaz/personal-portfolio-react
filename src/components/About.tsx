@@ -3,6 +3,7 @@ import { Heading } from ".";
 import { basicInfo, workingHistory } from "../constants";
 import { IconDefinition, faDownload } from "@fortawesome/free-solid-svg-icons";
 import NumberScroller from "react-number-scroller";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 interface IHistory {
 	title: string;
@@ -11,8 +12,9 @@ interface IHistory {
 }
 
 export default function About() {
+	const { ref } = useActiveLink("#aboutme");
 	return (
-		<section id="aboutme" className="sectionL section-part">
+		<section ref={ref} id="aboutme" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<Heading

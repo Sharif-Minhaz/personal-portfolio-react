@@ -1,5 +1,6 @@
 import { Heading } from ".";
 import { educations } from "../constants";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 interface IEducation {
 	title: string;
@@ -9,8 +10,9 @@ interface IEducation {
 }
 
 export default function Education() {
+	const { ref } = useActiveLink("#summary");
 	return (
-		<section id="summary" className="sectionL section-part">
+		<section ref={ref} id="summary" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
 					<Heading baseTitle="SUMMARY" title="Education" />

@@ -2,7 +2,8 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import sharifMdMinhaz from "../assets/images/sharif-md-minhaz.jpg";
 import { basicInfo, navLinks, sidebarSocials } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 interface ILink {
 	id: string;
@@ -19,6 +20,7 @@ interface ISocial {
 
 export default function Navbar() {
 	const [open, setOpen] = useState(false);
+	const { active } = useContext(ThemeContext);
 
 	return (
 		<>
@@ -38,9 +40,10 @@ export default function Navbar() {
 						{navLinks.map((link: ILink) => (
 							<a
 								key={link.id}
-								className={`nav-link u-link`}
+								className={`nav-link u-link ${
+									active === link.id ? "active-link" : ""
+								}`}
 								href={link.id}
-								data-to-scrollspy-id={link.id.split("#")[1]} //#home -> home
 							>
 								<span>
 									<FontAwesomeIcon icon={link.icon} />
@@ -116,9 +119,8 @@ export default function Navbar() {
 				>
 					{navLinks.map((link: ILink) => (
 						<a
-							data-to-scrollspy-id={link.id.split("#")[1]}
 							key={link.id}
-							className="nav-link u-link"
+							className={`nav-link u-link ${active === link.id ? "active-link" : ""}`}
 							href={link.id}
 						>
 							<span>

@@ -1,8 +1,11 @@
 import { useRef, useEffect } from "react";
 import Typed from "typed.js";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 export default function Home() {
 	const el = useRef(null);
+
+	const { ref } = useActiveLink("#home");
 
 	useEffect(() => {
 		const typed = new Typed(el.current, {
@@ -18,7 +21,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<section id="home" className="section-part">
+		<section ref={ref} id="home" className="section-part">
 			<div className="container-fluid transparent-bg">
 				<div className="row">
 					<div className="col-12">
