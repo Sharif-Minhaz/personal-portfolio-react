@@ -200,3 +200,10 @@ a .bottom-to-top:hover {
 .active-link {
   color: var(--change-color) !important;
 }
+
+.black-gradient {
+  background: #000000;
+  background: linear-gradient(to right,
+      #434343,
+      #000000);
+}
