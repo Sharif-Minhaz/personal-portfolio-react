@@ -745,6 +745,10 @@ button::-moz-focus-inner {
   margin: 12px;
 }
 
+.tilt-body .actions.actions-play {
+  top: 45px;
+}
+
 .tilt-body .actions :is(.github, .play) {
   width: 40px;
   height: 40px;

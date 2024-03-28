@@ -58,10 +58,10 @@ const ProjectCard = ({
 						</div>
 					</div>
 
-					<div className="actions">
+					<div className="actions actions-play">
 						<div
 							onClick={() => window.open(live_link, "_blank")}
-							className="black-gradient play mt-5"
+							className="black-gradient play"
 						>
 							<img
 								src={play}
