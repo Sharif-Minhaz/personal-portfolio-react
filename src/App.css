@@ -1066,7 +1066,7 @@ button::-moz-focus-inner {
 .messages-box .row .col-12 textarea {
   margin-bottom: 18px;
   width: 100%;
-  color: white;
+  color: var(--nav-link);
   background-color: var(--messages-box-bg);
   border: 1px solid transparent;
   padding: 14px 14px;
