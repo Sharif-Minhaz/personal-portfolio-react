@@ -176,21 +176,21 @@ export const educations = [
 		institute: "K.M. Latif Institution",
 		timeSpan: "2012 - 2017",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquam quae voluptatum animi debitis aut.",
+			"TK.m. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
 	},
 	{
 		title: "Science",
 		institute: "Residential Laboratory College",
 		timeSpan: "2017 - 2019",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquam quae voluptatum animi debitis aut.",
+			"Residential Laboratory College, since its establishment in 2009, has been playing distinct and unique role for the dissemination of modern, dynamic and quality.",
 	},
 	{
 		title: "FSIT",
 		institute: "Daffodil International University",
 		timeSpan: "2020 - 2024",
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi aliquam quae voluptatum animi debitis aut.",
+			"Being established in 2002, Daffodil International University has become a prominent private university in Bangladesh, fostering education and innovation for more than 20000 students.",
 	},
 ];
 
