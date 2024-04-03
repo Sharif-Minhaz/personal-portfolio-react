@@ -201,7 +201,7 @@ a .bottom-to-top:hover {
   color: var(--change-color) !important;
 }
 
-.black-gradient {
+.actions .black-gradient {
   background: #000000;
   background: linear-gradient(to right,
       #434343,
