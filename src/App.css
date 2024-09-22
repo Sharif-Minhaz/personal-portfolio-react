@@ -644,7 +644,8 @@ main {
   margin-top: 50px;
 }
 
-.downloadCv-btn2 a button {
+.downloadCv-btn2 a button,
+.primary-btn {
   background-color: rgba(255, 99, 71, 0.075);
   color: tomato;
   border: 2px solid tomato;
@@ -654,7 +655,8 @@ main {
   transition: all 0.3s;
 }
 
-.downloadCv-btn2 a button:hover {
+.downloadCv-btn2 a button:hover,
+.primary-btn:hover {
   background-color: tomato;
   color: white;
 }
@@ -837,12 +839,13 @@ button::-moz-focus-inner {
   color: var(--extra-light);
 }
 
-.des_client span {
+.des_client p {
   display: inline-block;
   color: var(--extra-light);
   padding-left: 35px;
   padding-right: 35px;
   font-size: 18px;
+  min-height: 81px;
 }
 
 .rate {
@@ -1158,6 +1161,10 @@ footer .row .text-end a:hover {
   display: none;
 }
 
+.company-name {
+  color: var(--change-color);
+}
+
 /* ----------- changed color styles ------------ */
 .clicked-button {
   scale: 0.88;
@@ -1278,7 +1285,7 @@ footer .row .text-end a:hover {
   .contact-info .mobile span:last-child,
   .contact-info .mail span:last-child,
   .eduEx-section .description,
-  .des_client span {
+  .des_client p {
     font-size: 16px;
   }
 

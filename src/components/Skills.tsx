@@ -11,14 +11,14 @@ export default function Skills() {
 		<section ref={ref} id="summary" className="sectionD section-part">
 			<div className="container-fluid">
 				<section className="row padding">
-					<Heading baseTitle="SKILLS" title="Technology" />
+					<Heading baseTitle="SKILLS" title="Technologies" />
 					<div className="technology">
 						{technologies.map((tech, index: number) => (
 							<motion.div
 								initial={{ opacity: 0, y: -50 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
-								transition={{ ease: "easeOut", delay: (index + 0.1) * 0.2 }}
+								transition={{ ease: "easeOut", delay: (index + 0.1) * 0.15 }}
 								key={tech.name}
 								className="hexagon black-gradient"
 								id="hexagon"
@@ -28,11 +28,12 @@ export default function Skills() {
 									className="body"
 									src={tech.icon}
 									alt={tech.name}
+									title={tech.name}
 								/>
 							</motion.div>
 						))}
 					</div>
-					<div className="col-12">
+					<div className="col-12 mt-2">
 						<div className="downloadCv-btn2">
 							<a href="./SHARIF_MD._MINHAZ.pdf" download>
 								<button>

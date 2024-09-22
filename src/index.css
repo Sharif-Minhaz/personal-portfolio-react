@@ -127,6 +127,13 @@ a .bottom-to-top:hover {
   background-color: var(--change-color);
 }
 
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 .inline-block {
   display: inline-block;
 }

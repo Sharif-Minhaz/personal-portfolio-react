@@ -27,6 +27,7 @@
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.6.0",
     "sonner": "^1.4.1",
+    "swiper": "^11.1.14",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {

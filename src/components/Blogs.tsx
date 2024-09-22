@@ -77,7 +77,7 @@ export default function Blogs() {
 					))}
 				</div>
 				<div className="downloadCv-btn2" style={{ marginTop: "30px" }}>
-					<a target="_blank" href="https://medium.com/@smmr.career">
+					<a target="_blank" href="https://dev-inertia-blog.netlify.app/blog/1">
 						<button>
 							<span className="inline-block mr-2">Read More</span>
 							<FontAwesomeIcon icon={faMedium} />
