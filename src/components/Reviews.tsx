@@ -1,7 +1,16 @@
 import { Heading } from ".";
 import { testimonials } from "../constants";
 import { useActiveLink } from "../hooks/useActiveLink";
-import SingleReview from "./SingleReview";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
+// Install Swiper modules
+SwiperCore.use([Navigation]);
 
 export interface IReview {
 	testimonial: string;
@@ -19,102 +28,52 @@ export default function Reviews() {
 			<div className="container-fluid">
 				<div className="row padding">
 					<Heading title="Reviews" baseTitle="RATINGS" />
-					<div className="col-12">
-						<div
+					<div>
+						<Swiper
 							id="testimonialSlide"
-							className="carousel slide"
-							data-bs-ride="carousel"
+							navigation={true}
+							pagination={{ clickable: true }}
+							spaceBetween={30}
+							slidesPerView={1}
+							breakpoints={{
+								768: { slidesPerView: 2 },
+							}}
 						>
-							<div className="carousel-inner">
-								<div className="carousel-item active">
-									<div className="row">
-										{testimonials
-											.slice(0, 2)
-											.map((review: IReview, index: number) => (
-												<SingleReview
-													key={index}
-													index={index}
-													review={review}
-												/>
-											))}
-									</div>
-								</div>
-								<div className="carousel-item">
-									<div className="row">
-										{testimonials
-											.slice(2, 4)
-											.map((review: IReview, index: number) => (
-												<SingleReview
-													key={index}
-													index={index}
-													review={review}
-												/>
-											))}
-									</div>
-								</div>
-								<div className="carousel-item">
-									<div className="row">
-										{testimonials
-											.slice(4, 6)
-											.map((review: IReview, index: number) => (
-												<SingleReview
-													key={index}
-													index={index}
-													review={review}
-												/>
-											))}
-									</div>
-								</div>
-								<button
-									className="carousel-control-prev"
-									type="button"
-									data-bs-target="#testimonialSlide"
-									data-bs-slide="prev"
-								>
-									<span
-										className="carousel-control-prev-icon"
-										aria-hidden="true"
-									></span>
-								</button>
-								<button
-									className="carousel-control-next"
-									type="button"
-									data-bs-target="#testimonialSlide"
-									data-bs-slide="next"
-								>
-									<span
-										className="carousel-control-next-icon"
-										aria-hidden="true"
-									></span>
-								</button>
+							<div>
+								{testimonials.map((review: IReview, index: number) => (
+									<SwiperSlide>
+										<SingleReview key={index} review={review} />
+									</SwiperSlide>
+								))}
 							</div>
-							<div className="carousel-indicators">
-								<button
-									data-bs-target="#testimonialSlide"
-									data-bs-slide-to="0"
-									className="active"
-									aria-current="true"
-									aria-label="Slide 1"
-								></button>
-								<button
-									id="btn2"
-									data-bs-target="#testimonialSlide"
-									data-bs-slide-to="1"
-									className="active2"
-									aria-label="Slide 2"
-								></button>
-								<button
-									id="btn3"
-									data-bs-target="#testimonialSlide"
-									data-bs-slide-to="2"
-									className="active3"
-									aria-label="Slide 3"
-								></button>
-							</div>
-						</div>
+						</Swiper>
 					</div>
 				</div>
 			</div>
 		</section>
+	);
+}
+
+function SingleReview({ review }: { review: IReview }) {
+	return (
+		<div className="clients-testimonial">
+			<div className="identity">
+				<img src={review.image} alt="Client" />
+				<div className="address">
+					<div className="name">{review.name}</div>
+					<div className="profession">{review.designation}</div>
+				</div>
+			</div>
+			<div className="des_client">
+				<p>{review.testimonial}</p>
+			</div>
+			<div className="rate">
+				{Array.from({ length: review.star }).map((_, index: number) => (
+					<span key={index}>
+						<FontAwesomeIcon icon={faStar} />
+					</span>
+				))}
+			</div>
+		</div>
 	);
 }

@@ -14,6 +14,12 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import express from "./tech/express.png";
 import python from "./tech/python.png";
+import bun from "./tech/bun.png";
+import flask from "./tech/flask.png";
+import hono from "./tech/hono.png";
+import mui from "./tech/mui.png";
+import puppeteer from "./tech/puppeteer.png";
+import shadcn from "./tech/shadcn.png";
 
 import damex from "./company/damex.png";
 import corelab from "./company/corelab.png";
@@ -24,6 +30,10 @@ import mediaid from "./projects/mediaid.png";
 import admin from "./projects/admin.png";
 import coffee from "./projects/coffee.png";
 import eCom from "./projects/e-com.png";
+import devInertia from "./projects/dev-inertia.png";
+import ldpan from "./projects/ldpan.png";
+import treker from "./projects/treker.png";
+import chatVerse from "./projects/chatverse.png";
 
 import blog1 from "./blogs/blog1.png";
 import blog2 from "./blogs/blog2.jpg";
@@ -53,5 +63,15 @@ export {
 	titan,
 	admin,
 	coffee,
+	chatVerse,
 	eCom,
+	bun,
+	hono,
+	puppeteer,
+	treker,
+	ldpan,
+	flask,
+	mui,
+	shadcn,
+	devInertia,
 };

@@ -21,10 +21,10 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
 	return (
 		<VerticalTimelineElement
 			contentStyle={{
-				background: theme === "dark" ? "#3a505c" : "#e7e7e7",
-				color: theme === "dark" ? "#fff" : "#3a505c",
+				background: theme === "dark" ? "#11141978" : "#e7e7e7",
+				color: theme === "dark" ? "#fff" : "#11141978",
 			}}
-			contentArrowStyle={{ borderRight: "7px solid #3a505c" }}
+			contentArrowStyle={{ borderRight: "7px solid #11141978" }}
 			date={experience.date}
 			iconStyle={{ background: experience.iconBg }}
 			icon={
@@ -39,7 +39,7 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
 		>
 			<div>
 				<h3 className="text-white fs-5 fw-bold">{experience.title}</h3>
-				<p className="text-secondary fs-5 fw-semibold" style={{ margin: 0 }}>
+				<p className="company-name fs-5 fw-semibold" style={{ margin: 0 }}>
 					{experience.company_name}
 				</p>
 			</div>
@@ -61,7 +61,7 @@ const Experience = () => {
 		<section ref={ref} id="summary" className="sectionL section-part">
 			<div className="container-fluid">
 				<div className="row padding">
-					<Heading baseTitle="SUMMARY" title="Resume" />
+					<Heading baseTitle="SUMMARY" title="Experiences" />
 					<div className="col-12">
 						<div className="mt-20 flex flex-col">
 							<VerticalTimeline>

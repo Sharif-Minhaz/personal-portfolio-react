@@ -42,7 +42,6 @@ import {
 	express,
 	stylon,
 	corelab,
-	damex,
 	mediaid,
 	titan,
 	admin,
@@ -50,6 +49,16 @@ import {
 	eCom,
 	blog1,
 	blog2,
+	hono,
+	mui,
+	puppeteer,
+	shadcn,
+	flask,
+	bun,
+	devInertia,
+	ldpan,
+	treker,
+	chatVerse,
 } from "../assets";
 
 export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
@@ -111,7 +120,7 @@ export const basicInfo = {
 export const workingHistory = [
 	{
 		title: "Experience",
-		count: "2",
+		count: "1",
 		icon: faBusinessTime,
 	},
 	{
@@ -126,7 +135,7 @@ export const workingHistory = [
 	},
 	{
 		title: "Company",
-		count: "2",
+		count: "1",
 		icon: faBuilding,
 	},
 ];
@@ -247,6 +256,30 @@ export const technologies = [
 		name: "Next Js",
 		icon: next,
 	},
+	{
+		name: "Shadcn/ui",
+		icon: shadcn,
+	},
+	{
+		name: "Hono Js",
+		icon: hono,
+	},
+	{
+		name: "Bun Js",
+		icon: bun,
+	},
+	{
+		name: "Flask",
+		icon: flask,
+	},
+	{
+		name: "Puppeteer",
+		icon: puppeteer,
+	},
+	{
+		name: "MUI",
+		icon: mui,
+	},
 ];
 
 export const socialLinks = [
@@ -318,29 +351,16 @@ export const experiences = [
 		],
 	},
 	{
-		title: "Backend Developer",
+		title: "Software Engineer",
 		company_name: "Stylon",
 		icon: stylon,
 		iconBg: "#E6DEDD",
-		date: "Jan 2022 - Present",
+		date: "Nov 2022 - Jul 2023",
 		points: [
 			"Designed and implemented robust, scalable, and efficient server-side applications, APIs, and databases using Javascript.",
 			"Managed and optimized databases (e.g. MongoDB) to ensure data integrity, performance, and security.",
 			"Integrated third-party services and APIs to enhance the functionality of web applications, streamlining processes and improving user experiences.",
 			" Conducted thorough testing, debugging, and code optimization to improve application performance, security, and overall reliability.",
-		],
-	},
-	{
-		title: "Web Developer",
-		company_name: "Damex",
-		icon: damex,
-		iconBg: "#E6DEDD",
-		date: "July 2023 - Present",
-		points: [
-			"Developing and maintaining web applications using MERN stack related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
 		],
 	},
 ];
@@ -403,6 +423,33 @@ export const testimonials = [
 ];
 
 export const projects = [
+	{
+		name: "LDPAN",
+		description:
+			"A localized web-based platform that serves as a disaster preparedness and assistance network.",
+		tags: [
+			{
+				name: "nextjs",
+				color: "#a9a9a9",
+			},
+			{
+				name: "tailwind",
+				color: "#66dfcf",
+			},
+			{
+				name: "typescript",
+				color: "#00a2ff",
+			},
+			{
+				name: "mongodb",
+				color: "#12a54f",
+			},
+		],
+		image: ldpan,
+		source_code_link:
+			"https://github.com/Sharif-Minhaz/Localized-Disaster-Preparedness-and-Assistance-Network",
+		live_link: "https://ldpan-v4.vercel.app/",
+	},
 	{
 		name: "Titan Settlers",
 		description:
@@ -470,6 +517,50 @@ export const projects = [
 		live_link: "https://coffee-shop-xrhs.onrender.com/",
 	},
 	{
+		name: "DEV Inertia",
+		description:
+			"DEV Inertia is a blog publishing platform for publishing .md, .mdx or general purpose blogs.",
+		tags: [
+			{
+				name: "astro",
+				color: "#ff6600",
+			},
+			{
+				name: "tailwind",
+				color: "#66dfcf",
+			},
+			{
+				name: "typescript",
+				color: "#00a2ff",
+			},
+		],
+		image: devInertia,
+		source_code_link: "https://github.com/Sharif-Minhaz/DevInertia-Blog",
+		live_link: "https://dev-inertia-blog.netlify.app/",
+	},
+	{
+		name: "Treker",
+		description:
+			"Tour management app using mern stack developed for smoother user experience througout the booking to ending of the tour.",
+		tags: [
+			{
+				name: "firebase",
+				color: "#ffb700",
+			},
+			{
+				name: "express",
+				color: "#7e7e7e",
+			},
+			{
+				name: "react",
+				color: "#5ed3f3",
+			},
+		],
+		image: treker,
+		source_code_link: "https://github.com/Sharif-Minhaz/Treker",
+		live_link: "https://travel-assistant-v1.netlify.app/",
+	},
+	{
 		name: "Admin Dashboard",
 		description: "A html Admin-dashboard template created with html, css. js and jquery.",
 		tags: [
@@ -485,10 +576,40 @@ export const projects = [
 				name: "jQuery",
 				color: "#0865a7",
 			},
+			{
+				name: "bootstrap",
+				color: "#efa3d6",
+			},
 		],
 		image: admin,
 		source_code_link: "https://github.com/Sharif-Minhaz/Admin-Dashboard",
 		live_link: "https://sharif-minhaz.github.io/Admin-Dashboard/",
+	},
+	{
+		name: "ChatVerse",
+		description:
+			"A modern, secure chat app for seamless communication in real-time using socket.io.",
+		tags: [
+			{
+				name: "express",
+				color: "#7e7e7e",
+			},
+			{
+				name: "react",
+				color: "#5ed3f3",
+			},
+			{
+				name: "socket.io",
+				color: "#adadad",
+			},
+			{
+				name: "mongodb",
+				color: "#12a54f",
+			},
+		],
+		image: chatVerse,
+		source_code_link: "https://github.com/Sharif-Minhaz/ChatVerse",
+		live_link: "https://chatverse-9vo5.onrender.com",
 	},
 	{
 		name: "E-Commerce",
@@ -505,6 +626,10 @@ export const projects = [
 			{
 				name: "js",
 				color: "#efd81d",
+			},
+			{
+				name: "bootstrap",
+				color: "#efa3d6",
 			},
 		],
 		image: eCom,

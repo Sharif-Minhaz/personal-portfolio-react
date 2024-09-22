@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
 import { Heading } from ".";
+import { useState } from "react";
 
 interface ITag {
 	name: string;
@@ -76,7 +77,7 @@ const ProjectCard = ({
 					<h3 className="font-bold" style={{ fontSize: "24px" }}>
 						{name}
 					</h3>
-					<p className="mt-2" style={{ fontSize: "14px" }}>
+					<p className="mt-2 line-clamp-3" style={{ fontSize: "14px", height: "63px" }}>
 						{description}
 					</p>
 				</div>
@@ -98,15 +99,21 @@ const ProjectCard = ({
 
 export default function Projects() {
 	const { ref } = useActiveLink("#portfolio");
+	const [projectData, setProjectData] = useState(projects.slice(0, 6));
+
+	const handleLoadMore = () => {
+		setProjectData((prev) => projects.slice(0, prev.length + 3));
+	};
+
 	return (
 		<section ref={ref} id="portfolio" className="sectionD section-part">
 			<div className="container-fluid">
 				<div className="row padding">
-					<Heading title="My Project" baseTitle="PROJECTS" />
+					<Heading title="My Projects" baseTitle="PROJECTS" />
 					<div className="col-12 p-0">
 						<div className="row d-flex flex-wrap row-gap-4">
-							{projects.map((project, index) => (
-								<div key={index} className="col-12 col-sm-6 col-md-4">
+							{projectData.map((project, index) => (
+								<div key={project.name} className="col-12 col-sm-6 col-md-4">
 									<ProjectCard
 										key={`project-${index}`}
 										index={index}
@@ -117,14 +124,14 @@ export default function Projects() {
 						</div>
 					</div>
 				</div>
-				<div className="downloadCv-btn2" style={{ marginTop: "30px" }}>
-					<a target="_blank" href="https://github.com/Sharif-Minhaz?tab=repositories">
-						<button>
-							<span className="inline-block mr-2">View More</span>
+				{projectData.length !== projects.length && (
+					<div className="downloadCv-btn2" style={{ marginTop: "20px" }}>
+						<button className="primary-btn" onClick={handleLoadMore}>
+							<span className="inline-block mr-2">Load More</span>
 							<FontAwesomeIcon icon={faGithub} />
 						</button>
-					</a>
-				</div>
+					</div>
+				)}
 			</div>
 		</section>
 	);
