@@ -42,6 +42,7 @@ export default function ContactForm() {
 				toast.success("Thank you. I will get back to you ASAP");
 			})
 			.catch((err) => {
+				console.log(err);
 				toast.error("Failed to send mail.", err.message);
 			})
 			.finally(() => setLoading(false));

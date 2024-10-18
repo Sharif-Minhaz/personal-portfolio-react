@@ -352,7 +352,7 @@ export const experiences = [
 	},
 	{
 		title: "Software Engineer",
-		company_name: "Stylon",
+		company_name: "StylOn",
 		icon: stylon,
 		iconBg: "#E6DEDD",
 		date: "Nov 2022 - Jul 2023",
