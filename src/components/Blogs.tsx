@@ -45,9 +45,11 @@ export default function Blogs() {
 								</div>
 								<div className="blog-des">
 									<div className="blog-heading">
-										<h3 className="line-clamp-2" title={blog.title}>
-											{blog.title}
-										</h3>
+										<a href={blog.url}>
+											<h3 className="line-clamp-2" title={blog.title}>
+												{blog.title}
+											</h3>
+										</a>
 									</div>
 									<div className="timeAndDate">
 										<p>

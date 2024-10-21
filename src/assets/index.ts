@@ -34,6 +34,7 @@ import devInertia from "./projects/dev-inertia.png";
 import ldpan from "./projects/ldpan.png";
 import treker from "./projects/treker.png";
 import chatVerse from "./projects/chatverse.png";
+import bunShop from "./projects/bun-shop.png";
 
 import blog1 from "./blogs/blog1.png";
 import blog2 from "./blogs/blog2.jpg";
@@ -74,4 +75,5 @@ export {
 	mui,
 	shadcn,
 	devInertia,
+	bunShop,
 };

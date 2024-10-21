@@ -59,6 +59,7 @@ import {
 	ldpan,
 	treker,
 	chatVerse,
+	bunShop,
 } from "../assets";
 
 export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
@@ -185,7 +186,7 @@ export const educations = [
 		institute: "K.M. Latif Institution",
 		timeSpan: "2012 - 2017",
 		description:
-			"TK.m. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
+			"K.m. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
 	},
 	{
 		title: "Science",
@@ -561,6 +562,32 @@ export const projects = [
 		live_link: "https://travel-assistant-v1.netlify.app/",
 	},
 	{
+		name: "Bun Shop",
+		description:
+			"Bun shop is a full-stack bun selling platform with online payment system (sslcommerz) integrated for order management.",
+		tags: [
+			{
+				name: "honojs",
+				color: "#ff9958",
+			},
+			{
+				name: "nextjs",
+				color: "#a9a9a9",
+			},
+			{
+				name: "postgresql",
+				color: "#1972b6",
+			},
+			{
+				name: "bun",
+				color: "#f3e9d8",
+			},
+		],
+		image: bunShop,
+		source_code_link: "https://github.com/Sharif-Minhaz/next-bun-shop-frontend",
+		live_link: "https://next-bun-shop-frontend.vercel.app",
+	},
+	{
 		name: "Admin Dashboard",
 		description: "A html Admin-dashboard template created with html, css. js and jquery.",
 		tags: [
@@ -612,7 +639,7 @@ export const projects = [
 		live_link: "https://chatverse-9vo5.onrender.com",
 	},
 	{
-		name: "E-Commerce",
+		name: "E-Commerce Template",
 		description: "E-commerce web project for managing products orders and shopping cart.",
 		tags: [
 			{
@@ -642,7 +669,7 @@ export const blogs = [
 	{
 		id: 1,
 		title: "Unleashing the Power of Progressive Web Apps: The Future of Web Development",
-		url: "https://medium.com/@smmr.career/unleashing-the-power-of-progressive-web-apps-the-future-of-web-development-ac4a092b7b6e",
+		url: "https://dev-inertia-blog.netlify.app/blog/view/unleashing-the-power-of-progressive-web-apps-the-future-of-web-development",
 		cover: blog1,
 		publishedDate: "March 27, 2024",
 		body: "In the current swiftly transforming digital sphere, providing a top-notch user experience is crucial. With people depending more and more on mobile gadgets and seeking quick, effortless interactions, developers are continuously striving to find ground-breaking techniques that fuse native apps with web experiences. This is where Progressive Web Apps (PWAs) come in as revolutionary tools for web development.",
@@ -651,7 +678,7 @@ export const blogs = [
 		id: 2,
 		title: "Building Robust REST APIs with Python Flask: A Guide for Developers",
 		cover: blog2,
-		url: "https://medium.com/@smmr.career/building-robust-rest-apis-with-python-flask-a-guide-for-developers-b809a19bd57c",
+		url: "https://dev-inertia-blog.netlify.app/blog/view/building-robust-rest-apis-with-python-flask-a-guide-for-developers",
 		publishedDate: "March 27, 2024",
 		body: "In the realm of web development, creating robust and efficient RESTful APIs is essential for building scalable and interoperable applications. With the rise in demand for dynamic web services, developers are turning to lightweight frameworks like Flask to streamline the development process and deliver powerful APIs with minimal overhead. In this guide, we’ll explore how to leverage Python Flask to build RESTful APIs that meet the needs of modern web applications.",
 	},
