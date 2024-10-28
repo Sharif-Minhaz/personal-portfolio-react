@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Heading } from ".";
 import { basicInfo, workingHistory } from "../constants";
-import { IconDefinition, faDownload } from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition, faFileContract } from "@fortawesome/free-solid-svg-icons";
 import NumberScroller from "react-number-scroller";
 import { useActiveLink } from "../hooks/useActiveLink";
 
@@ -59,9 +59,14 @@ export default function About() {
 									{basicInfo.address}
 								</li>
 							</ul>
-							<a href="/SHARIF_MD._MINHAZ.pdf" download>
+							<a
+								target="_blank"
+								href="https://drive.google.com/file/d/1g_eiw3wrZaRNeTAyMQx97gAROvzBMv63/view?usp=sharing"
+								download
+							>
 								<button>
-									Download CV <FontAwesomeIcon icon={faDownload} />
+									View Resume{" "}
+									<FontAwesomeIcon className="ms-1" icon={faFileContract} />
 								</button>
 							</a>
 						</div>
