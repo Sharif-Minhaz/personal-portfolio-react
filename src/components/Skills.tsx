@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Heading } from ".";
-import { technologies } from "../constants";
+import { RESUME_LINK, technologies } from "../constants";
 import { faFileContract } from "@fortawesome/free-solid-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
 import { motion } from "framer-motion";
@@ -35,11 +35,7 @@ export default function Skills() {
 					</div>
 					<div className="col-12 mt-2">
 						<div className="downloadCv-btn2">
-							<a
-								target="_blank"
-								href="https://drive.google.com/file/d/1g_eiw3wrZaRNeTAyMQx97gAROvzBMv63/view?usp=sharing"
-								download
-							>
+							<a target="_blank" href={RESUME_LINK} download>
 								<button>
 									View Resume{" "}
 									<FontAwesomeIcon className="ms-1" icon={faFileContract} />

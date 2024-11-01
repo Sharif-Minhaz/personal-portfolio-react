@@ -63,6 +63,8 @@ import {
 } from "../assets";
 
 export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
+export const RESUME_LINK =
+	"https://drive.google.com/file/d/16mWdGeHMSSt-MRezQoNHcmO1KuFlqfiz/view?usp=sharing";
 
 export const navLinks = [
 	{
@@ -186,7 +188,7 @@ export const educations = [
 		institute: "K.M. Latif Institution",
 		timeSpan: "2012 - 2017",
 		description:
-			"K.m. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
+			"K.M. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
 	},
 	{
 		title: "Science",

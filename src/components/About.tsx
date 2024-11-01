@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Heading } from ".";
-import { basicInfo, workingHistory } from "../constants";
+import { basicInfo, RESUME_LINK, workingHistory } from "../constants";
 import { IconDefinition, faFileContract } from "@fortawesome/free-solid-svg-icons";
 import NumberScroller from "react-number-scroller";
 import { useActiveLink } from "../hooks/useActiveLink";
@@ -59,11 +59,7 @@ export default function About() {
 									{basicInfo.address}
 								</li>
 							</ul>
-							<a
-								target="_blank"
-								href="https://drive.google.com/file/d/1g_eiw3wrZaRNeTAyMQx97gAROvzBMv63/view?usp=sharing"
-								download
-							>
+							<a target="_blank" href={RESUME_LINK} download>
 								<button>
 									View Resume{" "}
 									<FontAwesomeIcon className="ms-1" icon={faFileContract} />
