@@ -64,7 +64,7 @@ import {
 
 export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
 export const RESUME_LINK =
-	"https://drive.google.com/file/d/16mWdGeHMSSt-MRezQoNHcmO1KuFlqfiz/view?usp=sharing";
+	"https://drive.google.com/file/d/100mML6ULl19DKwrNqmebDm8hPlANxYv9/view?usp=sharing";
 
 export const navLinks = [
 	{
