@@ -63,8 +63,7 @@ import {
 } from "../assets";
 
 export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
-export const RESUME_LINK =
-	"https://drive.google.com/file/d/100mML6ULl19DKwrNqmebDm8hPlANxYv9/view?usp=sharing";
+export const RESUME_LINK = import.meta.env.VITE_CV_URL;
 
 export const navLinks = [
 	{
