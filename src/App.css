@@ -286,6 +286,45 @@ main {
 
 .transparent-bg {
   background-color: rgba(10, 10, 20, 0.62);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(34, 211, 238, 0.18),
+    rgba(168, 85, 247, 0.1) 30%,
+    transparent 60%
+  );
+  mix-blend-mode: screen;
+  transition: background 200ms ease;
+}
+
+.transparent-bg > .row {
+  position: relative;
+  z-index: 3;
+}
+
+.scroll-indicator {
+  z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-spotlight {
+    display: none;
+  }
 }
 
 .details {

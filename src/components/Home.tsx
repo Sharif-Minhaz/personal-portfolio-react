@@ -1,9 +1,13 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState, MouseEvent } from "react";
 import Typed from "typed.js";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 import { useActiveLink } from "../hooks/useActiveLink";
 
 export default function Home() {
 	const el = useRef(null);
+	const sectionRef = useRef<HTMLElement | null>(null);
+	const [particlesReady, setParticlesReady] = useState(false);
 
 	const { ref } = useActiveLink("#home");
 
@@ -20,9 +24,69 @@ export default function Home() {
 		return () => typed.destroy();
 	}, []);
 
+	useEffect(() => {
+		initParticlesEngine(async (engine) => {
+			await loadSlim(engine);
+		}).then(() => setParticlesReady(true));
+	}, []);
+
+	const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
+		const node = sectionRef.current;
+		if (!node) return;
+		const rect = node.getBoundingClientRect();
+		node.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+		node.style.setProperty("--my", `${e.clientY - rect.top}px`);
+	};
+
+	const setRefs = (node: HTMLElement | null) => {
+		sectionRef.current = node;
+		if (typeof ref === "function") ref(node);
+	};
+
 	return (
-		<section ref={ref} id="home" className="section-part">
+		<section ref={setRefs} id="home" className="section-part" onMouseMove={handleMouseMove}>
 			<div className="container-fluid transparent-bg">
+				{particlesReady && (
+					<Particles
+						id="hero-particles"
+						className="hero-particles"
+						options={{
+							fullScreen: { enable: false },
+							background: { color: { value: "transparent" } },
+							fpsLimit: 60,
+							particles: {
+								number: { value: 90, density: { enable: true } },
+								color: { value: ["#22d3ee", "#a855f7"] },
+								opacity: { value: { min: 0.15, max: 0.55 } },
+								size: { value: { min: 1, max: 2.5 } },
+								move: {
+									enable: true,
+									speed: 0.6,
+									direction: "none",
+									random: true,
+									outModes: { default: "out" },
+								},
+								links: {
+									enable: true,
+									distance: 140,
+									color: "#22d3ee",
+									opacity: 0.18,
+									width: 1,
+								},
+							},
+							interactivity: {
+								events: {
+									onHover: { enable: true, mode: "grab" },
+								},
+								modes: {
+									grab: { distance: 160, links: { opacity: 0.45 } },
+								},
+							},
+							detectRetina: true,
+						}}
+					/>
+				)}
+				<div className="hero-spotlight" aria-hidden="true" />
 				<div className="row">
 					<div className="col-12">
 						<div className="details">
@@ -54,7 +118,11 @@ export default function Home() {
 								</a>
 							</div>
 						</div>
-						<a href="#aboutme" className="scroll-indicator" aria-label="Scroll to next section">
+						<a
+							href="#aboutme"
+							className="scroll-indicator"
+							aria-label="Scroll to next section"
+						>
 							<span className="scroll-mouse">
 								<span className="scroll-wheel" />
 							</span>
