@@ -26,6 +26,10 @@ export default function Home() {
 				<div className="row">
 					<div className="col-12">
 						<div className="details">
+							<div className="status-badge">
+								<span className="status-dot" />
+								<span>Available for Work</span>
+							</div>
 							<div className="wlc-note">
 								<span id="pin" className="text-gradient">
 									Welcome
@@ -41,12 +45,21 @@ export default function Home() {
 									<span className="short-loc">BD.</span>
 								</span>
 							</div>
-							<div className="hire-btn">
+							<div className="hero-ctas">
 								<a href="#contact">
 									<button className="btn-gradient">Hire Me</button>
 								</a>
+								<a href="#portfolio">
+									<button className="btn-ghost">View Work</button>
+								</a>
 							</div>
 						</div>
+						<a href="#aboutme" className="scroll-indicator" aria-label="Scroll to next section">
+							<span className="scroll-mouse">
+								<span className="scroll-wheel" />
+							</span>
+							<span className="scroll-text">Scroll</span>
+						</a>
 					</div>
 				</div>
 			</div>
