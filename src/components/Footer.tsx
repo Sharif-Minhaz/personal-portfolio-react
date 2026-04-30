@@ -5,8 +5,11 @@ export default function Footer() {
 				<div className="col-md-6 col-12 main-footer-text">
 					<span>
 						Copyright © 2021-{new Date().getFullYear()}{" "}
-						<a className="footer-name text-gradient" href="https://github.com/Sharif-Minhaz">
-							Sharif
+						<a
+							className="footer-name text-gradient"
+							href="https://github.com/Sharif-Minhaz"
+						>
+							Minhaz
 						</a>
 						.
 					</span>{" "}

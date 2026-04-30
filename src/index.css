@@ -254,16 +254,21 @@ a .bottom-to-top:hover {
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--glass-shadow);
-  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(34, 211, 238, 0.35);
-  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.12);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 16px 48px -16px rgba(0, 0, 0, 0.3),
+    0 0 64px -24px rgba(168, 85, 247, 0.18),
+    0 0 64px -24px rgba(34, 211, 238, 0.18);
 }
 
-.glass-card.stat-tile:hover {
+.glass-card.stat-tile:hover,
+.glass-card.messages-box:hover,
+.glass-card.contact-container:hover {
   transform: none;
 }
 
@@ -292,7 +297,9 @@ a .bottom-to-top:hover {
 
 .btn-gradient:hover,
 .btn-gradient:focus {
-  box-shadow: 0 0 24px rgba(34, 211, 238, 0.4);
+  box-shadow:
+    0 8px 24px -8px rgba(34, 211, 238, 0.35),
+    0 8px 24px -8px rgba(168, 85, 247, 0.35);
   filter: brightness(1.05);
   color: #0a0a14 !important;
   transform: translateY(-1px);

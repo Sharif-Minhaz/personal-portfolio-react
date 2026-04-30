@@ -636,8 +636,10 @@ body.dark .sectionD {
 }
 
 .hexagon:hover {
-  border-color: rgba(34, 211, 238, 0.4);
-  box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 32px -8px rgba(168, 85, 247, 0.25),
+    0 0 32px -8px rgba(34, 211, 238, 0.25);
 }
 
 .hexagon:before,
@@ -699,7 +701,9 @@ body.dark .sectionD {
 
 .downloadCv-btn2 a button:hover,
 .primary-btn:hover {
-  box-shadow: 0 0 24px rgba(34, 211, 238, 0.4);
+  box-shadow:
+    0 8px 24px -8px rgba(34, 211, 238, 0.35),
+    0 8px 24px -8px rgba(168, 85, 247, 0.35);
   transform: translateY(-2px);
   filter: brightness(1.05);
   color: #0a0a14;
@@ -782,8 +786,11 @@ button::-moz-focus-inner {
 }
 
 .tilt-container:hover {
-  border-color: rgba(34, 211, 238, 0.35);
-  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.12);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 16px 48px -16px rgba(0, 0, 0, 0.3),
+    0 0 64px -24px rgba(168, 85, 247, 0.18),
+    0 0 64px -24px rgba(34, 211, 238, 0.18);
 }
 
 .tilt-body {
@@ -846,8 +853,11 @@ button::-moz-focus-inner {
 }
 
 .clients-testimonial:hover {
-  border-color: rgba(34, 211, 238, 0.35);
-  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.12);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 16px 48px -16px rgba(0, 0, 0, 0.3),
+    0 0 64px -24px rgba(168, 85, 247, 0.18),
+    0 0 64px -24px rgba(34, 211, 238, 0.18);
 }
 
 .carousel-inner {
@@ -944,9 +954,12 @@ button::-moz-focus-inner {
 }
 
 .blog-container:hover {
-  transform: translateY(-4px);
-  border-color: rgba(34, 211, 238, 0.35);
-  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.12);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 16px 48px -16px rgba(0, 0, 0, 0.3),
+    0 0 64px -24px rgba(168, 85, 247, 0.18),
+    0 0 64px -24px rgba(34, 211, 238, 0.18);
 }
 
 .blog-img {
@@ -1095,7 +1108,21 @@ button::-moz-focus-inner {
 .contact-container h3 {
   color: var(--heading-color);
   font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.contact-container h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 60px;
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
 }
 
 .contact-container .address {
@@ -1157,6 +1184,20 @@ button::-moz-focus-inner {
   color: var(--heading-color);
   font-size: 20px;
   margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.messages-box h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 60px;
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
 }
 
 .messages-box .row .col-12 input[type="text"],
@@ -1193,14 +1234,17 @@ form .col-12 button[type="submit"] {
 }
 
 form .col-12 button[type="submit"]:hover {
-  box-shadow: 0 0 24px rgba(34, 211, 238, 0.4);
+  box-shadow:
+    0 8px 24px -8px rgba(34, 211, 238, 0.35),
+    0 8px 24px -8px rgba(168, 85, 247, 0.35);
   transform: translateY(-2px);
   filter: brightness(1.05);
 }
 
 .adjustment {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-top: 4px;
 }
 
 /* ----------------footer--------------- */

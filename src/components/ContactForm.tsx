@@ -35,7 +35,7 @@ export default function ContactForm() {
 					to_email: "smmr.career@gmail.com",
 					message: form.message,
 				},
-				import.meta.env.VITE_EMAIL_PUBLIC_KEY
+				import.meta.env.VITE_EMAIL_PUBLIC_KEY,
 			)
 			.then(() => {
 				setForm(initialData);
@@ -50,7 +50,7 @@ export default function ContactForm() {
 
 	return (
 		<div className="col-md-8 col-12">
-			<div className="messages-box">
+			<div className="messages-box glass-card p-4">
 				<h3>Describe Your Needs</h3>
 				<form className="row" onSubmit={handleSubmit}>
 					<div className="col-md-6 col-12">
@@ -83,7 +83,7 @@ export default function ContactForm() {
 							disabled={loading}
 							value={form.message}
 							id="msg"
-							rows={5}
+							style={{ height: 140 }}
 							onChange={handleChange}
 							placeholder="Write in details about your needs...."
 							required
