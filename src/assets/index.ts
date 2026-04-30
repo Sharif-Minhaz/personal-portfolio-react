@@ -15,29 +15,30 @@ import typescript from "./tech/typescript.png";
 import express from "./tech/express.png";
 import python from "./tech/python.png";
 import bun from "./tech/bun.png";
+import nestjs from "./tech/nestjs.webp";
+import electron from "./tech/electron.webp";
 import flask from "./tech/flask.png";
 import hono from "./tech/hono.png";
 import mui from "./tech/mui.png";
 import puppeteer from "./tech/puppeteer.png";
 import shadcn from "./tech/shadcn.png";
 
-import damex from "./company/damex.png";
-import corelab from "./company/corelab.png";
-import stylon from "./company/stylon.png";
+import diu from "./company/diu.webp";
+import rbs from "./company/rbs.jpg";
 
-import titan from "./projects/titan.png";
-import mediaid from "./projects/mediaid.png";
-import admin from "./projects/admin.png";
-import coffee from "./projects/coffee.png";
-import eCom from "./projects/e-com.png";
-import devInertia from "./projects/dev-inertia.png";
-import ldpan from "./projects/ldpan.png";
-import treker from "./projects/treker.png";
-import chatVerse from "./projects/chatverse.png";
-import bunShop from "./projects/bun-shop.png";
+import titan from "./projects/titan.webp";
+import mediaid from "./projects/mediaid.webp";
+import admin from "./projects/admin.webp";
+import coffee from "./projects/coffee.webp";
+import eCom from "./projects/e-com.webp";
+import devInertia from "./projects/dev-inertia.webp";
+import ldpan from "./projects/ldpan.webp";
+import treker from "./projects/treker.webp";
+import chatVerse from "./projects/chatverse.webp";
+import bunShop from "./projects/bun-shop.webp";
 
-import blog1 from "./blogs/blog1.png";
-import blog2 from "./blogs/blog2.jpg";
+import blog1 from "./blogs/blog1.webp";
+import blog2 from "./blogs/blog2.webp";
 
 export {
 	blog1,
@@ -57,9 +58,8 @@ export {
 	tailwind,
 	typescript,
 	express,
-	stylon,
-	corelab,
-	damex,
+	rbs,
+	diu,
 	mediaid,
 	titan,
 	admin,
@@ -76,4 +76,6 @@ export {
 	shadcn,
 	devInertia,
 	bunShop,
+	nestjs,
+	electron,
 };

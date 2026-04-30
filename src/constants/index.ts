@@ -60,6 +60,10 @@ import {
 	treker,
 	chatVerse,
 	bunShop,
+	nestjs,
+	electron,
+	rbs,
+	diu,
 } from "../assets";
 
 export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
@@ -282,6 +286,14 @@ export const technologies = [
 		name: "MUI",
 		icon: mui,
 	},
+	{
+		name: "Nest Js",
+		icon: nestjs,
+	},
+	{
+		name: "Electron",
+		icon: electron,
+	},
 ];
 
 export const socialLinks = [
@@ -340,29 +352,29 @@ export const sidebarSocials = [
 
 export const experiences = [
 	{
-		title: "Jr. Web Designer",
-		company_name: "CorelabIT",
-		icon: corelab,
+		title: "Jr. Software Engineer",
+		company_name: "Right Brain Solution Ltd.",
+		icon: rbs,
 		iconBg: "#E6DEDD",
-		date: "July 2020 - February 2021",
-		points: [
-			"Developed and maintained front-end web components using HTML, CSS, and JavaScript to ensure responsive and visually appealing websites.",
-			"Collaborated with content creators to integrate and update website content, ensuring consistent quality and relevance.",
-			"Resolved technical issues and optimized web performance through systematic debugging and problem-solving.",
-			"Worked closely with cross-functional teams, including designers and back-end developers, to implement design concepts and integrate web features seamlessly.",
-		],
-	},
-	{
-		title: "Software Engineer",
-		company_name: "StylOn",
-		icon: stylon,
-		iconBg: "#E6DEDD",
-		date: "Nov 2022 - Jul 2023",
+		date: "Nov 2024 - Present",
 		points: [
 			"Designed and implemented robust, scalable, and efficient server-side applications, APIs, and databases using Javascript.",
 			"Managed and optimized databases (e.g. MongoDB) to ensure data integrity, performance, and security.",
 			"Integrated third-party services and APIs to enhance the functionality of web applications, streamlining processes and improving user experiences.",
 			" Conducted thorough testing, debugging, and code optimization to improve application performance, security, and overall reliability.",
+		],
+	},
+	{
+		title: "Full Stack Developer",
+		company_name: "Int. Affairs Office, DIU",
+		icon: diu,
+		iconBg: "#E6DEDD",
+		date: "July - November 2023",
+		points: [
+			"Developed and maintained front-end web components using HTML, CSS, and JavaScript to ensure responsive and visually appealing websites.",
+			"Collaborated with content creators to integrate and update website content, ensuring consistent quality and relevance.",
+			"Resolved technical issues and optimized web performance through systematic debugging and problem-solving.",
+			"Worked closely with cross-functional teams, including designers and back-end developers, to implement design concepts and integrate web features seamlessly.",
 		],
 	},
 ];

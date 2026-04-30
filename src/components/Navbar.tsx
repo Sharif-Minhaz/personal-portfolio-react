@@ -1,5 +1,5 @@
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import sharifMdMinhaz from "../assets/images/sharif-md-minhaz.jpg";
+import sharifMdMinhaz from "../assets/images/sharif-md-minhaz.webp";
 import { basicInfo, navLinks, sidebarSocials } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
