@@ -40,8 +40,6 @@ import {
 	tailwind,
 	typescript,
 	express,
-	stylon,
-	corelab,
 	mediaid,
 	titan,
 	admin,
