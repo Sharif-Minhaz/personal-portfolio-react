@@ -709,6 +709,17 @@ body.dark .sectionD {
   width: 100% !important;
 }
 
+.vertical-timeline::before {
+  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-violet)) !important;
+  width: 3px !important;
+  opacity: 0.3;
+}
+
+.vertical-timeline-element-date {
+  color: var(--text-secondary) !important;
+  opacity: 0.85;
+}
+
 /* --------------portfolio-------------- */
 .project-details {
   width: 100%;
