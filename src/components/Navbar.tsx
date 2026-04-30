@@ -25,7 +25,7 @@ export default function Navbar() {
 
 	return (
 		<>
-			<nav id="spy" className="main-nav">
+			<nav id="spy" className="main-nav glass-shell">
 				<div className="aside-content">
 					<div className="profile dark-theme">
 						<motion.div
@@ -80,7 +80,7 @@ export default function Navbar() {
 				</div>
 			</nav>
 			{/* <!-- mobile-nav start --> */}
-			<nav className="secondary-nav">
+			<nav className="secondary-nav glass-shell">
 				<div className="nav-header">
 					<div className="small-img">
 						<a href="#aboutme">

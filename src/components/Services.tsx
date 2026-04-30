@@ -27,7 +27,7 @@ export default function Services() {
 									viewport={{ once: true }}
 									transition={{ duration: (index + 1) * 0.2 }}
 									key={index}
-									className="service-div"
+									className="service-div glass-card p-3"
 								>
 									<div className="service-icon">
 										<span>
@@ -51,7 +51,7 @@ export default function Services() {
 									viewport={{ once: true }}
 									transition={{ duration: (index + 1) * 0.3 }}
 									key={index}
-									className="service-div"
+									className="service-div glass-card p-3"
 								>
 									<div className="service-icon">
 										<span>

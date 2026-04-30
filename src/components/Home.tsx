@@ -27,7 +27,9 @@ export default function Home() {
 					<div className="col-12">
 						<div className="details">
 							<div className="wlc-note">
-								<span id="pin">Welcome</span>
+								<span id="pin" className="text-gradient">
+									Welcome
+								</span>
 							</div>
 							<div className="type">
 								<h2 className="typed_js" ref={el}></h2>
@@ -41,7 +43,7 @@ export default function Home() {
 							</div>
 							<div className="hire-btn">
 								<a href="#contact">
-									<button>Hire Me</button>
+									<button className="btn-gradient">Hire Me</button>
 								</a>
 							</div>
 						</div>

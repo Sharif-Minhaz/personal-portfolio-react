@@ -26,7 +26,7 @@ export default function Education() {
 									viewport={{ once: true }}
 									transition={{ delay: (index + 1) * 0.5 }}
 									key={index}
-									className="eduEx-section"
+									className="eduEx-section glass-card"
 								>
 									<div className="year">
 										<span>{education.timeSpan}</span>
@@ -47,7 +47,7 @@ export default function Education() {
 									viewport={{ once: true }}
 									transition={{ duration: (index + 1) * 1.2 }}
 									key={index}
-									className="eduEx-section"
+									className="eduEx-section glass-card"
 								>
 									<div className="year">
 										<span>{education.timeSpan}</span>

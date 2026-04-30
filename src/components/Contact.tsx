@@ -22,7 +22,7 @@ export default function Contact() {
 				<div className="row padding">
 					<Heading baseTitle="CONTACT" title="Get in Touch" />
 					<div className="col-md-4 col-12">
-						<div className="contact-container">
+						<div className="contact-container glass-card p-4">
 							<h3>Address</h3>
 							<div className="address">{basicInfo.address}</div>
 							<div className="contact-info">

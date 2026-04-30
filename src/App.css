@@ -25,7 +25,7 @@
 .secondary-nav {
   display: none;
   padding: 15px 20px;
-  background-color: rgba(17, 20, 25, 0.64);
+  background: transparent;
   z-index: 19999;
 }
 
@@ -70,10 +70,12 @@
 .main-nav {
   position: fixed;
   width: 262px;
-  background-color: var(--aside-color);
+  background: transparent;
   height: 100vh;
   overflow-y: auto;
   z-index: 999;
+  overflow: hidden;
+  border-right: 1px solid var(--glass-border);
 }
 
 .social-media-mo a span {
@@ -140,13 +142,19 @@
 .links-secondary {
   position: fixed;
   padding: 0 24px !important;
-  background-color: rgba(12, 12, 12, 0.8);
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
   z-index: 999;
   width: 100vw;
   height: 0px;
   top: 70px;
   transition: all 0.3s;
   overflow: hidden;
+}
+
+.links-secondary.links-secondary-res {
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .myName {
@@ -164,7 +172,17 @@
 
 .profile .image img {
   width: 180px;
-  border: 2px solid var(--change-color);
+  border: 3px solid transparent;
+  background:
+    linear-gradient(var(--aside-color), var(--aside-color)) padding-box,
+    var(--accent-gradient) border-box;
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.25);
+}
+
+.dark .profile .image img {
+  background:
+    linear-gradient(#0a0a14, #0a0a14) padding-box,
+    var(--accent-gradient) border-box;
 }
 
 .profile .name {
@@ -178,35 +196,34 @@
 
 .profile .name::after {
   content: "";
-  width: 123%;
+  width: 60%;
   position: absolute;
   height: 2px;
-  bottom: -6px;
-  left: -20px;
-}
-
-.name::after {
-  background-color: #d6f1f3;
-}
-
-.dark .name::after {
-  background-color: #212528;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-violet), transparent);
+  border-radius: 2px;
+  opacity: 0.7;
 }
 
 .links {
-  padding: 14px 46px;
+  padding: 14px 24px;
 }
 
 .links a {
   text-decoration: none;
   display: flex;
+  align-items: center;
   font-size: 15.5px;
-  padding-bottom: 11px;
-  transition: all 0.3s;
+  padding: 9px 12px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .links a:last-child {
-  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .links a span {
@@ -267,7 +284,7 @@ main {
 }
 
 .transparent-bg {
-  background-color: rgba(0, 0, 0, 0.62);
+  background-color: rgba(10, 10, 20, 0.62);
 }
 
 .details {
@@ -329,7 +346,7 @@ main {
 
 /* ---------------section control-------------- */
 .sectionL {
-  background-color: var(--sectionL-bg);
+  background-color: transparent;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -339,9 +356,13 @@ main {
 }
 
 .sectionD {
-  background-color: var(--sectionD-bg);
+  background-color: rgba(0, 0, 0, 0.06);
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+body.dark .sectionD {
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .sectionD h2:first-child {
@@ -378,10 +399,19 @@ main {
 
 .heading .underline {
   display: block;
-  background-color: var(--change-color);
+  background: var(--accent-gradient);
   height: 3px;
   width: 81px;
   margin: auto;
+  border-radius: 2px;
+}
+
+.heading h2 {
+  opacity: 0.4;
+}
+
+.sectionD .heading h2 {
+  opacity: 0.5;
 }
 
 .short-des h2 {
@@ -449,7 +479,7 @@ main {
 }
 
 .count-base div {
-  border-right: 1px dotted #5d5d5d;
+  border-right: none;
 }
 
 .count-base div:last-child {
@@ -512,8 +542,9 @@ main {
   justify-content: center;
   height: 70px;
   width: 70px;
-  background-color: var(--box-icon);
-  border-radius: 5px;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
 }
 
 .service-div .service-icon span svg {
@@ -541,18 +572,17 @@ main {
 
 .educationEx .eduEx-section {
   padding: 25px;
-  border: 1px solid var(--light-border);
-  border-radius: 5px;
   margin-bottom: 24px;
 }
 
 .eduEx-section .year span {
   display: inline-block;
-  background-color: tomato;
+  background: var(--accent-gradient);
   font-size: 14px;
   color: white;
-  padding: 1px 8px;
-  border-radius: 5px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-weight: 500;
 }
 
 .eduEx-section .subject {
@@ -563,7 +593,7 @@ main {
 }
 
 .eduEx-section .institute {
-  color: tomato;
+  color: var(--accent-cyan);
   font-size: 16px;
 }
 
@@ -593,13 +623,21 @@ main {
   justify-content: center;
   width: 64.5px;
   height: 100px;
-  background-image: linear-gradient(90deg, #f5f5f5, #959393);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--glass-border);
   border-radius: 10px;
-  transition: transform 400ms ease;
+  transition: transform 400ms ease, border-color 300ms ease, box-shadow 300ms ease;
 }
 
 .dark .hexagon {
-  background-image: linear-gradient(90deg, #434343, #151030);
+  background: var(--glass-bg);
+}
+
+.hexagon:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
 }
 
 .hexagon:before,
@@ -613,7 +651,10 @@ main {
   right: 0;
   width: inherit;
   height: inherit;
-  background-image: inherit;
+  background: inherit;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--glass-border);
   border-radius: inherit;
 }
 
@@ -646,19 +687,22 @@ main {
 
 .downloadCv-btn2 a button,
 .primary-btn {
-  background-color: rgba(255, 99, 71, 0.075);
-  color: tomato;
-  border: 2px solid tomato;
-  padding: 11px 29px;
+  background: var(--accent-gradient);
+  color: #0a0a14;
+  border: none;
+  padding: 12px 30px;
   font-size: 19px;
+  font-weight: 600;
   border-radius: 50px;
-  transition: all 0.3s;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
 .downloadCv-btn2 a button:hover,
 .primary-btn:hover {
-  background-color: tomato;
-  color: white;
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.4);
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  color: #0a0a14;
 }
 
 .vertical-timeline {
@@ -714,12 +758,21 @@ button::-moz-focus-inner {
 
 /* ---------------- projects ----------------- */
 .tilt-container {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-  border-radius: 1rem;
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+  border-radius: 16px;
   padding: 1.25rem;
-  background-color: var(--card-bg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.tilt-container:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.12);
 }
 
 .tilt-body {
@@ -772,8 +825,18 @@ button::-moz-focus-inner {
 
 /* ---------------testimonial---------------- */
 .clients-testimonial {
-  background-color: var(--aside-color);
-  border-radius: 4px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.clients-testimonial:hover {
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.12);
 }
 
 .carousel-inner {
@@ -859,8 +922,20 @@ button::-moz-focus-inner {
 
 /* ---------------blogs---------------- */
 .blog-container {
-  border: 1px solid rgba(77, 77, 77, 0.424);
-  border-radius: 4px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.blog-container:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.12);
 }
 
 .blog-img {
@@ -917,9 +992,14 @@ button::-moz-focus-inner {
 }
 
 .blog-des h3 {
-  color: #ff6347;
+  color: var(--heading-color);
   font-size: 30px;
   margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.blog-des h3:hover {
+  color: var(--accent-cyan);
 }
 
 .timeAndDate p {
@@ -946,12 +1026,16 @@ button::-moz-focus-inner {
 
 .readMore {
   margin-top: 10px;
-  color: #ff6347;
+  color: var(--accent-cyan);
 }
 
 .readMore span {
-  color: #ff6347;
+  color: var(--accent-cyan);
   font-size: 14px;
+}
+
+.readMore svg {
+  color: var(--accent-cyan);
 }
 
 .readMore svg {
@@ -1070,32 +1154,37 @@ button::-moz-focus-inner {
   margin-bottom: 18px;
   width: 100%;
   color: var(--nav-link);
-  background-color: var(--messages-box-bg);
-  border: 1px solid transparent;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
   padding: 14px 14px;
-  border-radius: 5px;
-  transition: box-shadow 0.3s;
+  border-radius: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .messages-box .row .col-12 input[type="text"]:focus,
 .messages-box .row .col-12 input[type="email"]:focus,
 .messages-box .row .col-12 textarea:focus {
   outline: none;
-  box-shadow: 0 0 5px rgb(128, 189, 255);
-  border-color: #80bdff;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
 }
 
 form .col-12 button[type="submit"] {
-  color: white;
-  background-color: var(--change-color);
+  color: #0a0a14;
+  background: var(--accent-gradient);
   border: none;
-  padding: 13px 22px;
+  padding: 13px 28px;
+  font-weight: 600;
   border-radius: 50px;
-  transition: all 0.3s;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
 form .col-12 button[type="submit"]:hover {
-  background-color: var(--focus-color);
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.4);
+  transform: translateY(-2px);
+  filter: brightness(1.05);
 }
 
 .adjustment {
@@ -1107,7 +1196,7 @@ form .col-12 button[type="submit"]:hover {
 footer.sectionD {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: var(--footer-bg);
+  background: transparent;
 }
 
 footer .row .col-12:first-child {

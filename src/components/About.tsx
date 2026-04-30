@@ -60,7 +60,7 @@ export default function About() {
 								</li>
 							</ul>
 							<a target="_blank" href={RESUME_LINK} download>
-								<button>
+								<button className="btn-gradient">
 									View Resume{" "}
 									<FontAwesomeIcon className="ms-1" icon={faFileContract} />
 								</button>
@@ -73,8 +73,9 @@ export default function About() {
 								{workingHistory.map((history: IHistory) => (
 									<div
 										key={history.title}
-										className="col-lg-3 col-md-6 col-6 py-4"
+										className="col-lg-3 col-md-6 col-6 py-3"
 									>
+										<div className="glass-card stat-tile p-3 h-100 d-flex flex-column align-items-center justify-content-center">
 										<p className="count_icons">
 											<FontAwesomeIcon icon={history.icon} />
 										</p>
@@ -86,6 +87,7 @@ export default function About() {
 											/>
 										</h2>
 										<h3 className="mb-0">{history.title}</h3>
+										</div>
 									</div>
 								))}
 							</div>

@@ -90,7 +90,8 @@ const ProjectCard = ({
 					{tags.map((tag: ITag) => (
 						<p
 							key={`${name}-${tag.name}`}
-							style={{ fontSize: "14px", color: tag.color }}
+							className="glass-mini mb-0"
+							style={{ fontSize: "13px", color: tag.color }}
 						>
 							#{tag.name}
 						</p>

@@ -41,8 +41,8 @@ export default function Reviews() {
 						>
 							<div>
 								{testimonials.map((review: IReview, index: number) => (
-									<SwiperSlide>
-										<SingleReview key={index} review={review} />
+									<SwiperSlide key={index}>
+										<SingleReview review={review} />
 									</SwiperSlide>
 								))}
 							</div>

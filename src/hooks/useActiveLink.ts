@@ -5,7 +5,8 @@ import { useInView } from "react-intersection-observer";
 export function useActiveLink(id: string) {
 	const { handleActiveLink } = useContext(ThemeContext);
 	const { ref, inView } = useInView({
-		threshold: 0.2,
+		rootMargin: "-50% 0px -49.9% 0px",
+		threshold: 0,
 	});
 
 	useEffect(() => {

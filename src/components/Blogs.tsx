@@ -66,10 +66,7 @@ export default function Blogs() {
 												<span className="txt-btn" data-state="close">
 													Read more
 												</span>
-												<FontAwesomeIcon
-													color="#ff6347"
-													icon={faChevronRight}
-												/>
+												<FontAwesomeIcon icon={faChevronRight} />
 											</a>
 										</div>
 									</div>
