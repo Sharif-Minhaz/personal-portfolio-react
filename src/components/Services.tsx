@@ -19,7 +19,7 @@ export default function Services() {
 				<div className="row padding">
 					<Heading baseTitle="SERVICES" title="What I Do" />
 					<div className="col-md-6 col-12">
-						<div className="service-side-1">
+						<div className="service-side-1 mb-md-0 mb-4">
 							{services.slice(0, 3).map((service: IService, index: number) => (
 								<motion.div
 									initial={{ opacity: 0, y: -150 }}

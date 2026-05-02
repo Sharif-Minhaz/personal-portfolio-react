@@ -49,7 +49,7 @@ export default function ContactForm() {
 	};
 
 	return (
-		<div className="col-md-8 col-12">
+		<div className="col-lg-8 col-md-12 col-12">
 			<div className="messages-box glass-card p-4">
 				<h3>Describe Your Needs</h3>
 				<form className="row" onSubmit={handleSubmit}>

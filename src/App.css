@@ -216,7 +216,7 @@
   display: flex;
   align-items: center;
   font-size: 15.5px;
-  padding: 9px 12px;
+  padding: 7px 12px;
   margin-bottom: 4px;
   border-radius: 10px;
   transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
@@ -302,17 +302,15 @@ main {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(
-    600px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(34, 211, 238, 0.18),
-    rgba(168, 85, 247, 0.1) 30%,
-    transparent 60%
-  );
+  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(34, 211, 238, 0.18),
+      rgba(168, 85, 247, 0.1) 30%,
+      transparent 60%);
   mix-blend-mode: screen;
   transition: background 200ms ease;
 }
 
-.transparent-bg > .row {
+.transparent-bg>.row {
   position: relative;
   z-index: 3;
 }
@@ -658,13 +656,13 @@ body.dark .sectionD {
   margin-bottom: 6px;
 }
 
-.count-base div {
+/* .count-base div {
   border-right: none;
-}
+} */
 
-.count-base div:last-child {
+/* .count-base div:last-child {
   border-right: none;
-}
+} */
 
 .count-base div p svg {
   font-size: 42px;
@@ -692,12 +690,6 @@ body.dark .sectionD {
 }
 
 /* -------------services------------ */
-.service-side-1,
-.service-side-2 {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .service-div {
   display: flex;
   flex-direction: row;
@@ -1284,7 +1276,7 @@ button::-moz-focus-inner {
 }
 
 .dark .social-media-2 .tilt-div {
-  background-color: #212528
+  background-color: #1a3143
 }
 
 .social-media-2 .tilt-div img {
@@ -1318,7 +1310,6 @@ button::-moz-focus-inner {
   color: var(--extra-light);
   margin-bottom: 29px;
   font-size: 17px;
-  padding-right: 85px;
 }
 
 .contact-info {

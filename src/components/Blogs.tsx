@@ -31,7 +31,7 @@ export default function Blogs() {
 							viewport={{ once: true }}
 							transition={{ duration: (index + 1) * 0.7 }}
 							key={blog.id}
-							className="col-md-6 col-12"
+							className="col-md-6 col-12 mb-md-0 mb-4"
 						>
 							<div className="blog-container">
 								<div className="blog-img">

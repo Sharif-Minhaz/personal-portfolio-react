@@ -21,7 +21,7 @@ export default function Contact() {
 			<div className="container-fluid">
 				<div className="row padding">
 					<Heading baseTitle="CONTACT" title="Get in Touch" />
-					<div className="col-md-4 col-12 h-100">
+					<div className="col-lg-4 col-md-12 col-12 h-100 mb-lg-0 mb-4">
 						<div className="contact-container glass-card p-4">
 							<h3>Address</h3>
 							<div className="address">{basicInfo.address}</div>

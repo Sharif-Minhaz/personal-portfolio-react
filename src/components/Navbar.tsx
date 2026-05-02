@@ -146,6 +146,7 @@ export default function Navbar() {
 							key={link.id}
 							className={`nav-link u-link ${active === link.id ? "active-link" : ""}`}
 							href={link.id}
+							onClick={()=>setOpen(false)}
 						>
 							<span>
 								<FontAwesomeIcon icon={link.icon} />

@@ -59,6 +59,8 @@ import {
 	chatVerse,
 	bunShop,
 	nestjs,
+	salePos,
+	ecomPos,
 	electron,
 	rbs,
 	diu,
@@ -124,7 +126,7 @@ export const basicInfo = {
 export const workingHistory = [
 	{
 		title: "Experience",
-		count: "1",
+		count: "2",
 		icon: faBusinessTime,
 	},
 	{
@@ -139,7 +141,7 @@ export const workingHistory = [
 	},
 	{
 		title: "Company",
-		count: "1",
+		count: "2",
 		icon: faBuilding,
 	},
 ];
@@ -185,11 +187,11 @@ export const services = [
 
 export const educations = [
 	{
-		title: "Science",
-		institute: "K.M. Latif Institution",
-		timeSpan: "2012 - 2017",
+		title: "FSIT",
+		institute: "Daffodil International University",
+		timeSpan: "2020 - 2024",
 		description:
-			"K.M. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
+			"Being established in 2002, Daffodil International University has become a prominent private university in Bangladesh, fostering education and innovation for more than 20000 students.",
 	},
 	{
 		title: "Science",
@@ -199,11 +201,11 @@ export const educations = [
 			"Residential Laboratory College, since its establishment in 2009, has been playing distinct and unique role for the dissemination of modern, dynamic and quality.",
 	},
 	{
-		title: "FSIT",
-		institute: "Daffodil International University",
-		timeSpan: "2020 - 2024",
+		title: "Science",
+		institute: "K.M. Latif Institution",
+		timeSpan: "2012 - 2017",
 		description:
-			"Being established in 2002, Daffodil International University has become a prominent private university in Bangladesh, fostering education and innovation for more than 20000 students.",
+			"K.M. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
 	},
 ];
 
@@ -363,7 +365,7 @@ export const experiences = [
 		],
 	},
 	{
-		title: "Full Stack Developer",
+		title: "Full Stack Developer (Internship)",
 		company_name: "Int. Affairs Office, DIU",
 		icon: diu,
 		iconBg: "#E6DEDD",
@@ -434,28 +436,43 @@ export const testimonials = [
 	},
 ];
 
+export const TECH_COLORS = {
+	NEXTJS: { name: "nextjs", color: "#a9a9a9" },
+	REACT: { name: "react", color: "#5ed3f3" },
+	TAILWIND: { name: "tailwind", color: "#66dfcf" },
+	TYPESCRIPT: { name: "typescript", color: "#00a2ff" },
+	MONGODB: { name: "mongodb", color: "#12a54f" },
+	REDUX: { name: "redux", color: "#7248b6" },
+	EXPRESS: { name: "express", color: "#7e7e7e" },
+	FRAMER_MOTION: { name: "framer-motion", color: "hotpink" },
+	EJS: { name: "ejs", color: "#8ba438" },
+	SCSS: { name: "scss", color: "#c66394" },
+	ASTRO: { name: "astro", color: "#ff6600" },
+	FIREBASE: { name: "firebase", color: "#ffb700" },
+	HONOJS: { name: "honojs", color: "#ff9958" },
+	POSTGRESQL: { name: "postgresql", color: "#1972b6" },
+	BUN: { name: "bun", color: "#f3e9d8" },
+	HTML: { name: "html", color: "#dd4b25" },
+	CSS: { name: "css", color: "#006ab2" },
+	JS: { name: "js", color: "#efd81d" },
+	JQUERY: { name: "jQuery", color: "#0865a7" },
+	BOOTSTRAP: { name: "bootstrap", color: "#efa3d6" },
+	SOCKET_IO: { name: "socket.io", color: "#adadad" },
+	ELECTRON: { name: "electron", color: "#dd4b25" },
+	MANTINE: { name: "mantine", color: "#006ab2" },
+	ELECTRON_FORGE: { name: "electron-forge", color: "#efa3d6" },
+} as const;
+
 export const projects = [
 	{
 		name: "LDPAN",
 		description:
 			"A localized web-based platform that serves as a disaster preparedness and assistance network.",
 		tags: [
-			{
-				name: "nextjs",
-				color: "#a9a9a9",
-			},
-			{
-				name: "tailwind",
-				color: "#66dfcf",
-			},
-			{
-				name: "typescript",
-				color: "#00a2ff",
-			},
-			{
-				name: "mongodb",
-				color: "#12a54f",
-			},
+			{ ...TECH_COLORS.NEXTJS },
+			{ ...TECH_COLORS.TAILWIND },
+			{ ...TECH_COLORS.TYPESCRIPT },
+			{ ...TECH_COLORS.MONGODB },
 		],
 		image: ldpan,
 		source_code_link:
@@ -467,18 +484,9 @@ export const projects = [
 		description:
 			"The project aims to educate and inspire the next generation of space enthusiasts through an engaging missions-based game.",
 		tags: [
-			{
-				name: "react",
-				color: "#5ed3f3",
-			},
-			{
-				name: "framer-motion",
-				color: "hotpink",
-			},
-			{
-				name: "tailwind",
-				color: "#66dfcf",
-			},
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.FRAMER_MOTION },
+			{ ...TECH_COLORS.TAILWIND },
 		],
 		image: titan,
 		source_code_link: "https://github.com/Sharif-Minhaz/Titan-Settlers",
@@ -488,20 +496,7 @@ export const projects = [
 		name: "MediAid",
 		description:
 			"A medicine donation platform, where people can donate their unused medicine and can get medicine by applying.",
-		tags: [
-			{
-				name: "react",
-				color: "#5ed3f3",
-			},
-			{
-				name: "redux",
-				color: "#7248b6",
-			},
-			{
-				name: "express",
-				color: "#7e7e7e",
-			},
-		],
+		tags: [{ ...TECH_COLORS.REACT }, { ...TECH_COLORS.REDUX }, { ...TECH_COLORS.EXPRESS }],
 		image: mediaid,
 		source_code_link: "https://github.com/Sharif-Minhaz/MediAid",
 		live_link: "https://mediaid-online-platform.netlify.app/",
@@ -511,18 +506,10 @@ export const projects = [
 		description:
 			"A coffee shop management system with two category of user availability. Focused on the backend system most.",
 		tags: [
-			{
-				name: "ejs",
-				color: "#8ba438",
-			},
-			{
-				name: "mongodb",
-				color: "#12a54f",
-			},
-			{
-				name: "scss",
-				color: "#c66394",
-			},
+			{ ...TECH_COLORS.EJS },
+			{ ...TECH_COLORS.MONGODB },
+			{ ...TECH_COLORS.EXPRESS },
+			{ ...TECH_COLORS.SCSS },
 		],
 		image: coffee,
 		source_code_link: "https://github.com/Sharif-Minhaz/Cafe-Vista",
@@ -533,18 +520,9 @@ export const projects = [
 		description:
 			"DEV Inertia is a blog publishing platform for publishing .md, .mdx or general purpose blogs.",
 		tags: [
-			{
-				name: "astro",
-				color: "#ff6600",
-			},
-			{
-				name: "tailwind",
-				color: "#66dfcf",
-			},
-			{
-				name: "typescript",
-				color: "#00a2ff",
-			},
+			{ ...TECH_COLORS.ASTRO },
+			{ ...TECH_COLORS.TAILWIND },
+			{ ...TECH_COLORS.TYPESCRIPT },
 		],
 		image: devInertia,
 		source_code_link: "https://github.com/Sharif-Minhaz/DevInertia-Blog",
@@ -554,20 +532,7 @@ export const projects = [
 		name: "Treker",
 		description:
 			"Tour management app using mern stack developed for smoother user experience througout the booking to ending of the tour.",
-		tags: [
-			{
-				name: "firebase",
-				color: "#ffb700",
-			},
-			{
-				name: "express",
-				color: "#7e7e7e",
-			},
-			{
-				name: "react",
-				color: "#5ed3f3",
-			},
-		],
+		tags: [{ ...TECH_COLORS.FIREBASE }, { ...TECH_COLORS.EXPRESS }, { ...TECH_COLORS.REACT }],
 		image: treker,
 		source_code_link: "https://github.com/Sharif-Minhaz/Treker",
 		live_link: "https://travel-assistant-v1.netlify.app/",
@@ -577,22 +542,10 @@ export const projects = [
 		description:
 			"Bun shop is a full-stack bun selling platform with online payment system (sslcommerz) integrated for order management.",
 		tags: [
-			{
-				name: "honojs",
-				color: "#ff9958",
-			},
-			{
-				name: "nextjs",
-				color: "#a9a9a9",
-			},
-			{
-				name: "postgresql",
-				color: "#1972b6",
-			},
-			{
-				name: "bun",
-				color: "#f3e9d8",
-			},
+			{ ...TECH_COLORS.HONOJS },
+			{ ...TECH_COLORS.NEXTJS },
+			{ ...TECH_COLORS.POSTGRESQL },
+			{ ...TECH_COLORS.BUN },
 		],
 		image: bunShop,
 		source_code_link: "https://github.com/Sharif-Minhaz/next-bun-shop-frontend",
@@ -602,22 +555,10 @@ export const projects = [
 		name: "Admin Dashboard",
 		description: "A html Admin-dashboard template created with html, css. js and jquery.",
 		tags: [
-			{
-				name: "html",
-				color: "#dd4b25",
-			},
-			{
-				name: "css",
-				color: "#006ab2",
-			},
-			{
-				name: "jQuery",
-				color: "#0865a7",
-			},
-			{
-				name: "bootstrap",
-				color: "#efa3d6",
-			},
+			{ ...TECH_COLORS.HTML },
+			{ ...TECH_COLORS.CSS },
+			{ ...TECH_COLORS.JS },
+			{ ...TECH_COLORS.BOOTSTRAP },
 		],
 		image: admin,
 		source_code_link: "https://github.com/Sharif-Minhaz/Admin-Dashboard",
@@ -628,22 +569,10 @@ export const projects = [
 		description:
 			"A modern, secure chat app for seamless communication in real-time using socket.io.",
 		tags: [
-			{
-				name: "express",
-				color: "#7e7e7e",
-			},
-			{
-				name: "react",
-				color: "#5ed3f3",
-			},
-			{
-				name: "socket.io",
-				color: "#adadad",
-			},
-			{
-				name: "mongodb",
-				color: "#12a54f",
-			},
+			{ ...TECH_COLORS.EXPRESS },
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.SOCKET_IO },
+			{ ...TECH_COLORS.MONGODB },
 		],
 		image: chatVerse,
 		source_code_link: "https://github.com/Sharif-Minhaz/ChatVerse",
@@ -653,26 +582,38 @@ export const projects = [
 		name: "E-Commerce Template",
 		description: "E-commerce web project for managing products orders and shopping cart.",
 		tags: [
-			{
-				name: "html",
-				color: "#dd4b25",
-			},
-			{
-				name: "css",
-				color: "#006ab2",
-			},
-			{
-				name: "js",
-				color: "#efd81d",
-			},
-			{
-				name: "bootstrap",
-				color: "#efa3d6",
-			},
+			{ ...TECH_COLORS.HTML },
+			{ ...TECH_COLORS.CSS },
+			{ ...TECH_COLORS.JS },
+			{ ...TECH_COLORS.BOOTSTRAP },
 		],
 		image: eCom,
 		source_code_link: "https://github.com/Sharif-Minhaz/E-Commerce-website",
 		live_link: "https://sharif-minhaz.github.io/E-Commerce-website/",
+	},
+	{
+		name: "E-Com Guard",
+		description:
+			"A web based ecommerce and POS system that provides a user-friendly interface for managing sales and inventory.",
+		tags: [
+			{ ...TECH_COLORS.NEXTJS },
+			{ ...TECH_COLORS.TAILWIND },
+			{ ...TECH_COLORS.MONGODB },
+			{ ...TECH_COLORS.TYPESCRIPT },
+		],
+		image: ecomPos,
+	},
+	{
+		name: "POS System",
+		description:
+			"A cross-platform POS system built with Electron Forge that supports both offline (SQLite-based) and online (API-driven) operations.",
+		tags: [
+			{ ...TECH_COLORS.ELECTRON },
+			{ ...TECH_COLORS.MANTINE },
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.ELECTRON_FORGE },
+		],
+		image: salePos,
 	},
 ];
 

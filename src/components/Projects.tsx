@@ -19,8 +19,8 @@ interface IProject {
 	description: string;
 	tags: ITag[];
 	image: string;
-	source_code_link: string;
-	live_link: string;
+	source_code_link?: string;
+	live_link?: string;
 }
 
 const ProjectCard = ({
@@ -50,27 +50,31 @@ const ProjectCard = ({
 				<div className="tilt-body">
 					<img src={image} className="project-image" alt="project_image" />
 
-					<div className="actions">
-						<div
-							onClick={() => window.open(source_code_link, "_blank")}
-							className="black-gradient github"
-						>
-							<img src={github} alt="source code" />
+					{source_code_link && (
+						<div className="actions">
+							<div
+								onClick={() => window.open(source_code_link, "_blank")}
+								className="black-gradient github"
+							>
+								<img src={github} alt="source code" />
+							</div>
 						</div>
-					</div>
+					)}
 
-					<div className="actions actions-play">
-						<div
-							onClick={() => window.open(live_link, "_blank")}
-							className="black-gradient play"
-						>
-							<img
-								src={play}
-								alt="source code"
-								style={{ width: "35%", height: "35%", objectFit: "contain" }}
-							/>
+					{live_link && (
+						<div className="actions actions-play">
+							<div
+								onClick={() => window.open(live_link, "_blank")}
+								className="black-gradient play"
+							>
+								<img
+									src={play}
+									alt="source code"
+									style={{ width: "35%", height: "35%", objectFit: "contain" }}
+								/>
+							</div>
 						</div>
-					</div>
+					)}
 				</div>
 
 				<div className="mt-3 tilt-text-container">
