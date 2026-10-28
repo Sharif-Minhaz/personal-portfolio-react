@@ -13,10 +13,15 @@ export default function LegalPage({ page }: { page: keyof typeof legalPages }) {
 		window.scrollTo(0, 0);
 		const prevTitle = document.title;
 		document.title = `${title} | ${basicInfo.name}`;
+		// index.html canonical points to home; without this Google treats the page as a duplicate
+		const canonical = document.querySelector('link[rel="canonical"]');
+		const prevCanonical = canonical?.getAttribute("href");
+		canonical?.setAttribute("href", `https://www.minhaz.bond/${page}`);
 		return () => {
 			document.title = prevTitle;
+			if (prevCanonical) canonical?.setAttribute("href", prevCanonical);
 		};
-	}, [title]);
+	}, [title, page]);
 
 	return (
 		<main className="legal-page">
