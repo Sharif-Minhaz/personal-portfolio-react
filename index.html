@@ -34,13 +34,24 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "ProfilePage",
+        "@id": "https://www.minhaz.bond/#profilepage",
+        "url": "https://www.minhaz.bond/",
+        "name": "Sharif Md. Minhaz | Full-Stack Web Developer",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://www.minhaz.bond/#website" },
+        "mainEntity": { "@id": "https://www.minhaz.bond/#person" }
+      },
+      {
         "@type": "Person",
         "@id": "https://www.minhaz.bond/#person",
         "name": "Sharif Md. Minhaz",
-        "alternateName": ["Minhaz Rabbi", "Sharif Minhaz", "Md. Minhaz"],
+        "alternateName": ["Sharif Minhaz", "Md. Minhaz"],
         "url": "https://www.minhaz.bond/",
         "image": "https://www.minhaz.bond/sharif-md-minhaz-v2.webp",
-        "jobTitle": "Full-Stack Web Developer",
+        "jobTitle": "Jr. Software Engineer",
+        "worksFor": { "@type": "Organization", "name": "Right Brain Solution Ltd." },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Daffodil International University" },
         "email": "mailto:smmr.career@gmail.com",
         "address": {
           "@type": "PostalAddress",
@@ -61,6 +72,7 @@
         "@id": "https://www.minhaz.bond/#website",
         "url": "https://www.minhaz.bond/",
         "name": "Sharif Md. Minhaz",
+        "inLanguage": "en",
         "publisher": { "@id": "https://www.minhaz.bond/#person" }
       }
     ]
@@ -72,8 +84,6 @@
   <div id="root"></div>
   <noscript>Sharif Md. Minhaz — full-stack web developer (TypeScript, React, Node.js, Next.js) based in Pirojpur, Bangladesh. Contact: smmr.career@gmail.com</noscript>
   <script type="module" src="/src/main.tsx"></script>
-  <script type="module" src="/node_modules/@popperjs/core/dist/esm/popper.js"></script>
-  <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@ export default function Home() {
 
 	useEffect(() => {
 		const typed = new Typed(el.current, {
-			strings: ["I'm Sharif Md. Minhaz.", "I'm a Web Developer.", "I'm a Quick Learner."],
+			strings: ["Full-Stack Developer.", "Web Developer.", "Quick Learner."],
 			typeSpeed: 80,
 			backDelay: 1200,
 			backSpeed: 50,
@@ -95,19 +95,17 @@ export default function Home() {
 								<span className="status-dot" />
 								<span>Available for Work</span>
 							</div>
-							<div className="wlc-note">
+							<h1 className="wlc-note">
 								<span id="pin" className="text-gradient">
-									Welcome
+									{basicInfo.name}
 								</span>
-							</div>
+							</h1>
 							<div className="type">
-								{/* typed.js text is invisible until JS runs; give crawlers a real h1 */}
-									<h1 className="visually-hidden">{basicInfo.name} - Full-Stack Web Developer</h1>
-									<h2 className="typed_js" ref={el}></h2>
+								<h2 className="typed_js" ref={el}></h2>
 							</div>
 							<div className="location">
 								<span className="main-loc">
-									Based in Pirojpur, Barishal,
+									Based in Pirojpur, Barishal,{" "}
 									<span className="full-loc">Bangladesh.</span>
 									<span className="short-loc">BD.</span>
 								</span>

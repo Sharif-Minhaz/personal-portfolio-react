@@ -64,6 +64,7 @@ import {
 	electron,
 	rbs,
 	diu,
+	arfinHayet,
 } from "../assets";
 
 export const GITHUB_LINK = "https://github.com/Sharif-Minhaz";
@@ -382,57 +383,13 @@ export const experiences = [
 export const testimonials = [
 	{
 		testimonial:
-			"I thought it was impossible to make a website as beautiful as our product, but Minhaz proved me wrong.",
-		name: "Kelly Kennedy",
-		designation: "CFO",
-		star: 5,
-		company: "Acme Co",
-		image: "https://randomuser.me/api/portraits/men/4.jpg",
-	},
-	{
-		testimonial:
-			"I've never met a web developer who truly cares about their clients' success like Minhaz does. Like it very much",
-		name: "Chris Brown",
-		designation: "COO",
-		company: "DEF Corp",
-		star: 5,
-		image: "https://randomuser.me/api/portraits/men/5.jpg",
-	},
-	{
-		testimonial:
-			"After Minhaz optimized our website, our traffic increased by 50%. We can't thank them enough!",
-		name: "Carl Coleman",
-		designation: "CTO",
-		star: 5,
-		company: "456 Enterprises",
-		image: "https://randomuser.me/api/portraits/men/6.jpg",
-	},
-	{
-		testimonial:
-			"Job done perfectly before the deadline. Code was optimized and scalable too. We will work soon.",
-		name: "Harry Kane",
-		designation: "CEO",
-		star: 5,
-		company: "CoreDamn Enterprises",
-		image: "https://randomuser.me/api/portraits/men/7.jpg",
-	},
-	{
-		testimonial:
-			"Minhaz's attention to detail and dedication to delivering high-quality work is unparalleled. Highly recommend!",
-		name: "Emily Johnson",
-		designation: "CTO",
-		star: 5,
-		company: "GHI Solutions",
-		image: "https://randomuser.me/api/portraits/men/8.jpg",
-	},
-	{
-		testimonial:
-			"Working with Minhaz was a pleasure from start to finish. His expertise and professionalism are commendable.",
-		name: "Michael Smith",
-		designation: "CEO",
-		company: "JKL Enterprises",
-		star: 5,
-		image: "https://randomuser.me/api/portraits/men/9.jpg",
+			"Minhaz is a great developer to work with. We are currently working on projects together and have a great understanding. He handles technical difficulties very efficiently, and I really enjoy working with him.",
+		name: "Arfin Hayet",
+		designation: "Senior Software Engineer",
+		company: "Noor AI",
+		relation: "Worked with Minhaz on the same team · February 9, 2026",
+		image: arfinHayet,
+		source: "https://www.linkedin.com/in/minhaz-sharif/details/recommendations/",
 	},
 ];
 

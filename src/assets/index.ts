@@ -1,5 +1,6 @@
 import github from "./images/github.png";
 import play from "./images/play.png";
+import arfinHayet from "./images/arfin-hayet.webp";
 
 import css from "./tech/css.png";
 import next from "./tech/next-js.png";
@@ -82,4 +83,5 @@ export {
 	nestjs,
 	electron,
 	ecomPos,
+	arfinHayet,
 };
