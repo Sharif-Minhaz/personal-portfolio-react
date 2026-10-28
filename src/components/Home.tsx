@@ -3,6 +3,7 @@ import Typed from "typed.js";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { basicInfo } from "../constants";
 
 export default function Home() {
 	const el = useRef(null);
@@ -100,7 +101,9 @@ export default function Home() {
 								</span>
 							</div>
 							<div className="type">
-								<h2 className="typed_js" ref={el}></h2>
+								{/* typed.js text is invisible until JS runs; give crawlers a real h1 */}
+									<h1 className="visually-hidden">{basicInfo.name} - Full-Stack Web Developer</h1>
+									<h2 className="typed_js" ref={el}></h2>
 							</div>
 							<div className="location">
 								<span className="main-loc">
