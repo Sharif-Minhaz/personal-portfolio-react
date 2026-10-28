@@ -81,6 +81,8 @@
 </head>
 
 <body id="mainBase">
+  <!-- prerendered HTML is visible before React loads; apply the saved theme first to avoid a light-mode flash -->
+  <script>try { if (localStorage.getItem("theme") !== "light") document.body.classList.add("dark"); } catch (e) { document.body.classList.add("dark"); }</script>
   <div id="root"></div>
   <noscript>Sharif Md. Minhaz — full-stack web developer (TypeScript, React, Node.js, Next.js) based in Pirojpur, Bangladesh. Contact: smmr.career@gmail.com</noscript>
   <script type="module" src="/src/main.tsx"></script>
