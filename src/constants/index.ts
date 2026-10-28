@@ -312,7 +312,7 @@ export const socialLinks = [
 	{
 		id: "linked-in",
 		title: "Linked In",
-		link: "https://www.linkedin.com/in/minhaz-rabbi-614724205/",
+		link: "https://www.linkedin.com/in/minhaz-sharif",
 		icon: "/social/linkedin.svg",
 	},
 	{
@@ -345,7 +345,7 @@ export const sidebarSocials = [
 	{
 		id: "linkedin-link-nav",
 		title: "linkedin",
-		link: "https://www.linkedin.com/in/minhaz-rabbi-614724205/",
+		link: "https://www.linkedin.com/in/minhaz-sharif",
 		icon: faLinkedin,
 	},
 ];

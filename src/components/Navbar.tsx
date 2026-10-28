@@ -72,6 +72,8 @@ export default function Navbar() {
 								key={social.title}
 								href={social.link}
 								title={social.title}
+								target="_blank"
+								rel="noopener noreferrer"
 							>
 								<FontAwesomeIcon icon={social.icon} />
 							</motion.a>
@@ -106,6 +108,8 @@ export default function Navbar() {
 									key={social.id}
 									id={social.id}
 									href={social.link}
+									target="_blank"
+									rel="noopener noreferrer"
 								>
 									<span>
 										<FontAwesomeIcon
