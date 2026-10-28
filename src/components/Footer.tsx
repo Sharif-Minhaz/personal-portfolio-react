@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
 	return (
 		<footer className="sectionD container-fluid padding glass-shell">
@@ -16,13 +18,13 @@ export default function Footer() {
 					All Rights Reserved.
 				</div>
 				<div className="col-md-6 col-12 text-end">
-					<a href="#" title="Terms & Policy">
+					<Link to="/terms" title="Terms & Policy">
 						Terms & Policy{" "}
-					</a>
+					</Link>
 					<span>|</span>
-					<a href="#" title="Disclaimer">
+					<Link to="/disclaimer" title="Disclaimer">
 						Disclaimer
-					</a>
+					</Link>
 				</div>
 			</div>
 		</footer>

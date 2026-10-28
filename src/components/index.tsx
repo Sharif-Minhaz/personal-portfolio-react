@@ -15,6 +15,7 @@ import Reviews from "./Reviews";
 import Blogs from "./Blogs";
 import Contact from "./Contact";
 import ContactForm from "./ContactForm";
+import LegalPage from "./LegalPage";
 
 export {
 	Routers,
@@ -34,4 +35,5 @@ export {
 	Blogs,
 	Contact,
 	ContactForm,
+	LegalPage,
 };

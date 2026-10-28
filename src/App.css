@@ -1854,3 +1854,30 @@ footer .row .text-end a:hover {
     align-items: center;
   }
 }
+/* --------------------Legal pages----------------- */
+.legal-page {
+  margin-left: 0;
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.legal-content {
+  padding: 2rem;
+  line-height: 1.7;
+}
+
+.legal-content h3 {
+  font-size: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.legal-updated {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}

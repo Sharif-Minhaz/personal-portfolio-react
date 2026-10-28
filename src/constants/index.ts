@@ -635,3 +635,131 @@ export const blogs = [
 		body: "In the realm of web development, creating robust and efficient RESTful APIs is essential for building scalable and interoperable applications. With the rise in demand for dynamic web services, developers are turning to lightweight frameworks like Flask to streamline the development process and deliver powerful APIs with minimal overhead. In this guide, we’ll explore how to leverage Python Flask to build RESTful APIs that meet the needs of modern web applications.",
 	},
 ];
+
+const LEGAL_UPDATED = "October 28, 2026";
+
+export const legalPages = {
+	terms: {
+		title: "Terms & Policy",
+		updated: LEGAL_UPDATED,
+		sections: [
+			{
+				heading: "About This Website",
+				body: [
+					`This website (minhaz.bond) is the personal portfolio of ${basicInfo.name}, a web developer based in ${basicInfo.address}. By using this website you agree to these terms. If you do not agree, please do not use the site.`,
+				],
+			},
+			{
+				heading: "Use of the Website",
+				body: [
+					"You may browse, read and share links to this website for personal and non-commercial purposes.",
+					"You may not copy, republish or resell the design, source code, images, resume or written content of this website as your own without written permission.",
+					"You may not attempt to disrupt the website, abuse the contact form, or send spam or malicious content through it.",
+				],
+			},
+			{
+				heading: "Intellectual Property",
+				body: [
+					`Unless stated otherwise, the content, design and code of this website are © 2021-${new Date().getFullYear()} ${basicInfo.name}. All rights reserved.`,
+					"Logos, brand names and trademarks of technologies, companies and clients shown on this website belong to their respective owners and are used only to describe skills, tools and past work.",
+				],
+			},
+			{
+				heading: "Information I Collect",
+				body: [
+					"This website does not require an account and does not use advertising or analytics tracking cookies.",
+					"When you use the contact form, the name, email address and message you enter are sent to my email inbox through EmailJS, a third-party email delivery service. I use this information only to reply to you and to discuss possible work. I do not sell or share it for marketing.",
+					"Your theme preference (light or dark mode) is saved in your browser's local storage so the site remembers your choice. It never leaves your device and you can clear it from your browser settings at any time.",
+					"The hosting provider may keep standard server logs (such as IP address, browser type and pages visited) for security and performance purposes.",
+				],
+			},
+			{
+				heading: "Third-Party Services and Links",
+				body: [
+					"This website links to external sites such as GitHub, LinkedIn, X (Twitter), Facebook, blog platforms and live project demos. Those sites have their own terms and privacy policies, and I am not responsible for their content or practices.",
+				],
+			},
+			{
+				heading: "Your Rights",
+				body: [
+					`You can ask me to see, correct or delete any message or personal information you sent through the contact form by emailing ${basicInfo.email}.`,
+				],
+			},
+			{
+				heading: "Services and Work Agreements",
+				body: [
+					"Services listed on this website are a general description of what I offer. Any paid work is governed by a separate agreement or proposal agreed between me and the client, which takes priority over these terms.",
+				],
+			},
+			{
+				heading: "Changes to These Terms",
+				body: [
+					'I may update these terms from time to time. The "Last updated" date at the top of this page shows when they were last changed. Continued use of the website means you accept the updated terms.',
+				],
+			},
+			{
+				heading: "Governing Law",
+				body: ["These terms are governed by the laws of Bangladesh."],
+			},
+			{
+				heading: "Contact",
+				body: [
+					`Questions about these terms? Email ${basicInfo.email} or call ${basicInfo.mobile1}.`,
+				],
+			},
+		],
+	},
+	disclaimer: {
+		title: "Disclaimer",
+		updated: LEGAL_UPDATED,
+		sections: [
+			{
+				heading: "General Information",
+				body: [
+					`The information on this website is provided by ${basicInfo.name} for general and informational purposes only. While I try to keep it accurate and up to date, I make no guarantees about its completeness, accuracy or reliability.`,
+				],
+			},
+			{
+				heading: "No Professional Advice",
+				body: [
+					"Blog posts, code samples and technical content on or linked from this website reflect my personal experience and opinions. They are not professional, legal or financial advice. Use any code or guidance at your own risk and test it before using it in production.",
+				],
+			},
+			{
+				heading: "Portfolio and Experience",
+				body: [
+					"Projects, experience, statistics (such as years of experience, finished projects and satisfied clients) and skills shown on this website describe my own work and are summarised for presentation. Some projects may have been built with teams, for clients, or as learning exercises.",
+					"Opinions expressed here are my own and do not represent the views of any current or past employer, client or organisation.",
+				],
+			},
+			{
+				heading: "Testimonials",
+				body: [
+					"Testimonials reflect the personal experiences of individual clients and colleagues. They do not guarantee that you will get the same results.",
+				],
+			},
+			{
+				heading: "External Links",
+				body: [
+					"This website contains links to third-party websites, live project demos and blog platforms. I do not control these sites and am not responsible for their content, availability or privacy practices. A link does not imply endorsement.",
+				],
+			},
+			{
+				heading: "Trademarks",
+				body: [
+					"All product names, logos and brands mentioned on this website are the property of their respective owners. Their use does not imply any affiliation with or endorsement by them.",
+				],
+			},
+			{
+				heading: "Limitation of Liability",
+				body: [
+					"I am not liable for any loss or damage arising from the use of this website or the information on it. Availability for work, as shown on this website, may change without notice.",
+				],
+			},
+			{
+				heading: "Contact",
+				body: [`If you have any questions about this disclaimer, email ${basicInfo.email}.`],
+			},
+		],
+	},
+};
