@@ -598,6 +598,8 @@ const LEGAL_UPDATED = "October 28, 2026";
 export const legalPages = {
 	terms: {
 		title: "Terms & Policy",
+		description:
+			"Read the terms and privacy details for using Sharif Md. Minhaz's personal portfolio website.",
 		updated: LEGAL_UPDATED,
 		sections: [
 			{
@@ -668,6 +670,8 @@ export const legalPages = {
 	},
 	disclaimer: {
 		title: "Disclaimer",
+		description:
+			"Review the accuracy, external links, and project information disclaimer for Sharif Md. Minhaz's portfolio.",
 		updated: LEGAL_UPDATED,
 		sections: [
 			{
@@ -715,7 +719,9 @@ export const legalPages = {
 			},
 			{
 				heading: "Contact",
-				body: [`If you have any questions about this disclaimer, email ${basicInfo.email}.`],
+				body: [
+					`If you have any questions about this disclaimer, email ${basicInfo.email}.`,
+				],
 			},
 		],
 	},

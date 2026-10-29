@@ -35,7 +35,7 @@ export default function Blogs() {
 						>
 							<div className="blog-container">
 								<div className="blog-img">
-									<img src={blog.cover} alt="blog1" />
+									<img src={blog.cover} alt={`Cover image for ${blog.title}`} />
 									<div className="float-text">
 										<p>{blog.title}</p>
 										<a target="_blank" href={blog.url}>

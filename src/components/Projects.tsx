@@ -48,7 +48,7 @@ const ProjectCard = ({
 				className="tilt-container"
 			>
 				<div className="tilt-body">
-					<img src={image} className="project-image" alt="project_image" />
+					<img src={image} className="project-image" alt={`${name} project screenshot`} />
 
 					{source_code_link && (
 						<div className="actions">
