@@ -64,6 +64,15 @@ for (const { url, file, title, description, project } of routes) {
 		html = replaceMeta(html, "name", "twitter:description", description);
 		html = replaceMeta(html, "name", "twitter:url", `${SITE}${url}`);
 		if (project) {
+			const projectImage = new URL(project.image, SITE).href;
+			html = replaceMeta(html, "property", "og:image", projectImage);
+			html = replaceMeta(
+				html,
+				"property",
+				"og:image:alt",
+				`${project.name} project screenshot`,
+			);
+			html = replaceMeta(html, "name", "twitter:image", projectImage);
 			const projectSchema = {
 				"@context": "https://schema.org",
 				"@graph": [
@@ -81,7 +90,7 @@ for (const { url, file, title, description, project } of routes) {
 						name: project.name,
 						description,
 						url: `${SITE}${url}`,
-						image: new URL(project.image, SITE).href,
+						image: projectImage,
 						creator: { "@type": "Person", name: basicInfo.name, url: SITE },
 						keywords: [project.category, ...project.tags.map((tag) => tag.name)].filter(
 							Boolean,
