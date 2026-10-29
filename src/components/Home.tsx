@@ -1,34 +1,41 @@
-import { useRef, useEffect, useState, MouseEvent } from "react";
-import Typed from "typed.js";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
+import { lazy, Suspense, useRef, useEffect, useState, MouseEvent } from "react";
 import { useActiveLink } from "../hooks/useActiveLink";
 import { basicInfo } from "../constants";
+
+const HeroParticles = lazy(() => import("./HeroParticles"));
 
 export default function Home() {
 	const el = useRef(null);
 	const sectionRef = useRef<HTMLElement | null>(null);
-	const [particlesReady, setParticlesReady] = useState(false);
+	const [showParticles, setShowParticles] = useState(false);
 
 	const { ref } = useActiveLink("#home");
 
 	useEffect(() => {
-		const typed = new Typed(el.current, {
-			strings: ["Full-Stack Developer.", "Web Developer.", "Quick Learner."],
-			typeSpeed: 80,
-			backDelay: 1200,
-			backSpeed: 50,
-			cursorChar: "|",
-			loop: true,
+		let typed: { destroy: () => void } | undefined;
+		let cancelled = false;
+
+		import("typed.js").then(({ default: Typed }) => {
+			if (cancelled || !el.current) return;
+			typed = new Typed(el.current, {
+				strings: ["Full-Stack Developer.", "Web Developer.", "Quick Learner."],
+				typeSpeed: 80,
+				backDelay: 1200,
+				backSpeed: 50,
+				cursorChar: "|",
+				loop: true,
+			});
 		});
 
-		return () => typed.destroy();
+		return () => {
+			cancelled = true;
+			typed?.destroy();
+		};
 	}, []);
 
 	useEffect(() => {
-		initParticlesEngine(async (engine) => {
-			await loadSlim(engine);
-		}).then(() => setParticlesReady(true));
+		const timer = window.setTimeout(() => setShowParticles(true), 1500);
+		return () => window.clearTimeout(timer);
 	}, []);
 
 	const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
@@ -47,45 +54,10 @@ export default function Home() {
 	return (
 		<section ref={setRefs} id="home" className="section-part" onMouseMove={handleMouseMove}>
 			<div className="container-fluid transparent-bg">
-				{particlesReady && (
-					<Particles
-						id="hero-particles"
-						className="hero-particles"
-						options={{
-							fullScreen: { enable: false },
-							background: { color: { value: "transparent" } },
-							fpsLimit: 60,
-							particles: {
-								number: { value: 90, density: { enable: true } },
-								color: { value: ["#22d3ee", "#a855f7"] },
-								opacity: { value: { min: 0.15, max: 0.55 } },
-								size: { value: { min: 1, max: 2.5 } },
-								move: {
-									enable: true,
-									speed: 0.6,
-									direction: "none",
-									random: true,
-									outModes: { default: "out" },
-								},
-								links: {
-									enable: true,
-									distance: 140,
-									color: "#22d3ee",
-									opacity: 0.18,
-									width: 1,
-								},
-							},
-							interactivity: {
-								events: {
-									onHover: { enable: true, mode: "grab" },
-								},
-								modes: {
-									grab: { distance: 160, links: { opacity: 0.45 } },
-								},
-							},
-							detectRetina: true,
-						}}
-					/>
+				{showParticles && (
+					<Suspense fallback={null}>
+						<HeroParticles />
+					</Suspense>
 				)}
 				<div className="hero-spotlight" aria-hidden="true" />
 				<div className="row">

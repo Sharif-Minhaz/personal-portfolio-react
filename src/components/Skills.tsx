@@ -29,6 +29,10 @@ export default function Skills() {
 									src={tech.icon}
 									alt={tech.name}
 									title={tech.name}
+									width={70}
+									height={70}
+									loading="lazy"
+									decoding="async"
 								/>
 							</motion.div>
 						))}

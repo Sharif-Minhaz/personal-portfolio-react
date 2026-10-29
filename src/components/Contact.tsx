@@ -62,6 +62,10 @@ export default function Contact() {
 													draggable={false}
 													src={link.icon}
 													alt={link.title}
+													width={28}
+													height={28}
+													loading="lazy"
+													decoding="async"
 												/>
 											</motion.div>
 										</Tilt>

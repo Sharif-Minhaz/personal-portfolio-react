@@ -35,7 +35,14 @@ export default function Blogs() {
 						>
 							<div className="blog-container">
 								<div className="blog-img">
-									<img src={blog.cover} alt={`Cover image for ${blog.title}`} />
+									<img
+										src={blog.cover}
+										alt={`Cover image for ${blog.title}`}
+										width={600}
+										height={300}
+										loading="lazy"
+										decoding="async"
+									/>
 									<div className="float-text">
 										<p>{blog.title}</p>
 										<a target="_blank" href={blog.url}>

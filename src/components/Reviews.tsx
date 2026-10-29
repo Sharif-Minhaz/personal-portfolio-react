@@ -59,7 +59,14 @@ function SingleReview({ review }: { review: IReview }) {
 	return (
 		<div className="clients-testimonial">
 			<div className="identity">
-				<img src={review.image} alt={review.name} />
+				<img
+					src={review.image}
+					alt={review.name}
+					width={65}
+					height={65}
+					loading="lazy"
+					decoding="async"
+				/>
 				<div className="address">
 					<div className="name">{review.name}</div>
 					<div className="profession">

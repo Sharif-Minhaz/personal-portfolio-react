@@ -9,7 +9,11 @@ export default function ColorChanger() {
 	return (
 		<div id="colors">
 			<div className="icon">
-				<button onClick={changeTheme}>
+				<button
+					type="button"
+					aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+					onClick={changeTheme}
+				>
 					{theme === "dark" ? (
 						<FontAwesomeIcon icon={faSun} />
 					) : (

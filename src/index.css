@@ -15,8 +15,8 @@ html body {
   --aside-color: #f8fcfe;
   --sectionL-bg: #f3f3f3;
   --sectionD-bg: #eaeaea;
-  --sectionL-heading: #e4e4e4;
-  --sectionD-heading: #dcdcdc;
+  --sectionL-heading: #737c84;
+  --sectionD-heading: #737c84;
   --silver-color: #505050;
   --box-icon: #ffffff;
   --extra-light: rgb(19 19 19 / 70%);
@@ -46,8 +46,8 @@ html body.dark {
   --aside-color: #111419;
   --sectionL-bg: #343A40;
   --sectionD-bg: #212528;
-  --sectionL-heading: #0000009e;
-  --sectionD-heading: #0000004d;
+  --sectionL-heading: #aeb8c2;
+  --sectionD-heading: #aeb8c2;
   --heading-color: #ffffff;
   --silver-color: #9a9da0;
   --extra-light: rgba(255, 255, 255, 0.7);

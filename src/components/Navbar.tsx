@@ -41,6 +41,8 @@ export default function Navbar() {
 								className="rounded-circle"
 								src={sharifMdMinhaz}
 								alt="Profile-picture"
+								width={180}
+								height={180}
 							/>
 						</motion.div>
 						<div className="name">{basicInfo.name}</div>
@@ -92,7 +94,8 @@ export default function Navbar() {
 							<img
 								src={sharifMdMinhaz}
 								className="rounded-circle"
-								width="40px"
+								width={40}
+								height={40}
 								alt="profile"
 							/>
 						</a>

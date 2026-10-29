@@ -24,19 +24,22 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
 				background: theme === "dark" ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.55)",
 				backdropFilter: "blur(16px) saturate(140%)",
 				WebkitBackdropFilter: "blur(16px) saturate(140%)",
-				border: theme === "dark"
-					? "1px solid rgba(255,255,255,0.08)"
-					: "1px solid rgba(15,23,42,0.08)",
+				border:
+					theme === "dark"
+						? "1px solid rgba(255,255,255,0.08)"
+						: "1px solid rgba(15,23,42,0.08)",
 				borderRadius: "16px",
-				boxShadow: theme === "dark"
-					? "0 8px 32px rgba(0,0,0,0.25)"
-					: "0 8px 32px rgba(15,23,42,0.08)",
+				boxShadow:
+					theme === "dark"
+						? "0 8px 32px rgba(0,0,0,0.25)"
+						: "0 8px 32px rgba(15,23,42,0.08)",
 				color: theme === "dark" ? "#e5e7eb" : "#0f172a",
 			}}
 			contentArrowStyle={{
-				borderRight: theme === "dark"
-					? "7px solid rgba(255,255,255,0.08)"
-					: "7px solid rgba(15,23,42,0.08)",
+				borderRight:
+					theme === "dark"
+						? "7px solid rgba(255,255,255,0.08)"
+						: "7px solid rgba(15,23,42,0.08)",
 			}}
 			date={experience.date}
 			iconStyle={{ background: experience.iconBg }}
@@ -45,13 +48,22 @@ const ExperienceCard = ({ experience }: { experience: IExperience }) => {
 					<img
 						src={experience.icon}
 						alt={experience.company_name}
+						width={70}
+						height={70}
+						loading="lazy"
+						decoding="async"
 						style={{ width: "60%", height: "60%", objectFit: "contain" }}
 					/>
 				</div>
 			}
 		>
 			<div>
-				<h3 className="fs-5 fw-bold" style={{ color: theme === "dark" ? "#fff" : "#0f172a" }}>{experience.title}</h3>
+				<h3
+					className="fs-5 fw-bold"
+					style={{ color: theme === "dark" ? "#fff" : "#0f172a" }}
+				>
+					{experience.title}
+				</h3>
 				<p className="company-name fs-5 fw-semibold" style={{ margin: 0 }}>
 					{experience.company_name}
 				</p>
