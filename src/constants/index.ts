@@ -420,11 +420,61 @@ export const TECH_COLORS = {
 	ELECTRON_FORGE: { name: "electron-forge", color: "#efa3d6" },
 } as const;
 
-export const projects = [
+export interface ProjectChallenge {
+	challenge: string;
+	solution: string;
+}
+
+export interface PortfolioProject {
+	slug: string;
+	name: string;
+	description: string;
+	overview: string;
+	features: string[];
+	engineeringHighlights?: string[];
+	challenges?: ProjectChallenge[];
+	tags: { name: string; color: string }[];
+	image: string;
+	source_code_link?: string;
+	live_link?: string;
+}
+
+export const projects: PortfolioProject[] = [
 	{
+		slug: "ldpan",
 		name: "LDPAN",
 		description:
 			"A localized web-based platform that serves as a disaster preparedness and assistance network.",
+		overview:
+			"LDPAN is a community-focused emergency preparedness concept built around a practical problem: people affected by disasters need timely information, clear safety guidance, and a way to coordinate local help. The platform brings residents, volunteers, and local authorities together so communities can find resources and organize support before and during an emergency.",
+		features: [
+			"Emergency alerts pair hazard updates with safety instructions to help people understand what action to take.",
+			"A resource map helps people locate shelters, medical facilities, relief centers, and emergency supply points.",
+			"Community and volunteer coordination gives local groups a shared place to offer and organize assistance.",
+			"Preparedness plans help households and communities think through actions before a disaster occurs.",
+			"Communication tools support information sharing between residents, volunteers, and local authorities.",
+			"Localized language support and downloadable guidance are intended to keep essential information accessible.",
+			"The repository describes data analysis of historical disaster information as a way to support future planning.",
+		],
+		engineeringHighlights: [
+			"The application is organized as a Next.js project with TypeScript, as reflected by its repository configuration and project stack.",
+			"The README frames the product around emergency communication and community-level resource coordination.",
+			"The feature set includes support for localized language and offline access to preparedness material.",
+		],
+		challenges: [
+			{
+				challenge:
+					"Disaster information and local assistance can be spread across disconnected channels.",
+				solution:
+					"LDPAN groups alerts, local resources, preparedness guidance, and volunteer coordination into a shared platform concept.",
+			},
+			{
+				challenge:
+					"A single-language, always-online experience can exclude people during an emergency.",
+				solution:
+					"The README identifies localized language support and offline access to essential information as product requirements.",
+			},
+		],
 		tags: [
 			{ ...TECH_COLORS.NEXTJS },
 			{ ...TECH_COLORS.TAILWIND },
@@ -437,9 +487,25 @@ export const projects = [
 		live_link: "https://ldpan-v4.vercel.app/",
 	},
 	{
+		slug: "titan-settlers",
 		name: "Titan Settlers",
 		description:
 			"The project aims to educate and inspire the next generation of space enthusiasts through an engaging missions-based game.",
+		overview:
+			"Titan Settlers is an educational missions-based game created for NASA Space Apps Challenge 2023. It turns the difficulties of exploring Saturn's largest moon into interactive scenarios, introducing players to hazards, landing, communications, radiation, and resource constraints through play rather than a static explainer.",
+		features: [
+			"A sequence of missions introduces the context of space exploration and the environment around Titan.",
+			"A landing mission asks players to manage parachute timing and suit selection for Titan's dense atmosphere and higher pressure.",
+			"A communications mission explores how Titan's ionosphere can complicate sending signals back to Earth.",
+			"Radiation and laboratory missions use interactive tasks to introduce astronaut protection and research facilities.",
+			"A NASA API-powered quiz adds a knowledge-check activity to the game.",
+			"The README also describes additional concepts, including resource-management and training missions, as still in development.",
+		],
+		engineeringHighlights: [
+			"The repository documents an Agile development process and a monolithic application architecture.",
+			"The project was built collaboratively for NASA Space Apps Challenge 2023.",
+			"Mission content is presented through interactive game flows and supporting visual assets.",
+		],
 		tags: [
 			{ ...TECH_COLORS.REACT },
 			{ ...TECH_COLORS.FRAMER_MOTION },
@@ -450,18 +516,49 @@ export const projects = [
 		live_link: "https://titan-settlers.vercel.app/",
 	},
 	{
+		slug: "mediaid",
 		name: "MediAid",
 		description:
 			"A medicine donation platform, where people can donate their unused medicine and can get medicine by applying.",
+		overview:
+			"MediAid is a donation platform intended to connect people and organizations with unused or unexpired medicine to people who need access to it. The user journey is centered on offering a donation, reviewing the medicine details, and applying for an available donation. Its repository separates the client and server applications.",
+		features: [
+			"Individuals and organizations can submit unused or unexpired medicines for donation.",
+			"People seeking medicine can browse opportunities and submit an application with supporting details.",
+			"Donation requests can be reviewed before acceptance, helping the platform apply its stated requirements.",
+			"The project README describes separate client and server setup, with environment configuration for both.",
+			"The interface includes user profile and donation-related flows, based on the repository README and screenshots.",
+		],
+		engineeringHighlights: [
+			"The repository is split into client and server applications and is described as a MERN-stack project.",
+			"The documented setup requires separate environment configuration for the client and server.",
+			"The README describes a review step for donation requests before they are accepted.",
+		],
 		tags: [{ ...TECH_COLORS.REACT }, { ...TECH_COLORS.REDUX }, { ...TECH_COLORS.EXPRESS }],
 		image: mediaid,
 		source_code_link: "https://github.com/Sharif-Minhaz/MediAid",
 		live_link: "https://mediaid-online-platform.netlify.app/",
 	},
 	{
+		slug: "cafe-vista",
 		name: "Cafe Vista",
 		description:
 			"A coffee shop management system with two category of user availability. Focused on the backend system most.",
+		overview:
+			"Cafe Vista is a coffee shop management application with distinct customer and administrator experiences. Customers can browse the menu and use ordering and reservation flows, while the project also includes blog content and administration views. The README notes that the work focused primarily on the backend, with EJS templates used for the frontend.",
+		features: [
+			"Separates customer-facing workflows from administrator functionality.",
+			"Supports coffee shop ordering, including menu, cart, and checkout screens shown in the repository.",
+			"Includes a table reservation experience for customers.",
+			"Provides coffee and shop blog pages as part of the customer-facing site.",
+			"Includes administration screens for managing shop operations.",
+			"Uses server-rendered EJS views with a Node.js and Express backend.",
+		],
+		engineeringHighlights: [
+			"Backend-focused implementation built with Express, MongoDB, and Mongoose.",
+			"The README identifies customer and admin as the two account categories.",
+			"The project includes separate route, controller, model, middleware, and view areas.",
+		],
 		tags: [
 			{ ...TECH_COLORS.EJS },
 			{ ...TECH_COLORS.MONGODB },
@@ -473,9 +570,24 @@ export const projects = [
 		live_link: "https://coffee-shop-xrhs.onrender.com/",
 	},
 	{
+		slug: "dev-inertia",
 		name: "DEV Inertia",
 		description:
 			"DEV Inertia is a blog publishing platform for publishing .md, .mdx or general purpose blogs.",
+		overview:
+			"DEV Inertia is a publishing platform for Markdown, MDX, and general-purpose blog content. The repository is built with Astro and describes content collections for organizing posts, giving the site a content-first structure that can publish articles while keeping page delivery lightweight.",
+		features: [
+			"Publishes long-form articles authored in Markdown and MDX.",
+			"Uses Astro content collections to retrieve and organize blog entries.",
+			"The repository README lists canonical URLs and Open Graph metadata for page sharing.",
+			"Includes sitemap and RSS feed support to help readers and crawlers discover new posts.",
+			"Supports standard Astro development, production build, and preview workflows.",
+		],
+		engineeringHighlights: [
+			"Uses Astro with content collections and Markdown/MDX content sources.",
+			"The README calls out canonical/Open Graph metadata, sitemap generation, and RSS as built-in publishing features.",
+			"The project is based on a minimal blog theme that is intended to be customized.",
+		],
 		tags: [
 			{ ...TECH_COLORS.ASTRO },
 			{ ...TECH_COLORS.TAILWIND },
@@ -486,18 +598,43 @@ export const projects = [
 		live_link: "https://dev-inertia-blog.netlify.app/",
 	},
 	{
+		slug: "treker",
 		name: "Treker",
 		description:
 			"Tour management app using mern stack developed for smoother user experience througout the booking to ending of the tour.",
+		overview:
+			"Treker is a travel and tour-management application focused on the customer journey from choosing a trip through booking and completing it. The public repository summary identifies it as a MERN-stack project and links a live deployment. The currently available README is brief, so this page limits feature claims to that documented scope.",
+		features: [
+			"Presents a travel booking experience designed to guide users from trip discovery into a booking.",
+			"Supports tour-management workflows across the booking and trip lifecycle, as described in the project summary.",
+			"The repository identifies the application as a MERN-stack travel project.",
+			"The public project summary links a live deployment for exploring the current application.",
+		],
 		tags: [{ ...TECH_COLORS.FIREBASE }, { ...TECH_COLORS.EXPRESS }, { ...TECH_COLORS.REACT }],
 		image: treker,
 		source_code_link: "https://github.com/Sharif-Minhaz/Treker",
 		live_link: "https://travel-assistant-v1.netlify.app/",
 	},
 	{
+		slug: "bun-shop",
 		name: "Bun Shop",
 		description:
 			"Bun shop is a full-stack bun selling platform with online payment system (sslcommerz) integrated for order management.",
+		overview:
+			"Bun Shop is a full-stack online storefront for selling buns and managing orders. Its repository describes a frontend connected to separate backend and payment-service repositories, with SSLCommerz integration. The README screenshots show product browsing, cart, checkout, product administration, and dashboard areas.",
+		features: [
+			"Product browsing pages present the shop's bun catalogue.",
+			"Cart and checkout screens support the purchase flow from selected products to order submission.",
+			"SSLCommerz integration supports online payment; the payment API is maintained as a separate repository.",
+			"The README screenshots show product editing and deletion workflows for shop administration.",
+			"Dashboard views provide a central place to manage shop activity.",
+			"Separate user and administrator demo accounts are described in the README; public credentials are intentionally not reproduced here.",
+		],
+		engineeringHighlights: [
+			"The frontend, backend, and SSLCommerz payment service are split across separate repositories.",
+			"The frontend is a Next.js application using TypeScript, with Tailwind CSS and shadcn/ui listed in its repository topics.",
+			"The README notes that backend and payment services run on a free hosting tier and may have a slower first response.",
+		],
 		tags: [
 			{ ...TECH_COLORS.HONOJS },
 			{ ...TECH_COLORS.NEXTJS },
@@ -509,8 +646,18 @@ export const projects = [
 		live_link: "https://next-bun-shop-frontend.vercel.app",
 	},
 	{
+		slug: "admin-dashboard",
 		name: "Admin Dashboard",
 		description: "A html Admin-dashboard template created with html, css. js and jquery.",
+		overview:
+			"Admin Dashboard is a static HTML template for common administration interfaces. Its repository organizes the interface into focused areas such as dashboard, forms, charts, tables, maps, authentication, and widgets, making it a starting point for a wider admin UI rather than a single-purpose screen.",
+		features: [
+			"Dashboard and widget pages provide a starting point for operational summaries.",
+			"Forms and text-document sections cover common data-entry and content-management UI patterns.",
+			"Charts, tables, and maps offer distinct layouts for presenting structured information.",
+			"Authentication-related pages are included in the repository structure.",
+			"Built as a static front-end template with HTML, CSS, JavaScript, and jQuery.",
+		],
 		tags: [
 			{ ...TECH_COLORS.HTML },
 			{ ...TECH_COLORS.CSS },
@@ -522,9 +669,18 @@ export const projects = [
 		live_link: "https://sharif-minhaz.github.io/Admin-Dashboard/",
 	},
 	{
+		slug: "chatverse",
 		name: "ChatVerse",
 		description:
 			"A modern, secure chat app for seamless communication in real-time using socket.io.",
+		overview:
+			"ChatVerse is a real-time chat application built around Socket.IO. Its repository is split into client and server directories, and the project description highlights seamless communication as its central use case. The currently published repository summary is brief, so the case study avoids claiming undocumented messaging or account features.",
+		features: [
+			"Real-time communication is the core product workflow.",
+			"The project description identifies Socket.IO as the technology used for realtime messaging.",
+			"A client/server repository structure separates the application interface from its server component.",
+			"The live deployment is available to preview the current application state.",
+		],
 		tags: [
 			{ ...TECH_COLORS.EXPRESS },
 			{ ...TECH_COLORS.REACT },
@@ -536,8 +692,17 @@ export const projects = [
 		live_link: "https://chatverse-9vo5.onrender.com",
 	},
 	{
+		slug: "e-commerce-template",
 		name: "E-Commerce Template",
 		description: "E-commerce web project for managing products orders and shopping cart.",
+		overview:
+			"E-Commerce Template is a front-end shopping site centered on product browsing, orders, and a shopping cart. Its public repository describes it as an HTML, CSS, and JavaScript project and links a GitHub Pages deployment. The README provides only a short product summary, so details here stay within that scope.",
+		features: [
+			"Product pages and shopping layouts form the main storefront experience.",
+			"The project is described as supporting product and order management with a shopping cart.",
+			"The public repository is a front-end implementation using HTML, CSS, and JavaScript.",
+			"A live GitHub Pages link is available from the case-study actions.",
+		],
 		tags: [
 			{ ...TECH_COLORS.HTML },
 			{ ...TECH_COLORS.CSS },
@@ -549,9 +714,18 @@ export const projects = [
 		live_link: "https://sharif-minhaz.github.io/E-Commerce-website/",
 	},
 	{
+		slug: "e-com-guard",
 		name: "E-Com Guard",
 		description:
 			"A web based ecommerce and POS system that provides a user-friendly interface for managing sales and inventory.",
+		overview:
+			"E-Com Guard is presented in this portfolio as a web-based e-commerce and point-of-sale system for managing sales and inventory. No public repository or additional project documentation is linked, so this case study is intentionally limited to the currently published project summary and technology list.",
+		features: [
+			"Combines e-commerce and point-of-sale use cases in one web-based project.",
+			"Focuses on sales and inventory management workflows.",
+			"The portfolio lists Next.js, Tailwind CSS, MongoDB, and TypeScript as the project stack.",
+			"A public code repository and additional feature documentation are not currently linked.",
+		],
 		tags: [
 			{ ...TECH_COLORS.NEXTJS },
 			{ ...TECH_COLORS.TAILWIND },
@@ -561,9 +735,19 @@ export const projects = [
 		image: ecomPos,
 	},
 	{
+		slug: "pos-system",
 		name: "POS System",
 		description:
 			"A cross-platform POS system built with Electron Forge that supports both offline (SQLite-based) and online (API-driven) operations.",
+		overview:
+			"POS System is a cross-platform desktop point-of-sale application. The portfolio description highlights two operating modes: offline transactions backed by SQLite and online, API-driven operation. Electron Forge and the listed React/Mantine stack identify it as a desktop application built with a web UI. No public repository is linked for further implementation details.",
+		features: [
+			"Runs as a cross-platform desktop point-of-sale application using Electron Forge.",
+			"Supports an offline mode backed by SQLite for local operation.",
+			"Supports an online mode that communicates through an API.",
+			"The portfolio lists React, Mantine, and Electron Forge among the technologies used.",
+			"A public repository and further workflow documentation are not currently linked.",
+		],
 		tags: [
 			{ ...TECH_COLORS.ELECTRON },
 			{ ...TECH_COLORS.MANTINE },

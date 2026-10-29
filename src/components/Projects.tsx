@@ -7,6 +7,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
 import { Heading } from ".";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface ITag {
 	name: string;
@@ -15,6 +16,7 @@ interface ITag {
 
 interface IProject {
 	index: number;
+	slug: string;
 	name: string;
 	description: string;
 	tags: ITag[];
@@ -25,6 +27,7 @@ interface IProject {
 
 const ProjectCard = ({
 	index,
+	slug,
 	name,
 	description,
 	tags,
@@ -32,12 +35,31 @@ const ProjectCard = ({
 	source_code_link,
 	live_link,
 }: IProject) => {
+	const navigate = useNavigate();
+	const openProject = () => navigate(`/projects/${slug}`);
+	const openExternalLink = (url: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.stopPropagation();
+		window.open(url, "_blank", "noopener,noreferrer");
+	};
+	const handleCardKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+		if (event.key === "Enter" || event.key === " ") {
+			event.preventDefault();
+			openProject();
+		}
+	};
+
 	return (
 		<motion.div
 			initial={{ opacity: 0, y: -150 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true }}
 			transition={{ delay: (index + 1) * 0.2 }}
+			role="link"
+			tabIndex={0}
+			aria-label={`View ${name} project details`}
+			onClick={openProject}
+			onKeyDown={handleCardKeyDown}
+			className="project-card-navigation"
 		>
 			<Tilt
 				options={{
@@ -52,27 +74,31 @@ const ProjectCard = ({
 
 					{source_code_link && (
 						<div className="actions">
-							<div
-								onClick={() => window.open(source_code_link, "_blank")}
+							<button
+								type="button"
+								onClick={openExternalLink(source_code_link)}
 								className="black-gradient github"
+								aria-label={`Open ${name} source code`}
 							>
 								<img src={github} alt="source code" />
-							</div>
+							</button>
 						</div>
 					)}
 
 					{live_link && (
 						<div className="actions actions-play">
-							<div
-								onClick={() => window.open(live_link, "_blank")}
+							<button
+								type="button"
+								onClick={openExternalLink(live_link)}
 								className="black-gradient play"
+								aria-label={`Open ${name} live project`}
 							>
 								<img
 									src={play}
-									alt="source code"
+									alt=""
 									style={{ width: "35%", height: "35%", objectFit: "contain" }}
 								/>
-							</div>
+							</button>
 						</div>
 					)}
 				</div>
@@ -117,8 +143,18 @@ export default function Projects() {
 	return (
 		<section ref={ref} id="portfolio" className="sectionD section-part">
 			<div className="container-fluid">
-				<div className="row padding">
-					<Heading title="My Projects" baseTitle="PROJECTS" />
+				<div className="row padding projects-section-row">
+					<Heading
+						title="My Projects"
+						baseTitle="PROJECTS"
+						action={
+							<div className="projects-index-link-wrap">
+								<Link className="projects-index-link" to="/projects">
+									Browse all projects <span aria-hidden="true">↗</span>
+								</Link>
+							</div>
+						}
+					/>
 					<div className="col-12 p-0">
 						<div className="row d-flex flex-wrap row-gap-4">
 							{projectData.map((project, index) => (

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 interface ILink {
 	id: string;
@@ -22,6 +23,8 @@ interface ISocial {
 export default function Navbar() {
 	const [open, setOpen] = useState(false);
 	const { active } = useContext(ThemeContext);
+	const { pathname } = useLocation();
+	const getSectionHref = (id: string) => (pathname === "/" ? id : `/${id}`);
 
 	return (
 		<>
@@ -53,7 +56,7 @@ export default function Navbar() {
 								className={`nav-link u-link ${
 									active === link.id ? "active-link" : ""
 								}`}
-								href={link.id}
+								href={getSectionHref(link.id)}
 							>
 								<span>
 									<FontAwesomeIcon icon={link.icon} />
@@ -149,8 +152,8 @@ export default function Navbar() {
 							transition={{ delay: (index + 0.1) * 0.1 }}
 							key={link.id}
 							className={`nav-link u-link ${active === link.id ? "active-link" : ""}`}
-							href={link.id}
-							onClick={()=>setOpen(false)}
+							href={getSectionHref(link.id)}
+							onClick={() => setOpen(false)}
 						>
 							<span>
 								<FontAwesomeIcon icon={link.icon} />

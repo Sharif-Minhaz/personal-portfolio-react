@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 
 interface Props {
 	baseTitle: string;
@@ -6,6 +7,7 @@ interface Props {
 	title: string;
 	extraTitle?: string;
 	smBaseTitle?: string;
+	action?: ReactNode;
 }
 
 export default function Heading({
@@ -14,10 +16,11 @@ export default function Heading({
 	title,
 	extraTitle,
 	smBaseTitle,
+	action,
 }: Props) {
 	return (
 		<div className="col-12">
-			<div className="heading">
+			<div className={`heading${action ? " heading--with-action" : ""}`}>
 				<h2>
 					{smBaseTitle ? (
 						smBaseTitle
@@ -35,6 +38,7 @@ export default function Heading({
 					{title} <span className="extra">{extraTitle}</span>
 					<span className="underline"></span>
 				</motion.p>
+				{action}
 			</div>
 		</div>
 	);
