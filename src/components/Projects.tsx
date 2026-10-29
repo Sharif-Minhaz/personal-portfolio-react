@@ -4,6 +4,7 @@ import { Tilt } from "react-tilt";
 import { github, play } from "../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
 import { Heading } from ".";
 import { useState } from "react";
@@ -103,8 +104,12 @@ const ProjectCard = ({
 					)}
 				</div>
 
-				<div className="mt-3 tilt-text-container">
-					<h3 className="font-bold" title={name} style={{ fontSize: "24px" }}>
+				<div className="mt-3 tilt-text-container project-card-copy">
+					<h3
+						className="font-bold project-card-title"
+						title={name}
+						style={{ fontSize: "24px" }}
+					>
 						{name}
 					</h3>
 					<p
@@ -116,7 +121,7 @@ const ProjectCard = ({
 					</p>
 				</div>
 
-				<div className="mt-2 d-flex flex-wrap gap-2">
+				<div className="mt-2 d-flex flex-wrap gap-2 project-card-tags">
 					{tags.map((tag: ITag) => (
 						<p
 							key={`${name}-${tag.name}`}
@@ -149,8 +154,18 @@ export default function Projects() {
 						baseTitle="PROJECTS"
 						action={
 							<div className="projects-index-link-wrap">
-								<Link className="projects-index-link" to="/projects">
-									Browse all projects <span aria-hidden="true">↗</span>
+								<Link
+									className="projects-index-link"
+									to="/projects"
+									onClick={() =>
+										sessionStorage.setItem(
+											"portfolio-scroll-before-projects",
+											String(window.scrollY),
+										)
+									}
+								>
+									Browse all projects{" "}
+									<FontAwesomeIcon icon={faArrowRight} aria-hidden="true" />
 								</Link>
 							</div>
 						}
