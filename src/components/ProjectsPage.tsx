@@ -17,22 +17,34 @@ const PAGE_DESCRIPTION =
 export default function ProjectsPage() {
 	const [search, setSearch] = useState("");
 	const [technology, setTechnology] = useState("all");
+	const [category, setCategory] = useState("all");
 	const technologies = useMemo(
 		() =>
 			[...new Set(projects.flatMap((project) => project.tags.map((tag) => tag.name)))].sort(),
 		[],
 	);
+	const categories = useMemo(
+		() => [...new Set(projects.map((project) => project.category ?? "Web Development"))].sort(),
+		[],
+	);
 	const visibleProjects = projects.filter((project) => {
 		const matchesTechnology =
 			technology === "all" || project.tags.some((tag) => tag.name === technology);
+		const projectCategory = project.category ?? "Web Development";
+		const matchesCategory = category === "all" || projectCategory === category;
 		const searchableText = [
 			project.name,
 			project.description,
+			project.category ?? "Web Development",
 			...project.tags.map((tag) => tag.name),
 		]
 			.join(" ")
 			.toLowerCase();
-		return matchesTechnology && searchableText.includes(search.trim().toLowerCase());
+		return (
+			matchesTechnology &&
+			matchesCategory &&
+			searchableText.includes(search.trim().toLowerCase())
+		);
 	});
 
 	useSeoMetadata({ title: PAGE_TITLE, description: PAGE_DESCRIPTION, path: "/projects" });
@@ -40,6 +52,7 @@ export default function ProjectsPage() {
 	const resetFilters = () => {
 		setSearch("");
 		setTechnology("all");
+		setCategory("all");
 	};
 
 	return (
@@ -86,6 +99,20 @@ export default function ProjectsPage() {
 							))}
 						</select>
 					</label>
+					<label className="project-filter">
+						<span>Category</span>
+						<select
+							value={category}
+							onChange={(event) => setCategory(event.target.value)}
+						>
+							<option value="all">All categories</option>
+							{categories.map((item) => (
+								<option key={item} value={item}>
+									{item}
+								</option>
+							))}
+						</select>
+					</label>
 					<button className="project-reset" type="button" onClick={resetFilters}>
 						<FontAwesomeIcon icon={faRotateLeft} aria-hidden="true" />
 						<span>Reset</span>
@@ -94,7 +121,7 @@ export default function ProjectsPage() {
 
 				<div className="project-browser__summary" aria-live="polite">
 					<span>{String(visibleProjects.length).padStart(2, "0")} projects</span>
-					<span>{technology === "all" ? "All technologies" : technology}</span>
+					<span>{category === "all" ? "All categories" : category}</span>
 				</div>
 
 				{visibleProjects.length ? (
@@ -117,6 +144,9 @@ export default function ProjectsPage() {
 									</span>
 								</div>
 								<div className="project-tile__body">
+									<span className="project-tile__category">
+										{project.category ?? "Web Development"}
+									</span>
 									<div className="project-tile__title-row">
 										<h2>{project.name}</h2>
 										<span className="project-tile__open" aria-hidden="true">

@@ -83,7 +83,9 @@ for (const { url, file, title, description, project } of routes) {
 						url: `${SITE}${url}`,
 						image: new URL(project.image, SITE).href,
 						creator: { "@type": "Person", name: basicInfo.name, url: SITE },
-						keywords: project.tags.map((tag) => tag.name),
+						keywords: [project.category, ...project.tags.map((tag) => tag.name)].filter(
+							Boolean,
+						),
 					},
 				],
 			};

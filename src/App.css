@@ -2020,7 +2020,7 @@ footer .row .text-end a:hover {
 
 .project-browser__controls {
   display: grid;
-  grid-template-columns: minmax(240px, 1fr) minmax(200px, 0.42fr) auto;
+  grid-template-columns: minmax(220px, 1fr) minmax(170px, 0.42fr) minmax(170px, 0.42fr) auto;
   align-items: end;
   gap: 1rem;
   padding: 1.4rem 0;
@@ -2188,6 +2188,16 @@ footer .row .text-end a:hover {
   flex: 1;
   flex-direction: column;
   padding: 1rem 1rem 1.15rem;
+}
+
+.project-tile__category {
+  align-self: flex-start;
+  margin-bottom: 0.55rem;
+  color: var(--change-color);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .project-tile__title-row {
@@ -2514,6 +2524,10 @@ footer .row .text-end a:hover {
 
   .project-search {
     grid-column: 1 / -1;
+  }
+
+  .project-filter {
+    min-width: 0;
   }
 
   .project-reset {

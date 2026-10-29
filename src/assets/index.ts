@@ -39,6 +39,8 @@ import chatVerse from "./projects/chatverse.webp";
 import bunShop from "./projects/bun-shop.webp";
 import salePos from "./projects/sale-pos.webp";
 import ecomPos from "./projects/e-com-pos.webp";
+import pageSentiment from "./projects/page-sentiment.webp";
+import salesMl from "./projects/sales-ml.webp";
 
 import blog1 from "./blogs/blog1.webp";
 import blog2 from "./blogs/blog2.webp";
@@ -83,5 +85,7 @@ export {
 	nestjs,
 	electron,
 	ecomPos,
+	pageSentiment,
+	salesMl,
 	arfinHayet,
 };

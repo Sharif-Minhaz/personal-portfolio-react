@@ -33,7 +33,9 @@ export default function ProjectDetailPage() {
 			</div>
 
 			<header className="case-study__header">
-				<p className="project-eyebrow">Selected work · Case study</p>
+				<p className="project-eyebrow">
+					{project.category ?? "Web Development"} · Case study
+				</p>
 				<h1>{project.name}</h1>
 				<p className="case-study__lead">{project.description}</p>
 				<div className="project-tags project-tags--large">

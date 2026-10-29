@@ -62,6 +62,8 @@ import {
 	salePos,
 	ecomPos,
 	electron,
+	pageSentiment,
+	salesMl,
 	rbs,
 	diu,
 	arfinHayet,
@@ -418,6 +420,18 @@ export const TECH_COLORS = {
 	ELECTRON: { name: "electron", color: "#dd4b25" },
 	MANTINE: { name: "mantine", color: "#006ab2" },
 	ELECTRON_FORGE: { name: "electron-forge", color: "#efa3d6" },
+	PYTHON: { name: "python", color: "#4b8bbe" },
+	FLASK: { name: "flask", color: "#b8b8b8" },
+	VUE: { name: "vue", color: "#42b883" },
+	SCIKIT_LEARN: { name: "scikit-learn", color: "#f49b42" },
+	TF_IDF: { name: "tf-idf", color: "#65d6c3" },
+	LOGISTIC_REGRESSION: { name: "logistic regression", color: "#7d8fea" },
+	SQLITE: { name: "sqlite", color: "#80a7d8" },
+	FACEBOOK_GRAPH_API: { name: "facebook graph api", color: "#4d8fe8" },
+	PANDAS: { name: "pandas", color: "#8a72c7" },
+	RECHARTS: { name: "recharts", color: "#e87452" },
+	JOBLIB: { name: "joblib", color: "#53a88b" },
+	UV: { name: "uv", color: "#d2a856" },
 } as const;
 
 export interface ProjectChallenge {
@@ -428,6 +442,7 @@ export interface ProjectChallenge {
 export interface PortfolioProject {
 	slug: string;
 	name: string;
+	category?: string;
 	description: string;
 	overview: string;
 	features: string[];
@@ -440,6 +455,126 @@ export interface PortfolioProject {
 }
 
 export const projects: PortfolioProject[] = [
+	{
+		slug: "sales-ml",
+		name: "SalesML",
+		category: "AI & Data",
+		description:
+			"E-commerce revenue forecasting, customer segmentation, and cold-start planning on Brazil's Olist dataset.",
+		overview:
+			"SalesML is an end-to-end analytics project built on the public Olist Brazilian e-commerce dataset (2016–2018). A reproducible Python pipeline cleans and audits order data, forecasts weekly revenue, segments customers by purchasing behavior, and serves the saved models through a Flask API to a React dashboard. It also includes a cold-start estimator for stores without sales history. The project emphasizes honest evaluation and communicating uncertainty instead of presenting model output as certainty.",
+		features: [
+			"Overview dashboard reports revenue, orders, unique customers, average order value, repeat-customer rate, and the usable data window.",
+			"Cleaning audit shows which rows were removed, why they were removed, and which extreme prices were retained rather than silently discarded.",
+			"Forecast view compares nine baseline, statistical, and machine-learning approaches and presents up to 12 weeks of predictions with uncertainty bands.",
+			"Walk-forward backtesting evaluates forecasts on later time periods, with model comparisons, error metrics, and confidence intervals.",
+			"Customer segmentation groups shoppers using recency, frequency, and monetary value, then pairs segments with suggested actions.",
+			"A customer-classification form applies the saved segmentation pipeline to new RFM values and reports segment affinity as a distance-based score.",
+			"Cold-start scenarios estimate revenue from visitors, conversion rate, average order value, and optional traffic growth when a store has no history.",
+			"Dashboard charts can switch to tables, and the interface includes separate light and dark palettes.",
+		],
+		engineeringHighlights: [
+			"Uses 98,199 orders and 94,983 unique customers; automatically selects 84 complete weeks from 2017-01-09 through 2018-08-13 and excludes incomplete edges.",
+			"Compares nine forecasting methods over 21 expanding-window folds with a 12-week horizon, avoiding random splits that would leak future information.",
+			"The README reports best-model MAE of R$40.0k per week (about 17.5% MAPE), 9.7% better than the naive baseline on this historical dataset.",
+			"The top six model confidence intervals overlap, so the README does not claim a clear winner over a four-week moving average.",
+			"Prediction intervals reached 57% coverage against an 80% target; the dashboard surfaces that calibration shortfall rather than hiding it.",
+			"RFM preprocessing and KMeans are persisted together in a scikit-learn Pipeline using joblib; training is separate from API serving.",
+			"The backend uses Python, pandas, scikit-learn, Flask, and uv; the frontend uses React, TypeScript, Tailwind CSS, Vite, and Recharts.",
+		],
+		challenges: [
+			{
+				challenge:
+					"The source export contains partial periods and canceled or unavailable orders that can distort revenue and forecasts.",
+				solution:
+					"The pipeline records a cleaning audit, excludes non-sales, validates amounts, and detects the complete weekly history from the data instead of hard-coding its date range.",
+			},
+			{
+				challenge:
+					"In-sample evaluation made the earlier Random Forest result look much stronger than its performance on unseen periods.",
+				solution:
+					"The updated pipeline compares nine models with expanding-window walk-forward backtesting and a naive baseline; it reports the overlapping confidence intervals and known limitations.",
+			},
+			{
+				challenge:
+					"A new store has no sales history for a trained forecasting model to use.",
+				solution:
+					"The cold-start view uses explicit visitor, conversion, and average-order-value assumptions to show low/base/high scenarios rather than pretending a history-based forecast is possible.",
+			},
+		],
+		tags: [
+			{ ...TECH_COLORS.PYTHON },
+			{ ...TECH_COLORS.SCIKIT_LEARN },
+			{ ...TECH_COLORS.PANDAS },
+			{ ...TECH_COLORS.FLASK },
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.TYPESCRIPT },
+			{ ...TECH_COLORS.TAILWIND },
+			{ ...TECH_COLORS.RECHARTS },
+			{ ...TECH_COLORS.JOBLIB },
+			{ ...TECH_COLORS.UV },
+		],
+		image: salesMl,
+		source_code_link: "https://github.com/Sharif-Minhaz/sales-ml",
+	},
+	{
+		slug: "page-sentiment",
+		name: "Page Sentiment",
+		category: "AI & Data",
+		description:
+			"A Facebook Page comment sentiment dashboard using a TF-IDF and Logistic Regression model trained on Sentiment140.",
+		overview:
+			"Page Sentiment is a dashboard for reviewing the sentiment of comments on a Facebook Page. It fetches the latest comments on demand, runs them through a classical text-classification pipeline, and summarizes positive, neutral, and negative results in charts and tables. The backend is Flask/Python, the dashboard is Vue, and the saved scikit-learn Pipeline keeps text vectorization and classification together at prediction time.",
+		features: [
+			"Fetches the latest comments from a configured Facebook Page when the user requests an update; it does not rely on background workers, webhooks, or cron jobs.",
+			"Summarizes classified comments with headline totals and positive, neutral, and negative proportions.",
+			"Shows sentiment distribution and comment activity over time with labeled dashboard charts.",
+			"Surfaces the most negative comments first in a needs-attention view to help prioritize replies.",
+			"Breaks sentiment down by post so page owners can compare comment patterns across posts.",
+			"Includes a try-the-model control for entering text and viewing the classifier's prediction.",
+			"Displays model insights, learned positive/negative terms, training configuration, and evaluation context.",
+			"Supports light and dark dashboard themes with a diverging positive/negative palette and neutral midpoint.",
+		],
+		engineeringHighlights: [
+			"Trains on Sentiment140, a 1.6-million-tweet dataset; the documented default trains on a random 200,000-row sample for iteration speed.",
+			"Compares unigram and bigram TF-IDF feature configurations; the README reports 80.2% held-out test accuracy for the current 200k-sample model.",
+			"Saves the vectorizer and classifier together in a scikit-learn Pipeline so prediction uses the same vocabulary learned during training.",
+			"Uses a probability band from 0.40 to 0.60 to report neutral sentiment, since the source dataset itself is binary-labeled.",
+			"Separates data preparation, model training, prediction, Facebook API access, SQLite persistence, and Flask routes into backend modules.",
+			"The Vue/Vite frontend proxies API requests during development and can build into the Flask service for single-process deployment.",
+		],
+		challenges: [
+			{
+				challenge: "A binary training dataset cannot directly label neutral comments.",
+				solution:
+					"The prediction layer applies a documented 0.40–0.60 probability band as a calibration rule and returns neutral for predictions in that range.",
+			},
+			{
+				challenge:
+					"Single-word features miss meaning that depends on negation, such as 'not happy'.",
+				solution:
+					"The README compares bigram TF-IDF configurations, which can retain phrases such as 'not bad' as combined features; stopword removal is adjusted so negation terms are not discarded.",
+			},
+			{
+				challenge:
+					"English-only training data is not reliable for Bangla, Banglish, or sarcasm.",
+				solution:
+					"The project documents these limitations explicitly; non-English or empty cleaned input is treated as neutral with zero confidence rather than presented as a confident classification.",
+			},
+		],
+		tags: [
+			{ ...TECH_COLORS.PYTHON },
+			{ ...TECH_COLORS.FLASK },
+			{ ...TECH_COLORS.VUE },
+			{ ...TECH_COLORS.SCIKIT_LEARN },
+			{ ...TECH_COLORS.TF_IDF },
+			{ ...TECH_COLORS.LOGISTIC_REGRESSION },
+			{ ...TECH_COLORS.SQLITE },
+			{ ...TECH_COLORS.FACEBOOK_GRAPH_API },
+		],
+		image: pageSentiment,
+		source_code_link: "https://github.com/Sharif-Minhaz/sentiment-analysis-fb-page",
+	},
 	{
 		slug: "ldpan",
 		name: "LDPAN",
