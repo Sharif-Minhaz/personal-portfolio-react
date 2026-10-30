@@ -8,6 +8,9 @@ interface IService {
 	icon: IconDefinition;
 	tone: string;
 	description: string;
+	tags: string[];
+	logos: { name: string; image: string }[];
+	action: string;
 }
 
 export default function Services() {
@@ -25,17 +28,36 @@ export default function Services() {
 				<ul className="svc">
 					{services.map((service: IService) => (
 						<li key={service.title} className={`svc__card crop svc__card--${service.tone}`}>
-							<span className="svc__icon" aria-hidden="true">
-								<FontAwesomeIcon icon={service.icon} />
-							</span>
+							<div className="svc__top">
+								<span className="svc__icon" aria-hidden="true">
+									<FontAwesomeIcon icon={service.icon} />
+								</span>
+								<span className="svc__logos" aria-hidden="true">
+									{service.logos.map((logo) => (
+										<img
+											key={logo.name}
+											src={logo.image}
+											alt=""
+											width={44}
+											height={44}
+											loading="lazy"
+											decoding="async"
+										/>
+									))}
+								</span>
+							</div>
 							<h3>{service.title}</h3>
 							<p>{service.description}</p>
-							<a
-								className="svc__go"
-								href="#contact"
-								aria-label={`Discuss ${service.title.toLowerCase()}`}
-							>
-								<FontAwesomeIcon icon={faArrowRight} />
+							<ul className="svc__tags" aria-label={`Tools for ${service.title.toLowerCase()}`}>
+								{service.tags.map((tag) => (
+									<li key={tag}>{tag}</li>
+								))}
+							</ul>
+							<a className="svc__go" href="#contact">
+								<span className="svc__arrow" aria-hidden="true">
+									<FontAwesomeIcon icon={faArrowRight} />
+								</span>
+								{service.action}
 							</a>
 						</li>
 					))}

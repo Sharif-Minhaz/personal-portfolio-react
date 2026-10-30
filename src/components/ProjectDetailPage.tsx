@@ -71,7 +71,8 @@ export default function ProjectDetailPage() {
 									alt={`${project.name} application screenshot`}
 									width={1365}
 									height={767}
-									fetchPriority="high"
+									// React 18.2 has no fetchPriority prop; the lowercase attribute reaches the DOM as is
+									{...{ fetchpriority: "high" }}
 								/>
 							</div>
 						</div>

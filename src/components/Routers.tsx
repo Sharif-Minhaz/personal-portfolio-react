@@ -56,17 +56,19 @@ function RouteScrollRestoration() {
 
 export default function Routers() {
 	return (
-		<AnimatePresence mode="wait">
+		<>
 			<RouteScrollRestoration />
-			<Routes>
-				<Route path="/" element={<MainLayout />}>
-					<Route index element={<RootPage />} />
-					<Route path="projects" element={<ProjectsPage />} />
-					<Route path="projects/:slug" element={<ProjectDetailPage />} />
-				</Route>
-				<Route path="/terms" element={<LegalPage page="terms" />} />
-				<Route path="/disclaimer" element={<LegalPage page="disclaimer" />} />
-			</Routes>
-		</AnimatePresence>
+			<AnimatePresence mode="wait">
+				<Routes>
+					<Route path="/" element={<MainLayout />}>
+						<Route index element={<RootPage />} />
+						<Route path="projects" element={<ProjectsPage />} />
+						<Route path="projects/:slug" element={<ProjectDetailPage />} />
+					</Route>
+					<Route path="/terms" element={<LegalPage page="terms" />} />
+					<Route path="/disclaimer" element={<LegalPage page="disclaimer" />} />
+				</Routes>
+			</AnimatePresence>
+		</>
 	);
 }

@@ -27,6 +27,12 @@ import supabase from "./tech/supabase.webp";
 import mysql from "./tech/mysql.webp";
 import linux from "./tech/linux.webp";
 import playwright from "./tech/playwright.webp";
+import postgresql from "./tech/postgresql.webp";
+import docker from "./tech/docker.webp";
+import nginx from "./tech/nginx.webp";
+import vercel from "./tech/vercel.webp";
+import ollama from "./tech/ollama.webp";
+import apple from "./tech/apple.webp";
 
 import diu from "./company/diu.webp";
 import rbs from "./company/rbs.jpg";
@@ -44,7 +50,7 @@ import treker from "./projects/treker.webp";
 import chatVerse from "./projects/chatverse.webp";
 import bunShop from "./projects/bun-shop.webp";
 import salePos from "./projects/sale-pos.webp";
-import ecomPos from "./projects/e-com-pos.webp";
+import ecomGuard from "./projects/e-com-guard.webp";
 import pageSentiment from "./projects/page-sentiment.webp";
 import salesMl from "./projects/sales-ml.webp";
 import salesMlOverview from "./projects/sales-ml/overview.webp";
@@ -106,7 +112,13 @@ export {
 	kmLatif,
 	rlc,
 	playwright,
-	ecomPos,
+	postgresql,
+	docker,
+	nginx,
+	vercel,
+	ollama,
+	apple,
+	ecomGuard,
 	pageSentiment,
 	salesMl,
 	salesMlOverview,

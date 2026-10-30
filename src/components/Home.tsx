@@ -1,8 +1,8 @@
 import { CSSProperties, PointerEvent, useRef, useState } from "react";
 import { useActiveLink } from "../hooks/useActiveLink";
-import { basicInfo } from "../constants";
+import { basicInfo, RESUME_LINK } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faFileContract } from "@fortawesome/free-solid-svg-icons";
 
 // Hedvig Letters Serif metrics, in units of 1000 (read from the font file)
 const guides = [
@@ -113,8 +113,9 @@ export default function Home() {
 							<FontAwesomeIcon icon={faEnvelope} />
 							Hire me
 						</a>
-						<a className="btn" href="#portfolio">
-							View work
+						<a className="btn" href={RESUME_LINK} target="_blank" rel="noopener noreferrer">
+							<FontAwesomeIcon icon={faFileContract} />
+							View resume
 						</a>
 					</div>
 				</div>

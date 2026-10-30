@@ -61,7 +61,7 @@ import {
 	bunShop,
 	nestjs,
 	salePos,
-	ecomPos,
+	ecomGuard,
 	electron,
 	supabase,
 	mysql,
@@ -69,6 +69,12 @@ import {
 	kmLatif,
 	rlc,
 	playwright,
+	postgresql,
+	docker,
+	nginx,
+	vercel,
+	ollama,
+	apple,
 	pageSentiment,
 	salesMl,
 	salesMlOverview,
@@ -173,6 +179,7 @@ export const servicesIntro = {
 		"I focus on building practical, high-quality solutions that solve real problems, using modern tools and best practices.",
 };
 
+// tags name the tools each service is built with; logos fan out in the card's corner
 export const services = [
 	{
 		title: "Web Application Development",
@@ -180,6 +187,13 @@ export const services = [
 		tone: "web",
 		description:
 			"Modern, responsive and scalable web applications using React, Next.js, Node.js and more.",
+		tags: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+		logos: [
+			{ name: "React", image: reactjs },
+			{ name: "Next.js", image: next },
+			{ name: "Tailwind CSS", image: tailwind },
+		],
+		action: "Build modern web apps",
 	},
 	{
 		title: "Backend & API Development",
@@ -187,6 +201,13 @@ export const services = [
 		tone: "api",
 		description:
 			"REST APIs and backend systems built with Node.js, NestJS, Express and a range of databases.",
+		tags: ["Node.js", "NestJS", "Express", "MongoDB", "PostgreSQL"],
+		logos: [
+			{ name: "Node.js", image: nodejs },
+			{ name: "NestJS", image: nestjs },
+			{ name: "Express", image: express },
+		],
+		action: "Build robust APIs",
 	},
 	{
 		title: "Desktop & Cross-platform Apps",
@@ -194,13 +215,27 @@ export const services = [
 		tone: "desktop",
 		description:
 			"Custom desktop applications with Electron.js and tools for Windows, macOS and Linux.",
+		tags: ["Electron", "Windows", "macOS", "Linux"],
+		logos: [
+			{ name: "Electron", image: electron },
+			{ name: "macOS", image: apple },
+			{ name: "Linux", image: linux },
+		],
+		action: "Desktop solutions",
 	},
 	{
 		title: "Database Design & Optimization",
 		icon: faDatabase,
 		tone: "data",
 		description:
-			"Efficient database schema design, data modelling and performance optimization (MongoDB, MySQL, PostgreSQL, SQLite).",
+			"Efficient database schema design, data modelling and performance optimization.",
+		tags: ["MongoDB", "MySQL", "PostgreSQL", "SQLite"],
+		logos: [
+			{ name: "MongoDB", image: mongodb },
+			{ name: "MySQL", image: mysql },
+			{ name: "PostgreSQL", image: postgresql },
+		],
+		action: "Design better data systems",
 	},
 	{
 		title: "DevOps & Deployment",
@@ -208,6 +243,13 @@ export const services = [
 		tone: "devops",
 		description:
 			"Deploy and maintain applications on AWS, Vercel, Render, Nginx, Docker and set up CI/CD pipelines.",
+		tags: ["AWS", "Vercel", "Docker", "Nginx", "CI/CD"],
+		logos: [
+			{ name: "Docker", image: docker },
+			{ name: "Nginx", image: nginx },
+			{ name: "Vercel", image: vercel },
+		],
+		action: "Deploy with confidence",
 	},
 	{
 		title: "AI Integration & Automation",
@@ -215,6 +257,12 @@ export const services = [
 		tone: "ai",
 		description:
 			"Integrate AI models (OpenAI, Ollama, LM Studio, RAG) and build automation tools to improve productivity and business workflows.",
+		tags: ["OpenAI", "Ollama", "RAG", "Python", "Automation"],
+		logos: [
+			{ name: "Python", image: python },
+			{ name: "Ollama", image: ollama },
+		],
+		action: "Automate with AI",
 	},
 ];
 
@@ -1028,14 +1076,17 @@ export const projects: PortfolioProject[] = [
 		slug: "e-com-guard",
 		name: "E-Com Guard",
 		description:
-			"A web based ecommerce and POS system that provides a user-friendly interface for managing sales and inventory.",
+			"A multi-vendor marketplace and point-of-sale system for shops in Bangladesh, in English and Bangla.",
 		overview:
-			"E-Com Guard is presented in this portfolio as a web-based e-commerce and point-of-sale system for managing sales and inventory. No public repository or additional project documentation is linked, so this case study is intentionally limited to the currently published project summary and technology list.",
+			"E-Com Guard is a multi-vendor e-commerce marketplace with point-of-sale tooling, built for shops in Bangladesh. Shoppers browse verified vendors, brands and categories, see prices in taka with their discounts, and switch the interface between English and Bangla. Vendors and staff sign in to a dashboard to manage sales and inventory.",
 		features: [
-			"Combines e-commerce and point-of-sale use cases in one web-based project.",
-			"Focuses on sales and inventory management workflows.",
-			"The portfolio lists Next.js, Tailwind CSS, MongoDB, and TypeScript as the project stack.",
-			"A public code repository and additional feature documentation are not currently linked.",
+			"A marketplace of verified vendor shops, browsable by shop, brand and category.",
+			"An English and Bangla language switch across the storefront.",
+			"Product pages with taka pricing, the discount shown as a percentage, live stock counts, SKU, specifications and warranty details.",
+			"Cart and wishlist on every product, plus customer reviews that open once a shopper is signed in.",
+			"Storefront sections for deals, new arrivals, wholesale pricing and featured collections in a carousel.",
+			"A newsletter sign-up offering 10% off the first order.",
+			"Account login that leads to a dashboard for managing sales and inventory.",
 		],
 		tags: [
 			{ ...TECH_COLORS.NEXTJS },
@@ -1043,7 +1094,9 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.MONGODB },
 			{ ...TECH_COLORS.TYPESCRIPT },
 		],
-		image: ecomPos,
+		image: ecomGuard,
+		source_code_link: "https://github.com/Sharif-Minhaz/ecom-guard",
+		live_link: "https://ecom-guard.vercel.app/",
 	},
 	{
 		slug: "pos-system",
