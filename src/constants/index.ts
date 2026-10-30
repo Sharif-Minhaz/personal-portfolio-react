@@ -87,6 +87,10 @@ import {
 	salesMlColdStartThumb,
 	salesMlDark,
 	salesMlDarkThumb,
+	flowcraft,
+	flowcraftScreens,
+	kijijiBannerAds,
+	kijijiScreens,
 	rbs,
 	diu,
 	arfinHayet,
@@ -589,6 +593,16 @@ export const TECH_COLORS = {
 	RECHARTS: { name: "recharts", color: "#e87452" },
 	JOBLIB: { name: "joblib", color: "#53a88b" },
 	UV: { name: "uv", color: "#d2a856" },
+	REACT_NATIVE: { name: "react native", color: "#61dafb" },
+	EXPO: { name: "expo", color: "#a0a0a8" },
+	NODEJS: { name: "nodejs", color: "#5fa04e" },
+	MYSQL: { name: "mysql", color: "#00758f" },
+	AWS_LAMBDA: { name: "aws lambda", color: "#ff9900" },
+	AWS_COGNITO: { name: "aws cognito", color: "#dd344c" },
+	AWS_S3: { name: "aws s3", color: "#569a31" },
+	PRIMEREACT: { name: "primereact", color: "#06b6d4" },
+	STRIPE: { name: "stripe", color: "#635bff" },
+	GOOGLE_AD_MANAGER: { name: "google ad manager", color: "#4285f4" },
 } as const;
 
 export interface ProjectChallenge {
@@ -600,7 +614,11 @@ export interface ProjectScreen {
 	label: string;
 	caption: string;
 	image: string;
-	thumb: string;
+	// the homepage lead's picker uses a small thumb when given
+	thumb?: string;
+	// screens sharing a group are shown together under that name on the case study
+	group?: string;
+	device?: "phone" | "desktop";
 }
 
 export interface ProjectFigure {
@@ -728,6 +746,269 @@ export const projects: PortfolioProject[] = [
 			{ value: "34%", label: "of customers bring in 61% of revenue" },
 		],
 		source_code_link: "https://github.com/Sharif-Minhaz/sales-ml",
+	},
+	{
+		slug: "flowcraft",
+		name: "Flowcraft",
+		category: "Mobile & CMS",
+		description:
+			"A self-guided mindfulness app for iOS and Android, run by a content CMS on AWS that syncs programs, meditations and journaling to the device.",
+		overview:
+			"Flowcraft is a self-guided mindfulness and personal-development platform for GSI Solutions, built in two connected parts. The mobile app, built with Expo and React Native, takes users through programs of daily meditations, short articles and journaling prompts, and keeps working offline. The CMS is a Node.js API on AWS Lambda with a React admin panel: editors manage programs, modules, content, meditations and images, and the API syncs that content to the app and checks App Store subscriptions. The backend credentials for the original setup have expired, so the screens shown here are reconstructions with sample data. The CMS screens run the real admin code against a local mock API. The mobile screens are mockups built from the app's own styles, layout code and assets.",
+		features: [
+			"Today screen shows the active program, a meditation carousel (\"Meditation N of M\"), the day's quote and theme, and a Morning Pause → Midday Observe → Evening Reflection timeline.",
+			"Each meditation section plays a short full-screen video, fades in a self-inquiry prompt near the end, then opens the linked article.",
+			"Programs, modules and articles unlock in order: the next meditation unlocks the following day, and only after every section of the current one is done.",
+			"Program and module pages track progress, with start, resume and restart, and a confirmation sheet before switching programs.",
+			"Journal with search, sorting by date or program, and paging; entries are rich text with photos from the gallery or camera, and a prompt is ticked once it has an entry.",
+			"Daily local reminders at times the user picks on a wheel picker, with a custom wind-chime sound.",
+			"Monthly and annual subscriptions through in-app purchase, with paid programs and journaling locked until subscribed.",
+			"CMS manages programs, modules, contents and meditations, with Quill rich-text fields, image pickers that preview the chosen overlay colour, and draft, published and archived states.",
+			"Meditations carry morning, midday and evening sections, each with breath cues and a self-inquiry prompt, plus their own journal prompts.",
+			"CMS image gallery with drag-and-drop uploads, staff accounts in AWS Cognito, and an app-users list with CSV export.",
+		],
+		engineeringHighlights: [
+			"Offline-first sync: one POST /api/getUserData call returns six data sets (programs, modules, content, meditations, sections and journal prompts), and the app reconciles each row with SQLite by its date_updated value.",
+			"The local SQLite schema updates itself: when the server sends new fields, the app adds the matching columns at runtime with ALTER TABLE.",
+			"Hero images and icons are cached on the device; unused images are deleted and missing files are fetched again.",
+			"Paid content is filtered on the server, using the subscription status taken from the App Store JWS the app sends with each sync.",
+			"Subscriptions are verified with the App Store Server API using ES256-signed tokens, with the older verifyReceipt check falling back to the sandbox when Apple reports a sandbox receipt.",
+			"The API runs on GSI's in-house Node.js framework on AWS Lambda: routes are declared in routes.json with their allowed role groups and pre-compiled to regex patterns.",
+			"Role-based access for SuperAdmin, Admin, Author and Publisher is enforced on both the API routes and the admin UI routes; staff sign in through the Cognito Hosted UI.",
+			"Media goes to S3 and is served through presigned URLs joined into API responses, so the app receives ready-to-use image links.",
+			"The admin UI is hosted on S3 behind CloudFront, with CI/CD on AWS CodeBuild or Jenkins and database credentials held in Secrets Manager.",
+		],
+		challenges: [
+			{
+				challenge:
+					"The app has to work offline, yet editors change content in the CMS at any time.",
+				solution:
+					"Each launch syncs every content set in a single request and compares rows by date_updated, writing new or changed rows and deleting missing ones, so the device holds a complete local copy in SQLite.",
+			},
+			{
+				challenge:
+					"New CMS fields would otherwise need an app release just to migrate the local database.",
+				solution:
+					"The sync adds missing SQLite columns at runtime with ALTER TABLE when the server starts sending a new field.",
+			},
+			{
+				challenge:
+					"Paid programs must not reach users who have not subscribed, even through the sync.",
+				solution:
+					"The server reads the subscription status from the App Store JWS and leaves paid programs out of the response, instead of relying on the app to hide them.",
+			},
+		],
+		tags: [
+			{ ...TECH_COLORS.REACT_NATIVE },
+			{ ...TECH_COLORS.EXPO },
+			{ ...TECH_COLORS.TYPESCRIPT },
+			{ ...TECH_COLORS.SQLITE },
+			{ ...TECH_COLORS.NODEJS },
+			{ ...TECH_COLORS.MYSQL },
+			{ ...TECH_COLORS.AWS_LAMBDA },
+			{ ...TECH_COLORS.AWS_COGNITO },
+			{ ...TECH_COLORS.AWS_S3 },
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.PRIMEREACT },
+		],
+		image: flowcraft,
+		// reconstructed screens with sample data; see the overview
+		screens: [
+			{
+				label: "Today",
+				caption: "The active program, the day's quote and theme, and the meditation for today",
+				group: "Mobile app",
+				device: "phone",
+				image: flowcraftScreens.mobileToday,
+			},
+			{
+				label: "Meditation",
+				caption: "A short video per section, with a self-inquiry prompt near the end",
+				group: "Mobile app",
+				device: "phone",
+				image: flowcraftScreens.mobileMeditation,
+			},
+			{
+				label: "Programs",
+				caption: "Programs as banners, marked active, completed or locked",
+				group: "Mobile app",
+				device: "phone",
+				image: flowcraftScreens.mobilePrograms,
+			},
+			{
+				label: "Module",
+				caption: "Articles and lessons with read time, each unlocking after the last",
+				group: "Mobile app",
+				device: "phone",
+				image: flowcraftScreens.mobileModule,
+			},
+			{
+				label: "Entry",
+				caption: "A rich-text entry answering one of the day's prompts",
+				group: "Mobile app",
+				device: "phone",
+				image: flowcraftScreens.mobileEntry,
+			},
+			{
+				label: "Subscribe",
+				caption: "Monthly and annual plans through in-app purchase",
+				group: "Mobile app",
+				device: "phone",
+				image: flowcraftScreens.mobilePaywall,
+			},
+			{
+				label: "Dashboard",
+				caption: "The admin home, one tile for each part of the content",
+				group: "CMS admin",
+				device: "desktop",
+				image: flowcraftScreens.cmsDashboard,
+			},
+			{
+				label: "Program edit",
+				caption: "Rich-text fields and image pickers, with the program's modules and meditations beside the form",
+				group: "CMS admin",
+				device: "desktop",
+				image: flowcraftScreens.cmsProgramEdit,
+			},
+			{
+				label: "Meditation",
+				caption: "A meditation's koan and theme, its three sections, and its journal prompts",
+				group: "CMS admin",
+				device: "desktop",
+				image: flowcraftScreens.cmsMeditation,
+			},
+			{
+				label: "Gallery",
+				caption: "Drag-and-drop uploads up to 1 MB, each tagged with a theme",
+				group: "CMS admin",
+				device: "desktop",
+				image: flowcraftScreens.cmsGallery,
+			},
+		],
+	},
+	{
+		slug: "kijiji-banner-ads",
+		name: "Kijiji Banner Ads",
+		category: "Ad Tech",
+		description:
+			"A self-serve display ad platform: businesses build or upload banners, target an audience, pay with Stripe and run on Kijiji through Google Ad Manager.",
+		overview:
+			"Kijiji Banner Ads is the Kijiji edition of Clarity Banners, GSI's multi-network self-serve display advertising platform. Small businesses build banner ads from templates or upload their own, choose where and to whom they run, pay online, and launch campaigns on partner networks such as Kijiji in Canada and GSI AdCloud / Trader Interactive. Approved campaigns are pushed to Google Ad Manager automatically, and delivery stats flow back into the advertiser's dashboard. One repository holds five parts: a Node.js backend on AWS Lambda, the advertiser portal and admin console, a separate console for Trader Interactive, a visual scraping robot builder, and the SVG banner template engine. The backend's environment and credentials are no longer valid, so the screens shown here are the real React frontends running locally, with API responses replaced by sample data.",
+		features: [
+			"Two ways to create a campaign: upload JPG, PNG or GIF banners at IAB sizes (970×250, 728×90, 300×250, 300×600), detected from their pixel dimensions, or build one from a template.",
+			"Template ads are customised in a live multi-size SVG editor (text, colours and images) and exported to PNG in every size.",
+			"A guided wizard runs Creative → Targeting → Sign-up → Review → Payment → Confirmation, and keeps the draft across page reloads.",
+			"Targeting by location (province → city) and category trees, with either a CAD budget or a number of views from 25k to 300k.",
+			"CPM pricing with scheduled promotional rates and discount codes; Canadian GST/HST and US state sales tax are worked out from the buyer's province or state.",
+			"Stripe pre-authorises the card at checkout and charges it only after a moderator approves the campaign.",
+			"A campaign dashboard with filters, sorting and live delivery stats (views, clicks, CTR) from Google Ad Manager; pending or rejected campaigns can be edited and resubmitted, and completed ones renewed.",
+			"Moderators approve or reject with a reason, cancel, extend end dates, and check the Google Ad Manager inventory forecast before approving.",
+			"Admins manage the template library (SVG, HTML and carousel templates with a draft/published workflow), CPM rates, discount codes, users, networks and audit logs.",
+			"Dynamic ads for Trader Interactive: scraping robots read dealer inventory (RV, marine, powersports) and the products are merged into templates to generate banners, an XML feed and a carousel.",
+			"English and French interface, and a Zoho Desk support-ticket system with attachments and threaded replies.",
+		],
+		engineeringHighlights: [
+			"A single AWS Lambda handles HTTP requests, SQS messages, EventBridge schedules, Stripe partner events and Cognito triggers, each routed to its own entry point.",
+			"Approved campaigns become Google Ad Manager orders, line items and creatives through the GAM API; a scheduled job syncs delivered impressions back.",
+			"Pricing follows one formula: effective CPM is the promotional or platform rate minus the discount, the subtotal is views ÷ 1000 × CPM, and provincial or state tax is added before the Stripe pre-authorisation.",
+			"The backend uses a custom Node.js 22 MVC framework without Express, with a declarative route table that enforces Advertiser, NetworkAdmin, PlatformAdmin and SuperAdmin roles.",
+			"Every frontend follows a strict MVVC pattern: a ViewController owns state and handlers, and the View stays presentational, calling the API through services and a shared REST client.",
+			"Each network gets its own branded theme, selected by an environment variable at build time.",
+			"The robot builder loads a sanitised copy of the dealer page in a sandboxed iframe, so selectors can be picked by clicking and tested with highlights before a Browse AI robot is created.",
+			"Uploads go to S3 through presigned URLs; sign-in uses the Cognito Hosted UI with PKCE; forms are validated with react-hook-form and Zod.",
+		],
+		challenges: [
+			{
+				challenge:
+					"Advertisers pay up front, but a campaign may still be rejected by a moderator.",
+				solution:
+					"Checkout only pre-authorises the card with Stripe; the charge is captured when the campaign is approved, and a broken-payment tool lets admins look up and recover payments that went wrong.",
+			},
+			{
+				challenge:
+					"A moderator could approve more impressions than the network can actually deliver.",
+				solution:
+					"The review screen shows the Google Ad Manager inventory forecast next to the requested views, with explicit overbook and skip-inventory-check switches for exceptions.",
+			},
+			{
+				challenge:
+					"Dealer inventory changes constantly, so hand-made banners for each listing would go stale.",
+				solution:
+					"Scraping robots pull the inventory, mapped fields feed a generation job that merges products into templates, and a history view records each run's success or error.",
+			},
+		],
+		tags: [
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.TYPESCRIPT },
+			{ ...TECH_COLORS.PRIMEREACT },
+			{ ...TECH_COLORS.NODEJS },
+			{ ...TECH_COLORS.MYSQL },
+			{ ...TECH_COLORS.AWS_LAMBDA },
+			{ ...TECH_COLORS.AWS_COGNITO },
+			{ ...TECH_COLORS.AWS_S3 },
+			{ ...TECH_COLORS.STRIPE },
+			{ ...TECH_COLORS.GOOGLE_AD_MANAGER },
+		],
+		image: kijijiBannerAds,
+		// real frontends on sample data; see the overview
+		screens: [
+			{
+				label: "Template editor",
+				caption: "A template customised in a live editor that previews every banner size at once",
+				group: "Advertiser portal",
+				device: "desktop",
+				image: kijijiScreens.templateEditor,
+			},
+			{
+				label: "Targeting",
+				caption: "Budget or views, location and category trees, click-through URL and a discount code",
+				group: "Advertiser portal",
+				device: "desktop",
+				image: kijijiScreens.targeting,
+			},
+			{
+				label: "Review",
+				caption: "The pricing summary with CPM, discount and provincial tax before payment",
+				group: "Advertiser portal",
+				device: "desktop",
+				image: kijijiScreens.review,
+			},
+			{
+				label: "Campaign",
+				caption: "An active campaign: buyer details, targeting, flight dates and its creatives",
+				group: "Advertiser portal",
+				device: "desktop",
+				image: kijijiScreens.campaignDetail,
+			},
+			{
+				label: "Moderation",
+				caption: "A pending campaign reviewed against the Google Ad Manager forecast, then approved or rejected",
+				group: "Admin console",
+				device: "desktop",
+				image: kijijiScreens.adminReview,
+			},
+			{
+				label: "Discount codes",
+				caption: "Discount codes with their CPM, schedule and usage",
+				group: "Admin console",
+				device: "desktop",
+				image: kijijiScreens.discountCodes,
+			},
+			{
+				label: "Generation history",
+				caption: "Each banner generation run, with its robot, template, duration and result",
+				group: "Dynamic ads",
+				device: "desktop",
+				image: kijijiScreens.generationHistory,
+			},
+			{
+				label: "Robot builder",
+				caption: "Mapping a dealer page's inventory fields by clicking them, before the robot is created",
+				group: "Dynamic ads",
+				device: "desktop",
+				image: kijijiScreens.robotBuilder,
+			},
+		],
 	},
 	{
 		slug: "page-sentiment",

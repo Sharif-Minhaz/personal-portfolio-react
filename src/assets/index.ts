@@ -63,6 +63,50 @@ import salesMlColdStart from "./projects/sales-ml/cold-start.webp";
 import salesMlColdStartThumb from "./projects/sales-ml/cold-start-thumb.webp";
 import salesMlDark from "./projects/sales-ml/forecast-dark.webp";
 import salesMlDarkThumb from "./projects/sales-ml/forecast-dark-thumb.webp";
+import flowcraft from "./projects/flowcraft.webp";
+import fcCmsDashboard from "./projects/flowcraft/cms-dashboard.webp";
+import fcCmsGallery from "./projects/flowcraft/cms-gallery.webp";
+import fcCmsMeditation from "./projects/flowcraft/cms-meditation.webp";
+import fcCmsProgramEdit from "./projects/flowcraft/cms-program-edit.webp";
+import fcMobileEntry from "./projects/flowcraft/mobile-entry.webp";
+import fcMobileMeditation from "./projects/flowcraft/mobile-meditation.webp";
+import fcMobileModule from "./projects/flowcraft/mobile-module.webp";
+import fcMobilePaywall from "./projects/flowcraft/mobile-paywall.webp";
+import fcMobilePrograms from "./projects/flowcraft/mobile-programs.webp";
+import fcMobileToday from "./projects/flowcraft/mobile-today.webp";
+
+const flowcraftScreens = {
+	cmsDashboard: fcCmsDashboard,
+	cmsGallery: fcCmsGallery,
+	cmsMeditation: fcCmsMeditation,
+	cmsProgramEdit: fcCmsProgramEdit,
+	mobileEntry: fcMobileEntry,
+	mobileMeditation: fcMobileMeditation,
+	mobileModule: fcMobileModule,
+	mobilePaywall: fcMobilePaywall,
+	mobilePrograms: fcMobilePrograms,
+	mobileToday: fcMobileToday,
+};
+import kijijiBannerAds from "./projects/kijiji-banner-ads.webp";
+import kjAdminReview from "./projects/kijiji-banner-ads/admin-review.webp";
+import kjCampaignDetail from "./projects/kijiji-banner-ads/campaign-detail.webp";
+import kjDiscountCodes from "./projects/kijiji-banner-ads/discount-codes.webp";
+import kjGenerationHistory from "./projects/kijiji-banner-ads/generation-history.webp";
+import kjReview from "./projects/kijiji-banner-ads/review.webp";
+import kjRobotBuilder from "./projects/kijiji-banner-ads/robot-builder.webp";
+import kjTargeting from "./projects/kijiji-banner-ads/targeting.webp";
+import kjTemplateEditor from "./projects/kijiji-banner-ads/template-editor.webp";
+
+const kijijiScreens = {
+	adminReview: kjAdminReview,
+	campaignDetail: kjCampaignDetail,
+	discountCodes: kjDiscountCodes,
+	generationHistory: kjGenerationHistory,
+	review: kjReview,
+	robotBuilder: kjRobotBuilder,
+	targeting: kjTargeting,
+	templateEditor: kjTemplateEditor,
+};
 
 import blog1 from "./blogs/blog1.webp";
 import blog2 from "./blogs/blog2.webp";
@@ -131,5 +175,9 @@ export {
 	salesMlColdStartThumb,
 	salesMlDark,
 	salesMlDarkThumb,
+	flowcraft,
+	flowcraftScreens,
+	kijijiBannerAds,
+	kijijiScreens,
 	arfinHayet,
 };

@@ -122,7 +122,7 @@ const ProjectCard = ({
 								onFocus={preloadScreen(item.image)}
 							>
 								<img
-									src={item.thumb}
+									src={item.thumb ?? item.image}
 									alt=""
 									width={320}
 									height={200}

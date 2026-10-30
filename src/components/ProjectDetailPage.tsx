@@ -3,9 +3,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { basicInfo, projects } from "../constants";
+import { ProjectScreen, basicInfo, projects } from "../constants";
 import { Footer } from ".";
 import useSeoMetadata from "../hooks/useSeoMetadata";
+
+interface ScreenGroup {
+	name?: string;
+	device: "phone" | "desktop";
+	screens: ProjectScreen[];
+}
+
+// consecutive screens with the same group name are shown together
+const groupScreens = (screens: ProjectScreen[]) =>
+	screens.reduce<ScreenGroup[]>((groups, screen) => {
+		const last = groups[groups.length - 1];
+		if (last && last.name === screen.group) last.screens.push(screen);
+		else groups.push({ name: screen.group, device: screen.device ?? "desktop", screens: [screen] });
+		return groups;
+	}, []);
 
 export default function ProjectDetailPage() {
 	const { slug } = useParams();
@@ -83,6 +98,44 @@ export default function ProjectDetailPage() {
 						<h2>Overview</h2>
 						<p>{project.overview}</p>
 					</section>
+
+					{project.screens?.length ? (
+						<section className="case__section case__section--wide">
+							<h2>Screens</h2>
+							{groupScreens(project.screens).map((group) => (
+								<div key={group.name ?? "screens"} className={`shots shots--${group.device}`}>
+									{group.name && <h3>{group.name}</h3>}
+									<ul className="shots__grid">
+										{group.screens.map((screen) => (
+											<li key={screen.image}>
+												<figure>
+													<a
+														className="shots__frame"
+														href={screen.image}
+														target="_blank"
+														rel="noreferrer"
+														aria-label={`Open the ${screen.label} screen at full size`}
+													>
+														<img
+															src={screen.image}
+															alt={`${project.name}, the ${screen.label.toLowerCase()} screen`}
+															width={group.device === "phone" ? 780 : 1280}
+															height={group.device === "phone" ? 1688 : 800}
+															loading="lazy"
+															decoding="async"
+														/>
+													</a>
+													<figcaption>
+														<b>{screen.label}</b> {screen.caption}
+													</figcaption>
+												</figure>
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
+						</section>
+					) : null}
 
 					<section className="case__section">
 						<h2>Key features</h2>
