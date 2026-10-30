@@ -1,5 +1,7 @@
 import { GITHUB_LINK, blogs } from "../constants";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 interface IBlog {
 	id: number;
@@ -26,6 +28,7 @@ export default function Blogs() {
 							target="_blank"
 							href="https://dev-inertia-blog.netlify.app/blog/1"
 						>
+							<FontAwesomeIcon icon={faArrowUpRightFromSquare} />
 							All articles
 						</a>
 					</div>

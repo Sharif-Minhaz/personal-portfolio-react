@@ -5,9 +5,13 @@
 /* Hallmark · dropped onMouseMove={handleMouseMove} · the hero spotlight followed the cursor, and a cursor follower is refused (craft.md § 5) */
 /* Hallmark · dropped onClick={() => window.open(link.link, "_blank")} · the contact socials are now real links with the same href, so keyboard and screen readers reach them */
 /* Hallmark · revision 2, at the owner's request (more joy, less plain; dark-mode rules too bright): live letter measure in the hero, a rail of large project screens, the toolkit as three specimen sheets (front end, back end and data, tooling and desktop), a contact close on ruled proof paper (the orange field tried first was too loud), larger section heads, dark rules on --color-rule-strong */
+/* Hallmark · component: services cards (the owner's reference, adapted) · six services from the owner; dropped the WHAT I DO pill (54, 63), the orange accented word (38iii), the 01 to 06 tile counts (66) and the corner glow (29); each arrow is a labelled link to #contact; reworded "Robust REST APIs" to "REST APIs and backend systems built with" (19) and the lead's dash to a comma (19) */
+/* Hallmark · component: toolkit cards (the owner's reference, adapted) · three hue tokens (--tone-front, --tone-back, --tone-tool) held to the cards; neutral cards with a coloured top edge, every logo on one round plate in hairline-ruled lists so the card is the only box (4); no tinted wash (29); Studio radius and crop marks; labels in sentence case */
 /* Hallmark · hero-review: fix · 5 findings · 5 resolved */
 /* Hallmark · finish-review: subagent · 8 findings · 8 resolved · gap: none (plus the ratio redline and the footer proof ground it suggested) */
 /* Hallmark · waive 49b · the two post titles in Notes from DEV Inertia are the articles' real titles and wrap as headings on a phone · an article title cannot be shortened on this page without renaming the published post */
+/* Hallmark · waive 39b · button.work__thumb stands 124px because it is the SalesML screen's own thumbnail with its name under it · the lead project's screen picker; a 44px chip would hide which screen it opens, so the picture is the control */
+/* Hallmark · reworded sales-ml.webp to sales-ml/overview.webp in the lead · the lead now shows five SalesML screens from its README; sales-ml.webp still fronts /projects and the case study */
 /* Hallmark · waive 77 · the Recommendation band holds the one LinkedIn recommendation the owner has, set in Hedvig on the ink band · a second review would give it mass; none was supplied */
 /* Hallmark · answered F4 · the ink button is the contact form's submit, the destination the hero's orange Hire me points at; one orange fill per page */
 /* Hallmark · dismissed 70 · the success toast fires only after emailjs.send resolves, a real request */
@@ -79,6 +83,9 @@ main { display: block; }
 .btn--ink::after { border-color: color-mix(in oklab, var(--color-band-ink) 30%, transparent); }
 .btn--small { min-height: 44px; padding: 0 var(--space-md); font-size: var(--text-sm); }
 .btn svg { width: 1em; height: 1em; flex-shrink: 0; }
+/* a square button for an icon that names itself (the GitHub mark), labelled for screen readers */
+.btn--icon { width: 44px; padding: 0; }
+.btn--icon svg { width: 18px; height: 18px; }
 
 .link {
   color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rule);
@@ -101,7 +108,8 @@ main { display: block; }
   background: var(--color-paper-hi); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill);
   box-shadow: 0 1px 2px color-mix(in oklab, var(--color-ink) 6%, transparent);
 }
-.nav__mark { font: 400 var(--text-xl)/1 var(--font-display); letter-spacing: -0.01em; color: var(--color-ink); text-decoration: none; white-space: nowrap; }
+.nav__mark { display: inline-flex; align-items: center; gap: var(--space-sm); font: 400 var(--text-xl)/1 var(--font-display); letter-spacing: -0.01em; color: var(--color-ink); text-decoration: none; white-space: nowrap; }
+.nav__avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; outline: var(--rule-hair) solid var(--color-rule); outline-offset: 1px; }
 .nav__mark:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
 .nav__links { display: flex; align-items: center; gap: var(--space-2xs); margin: 0; padding: 0; list-style: none; }
 .nav__link {
@@ -133,6 +141,10 @@ main { display: block; }
 @media (max-width: 40rem) {
   .nav__mark { font-size: var(--text-lg); }
   .nav__end .btn--contact { display: none; }
+  /* on a phone the toggle is the bare bars icon; its word stays for screen readers */
+  .nav__toggle { width: 44px; padding: 0; }
+  .nav__toggle svg { width: 18px; height: 18px; }
+  .nav__toggle-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 
 /* ---------- theme switch (kept: #colors) ---------- */

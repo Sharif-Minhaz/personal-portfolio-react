@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { basicInfo, sidebarSocials } from "../constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Footer() {
 	return (
@@ -22,6 +23,7 @@ export default function Footer() {
 								target="_blank"
 								rel="noopener noreferrer"
 							>
+								<FontAwesomeIcon icon={social.icon} />
 								{social.title === "x" ? "X" : social.title[0].toUpperCase() + social.title.slice(1)}
 							</a>
 						</li>

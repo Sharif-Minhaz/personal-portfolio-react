@@ -1,6 +1,23 @@
 import { ContactForm } from ".";
 import { basicInfo, socialLinks } from "../constants";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	IconDefinition,
+	faEnvelope,
+	faLocationDot,
+	faPhone,
+	faShareNodes,
+} from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+// brand marks for the contact links, by their id in constants
+const socialIcons: Record<string, IconDefinition> = {
+	gmail: faEnvelope,
+	github: faGithub,
+	"linked-in": faLinkedin,
+	facebook: faFacebook,
+};
 
 interface ISocial {
 	id: string;
@@ -21,7 +38,9 @@ export default function Contact() {
 					<h2>Tell me what you need built</h2>
 					<dl className="facts">
 						<div>
-							<dt>Email</dt>
+							<dt>
+								<FontAwesomeIcon icon={faEnvelope} /> Email
+							</dt>
 							<dd>
 								<a className="link" href={`mailto:${basicInfo.email}`}>
 									{basicInfo.email}
@@ -29,7 +48,9 @@ export default function Contact() {
 							</dd>
 						</div>
 						<div>
-							<dt>Phone</dt>
+							<dt>
+								<FontAwesomeIcon icon={faPhone} /> Phone
+							</dt>
 							<dd className="num">
 								<a className="link" href={telHref(basicInfo.mobile1)}>
 									{basicInfo.mobile1}
@@ -41,11 +62,15 @@ export default function Contact() {
 							</dd>
 						</div>
 						<div>
-							<dt>Address</dt>
+							<dt>
+								<FontAwesomeIcon icon={faLocationDot} /> Address
+							</dt>
 							<dd>{basicInfo.address}</dd>
 						</div>
 						<div>
-							<dt>Elsewhere</dt>
+							<dt>
+								<FontAwesomeIcon icon={faShareNodes} /> Elsewhere
+							</dt>
 							<dd>
 								<ul className="contact__socials">
 									{socialLinks.map((link: ISocial) => (
@@ -56,6 +81,7 @@ export default function Contact() {
 												target="_blank"
 												rel="noopener noreferrer"
 											>
+												{socialIcons[link.id] && <FontAwesomeIcon icon={socialIcons[link.id]} />}
 												{link.title}
 											</a>
 										</li>

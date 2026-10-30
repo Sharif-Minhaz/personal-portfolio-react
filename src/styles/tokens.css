@@ -1,0 +1,61 @@
+/* Hallmark · theme: Studio · the full stamp and critique open src/index.css, which imports this file */
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: oklch(97.2% 0.006 215); --color-paper-2: oklch(94% 0.009 215); --color-paper-3: oklch(90.5% 0.011 215); --color-paper-hi: oklch(99% 0.004 215);
+  --color-ink: oklch(16% 0.032 250); --color-ink-2: oklch(34% 0.022 245); --color-muted: oklch(49% 0.018 240);
+  --color-rule: oklch(84% 0.010 225);
+  --color-accent: oklch(68% 0.172 50); --color-accent-ink: oklch(16% 0.032 250); --color-focus: oklch(52% 0.15 48);
+  --color-dot: color-mix(in oklab, var(--color-ink) 20%, transparent); --color-mark: color-mix(in oklab, var(--color-ink) 72%, transparent);
+  --font-display: "Hedvig Letters Serif", ui-serif, Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "Sofia Sans Extra Condensed", "Arial Narrow", ui-sans-serif, sans-serif;
+  --radius-card: 3px; --radius-pill: 3px; --rule-hair: 1px;
+  --shadow-card: none;
+  --shadow-sheet: 1px 2px 0 color-mix(in oklab, var(--color-ink) 7%, transparent), 10px 18px 36px -14px color-mix(in oklab, var(--color-ink) 32%, transparent);
+  --tracking-display: -0.022em; --display-weight: 400;
+}
+
+/* Proof grain and the hero's type scale (Studio surfaces) */
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.1 0 0 0 0 0.12 0 0 0 0 0.16 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --text-marquee: clamp(3rem, 8.6vw, 8.25rem);
+  --nav-height: 64px;
+  --color-rule-strong: var(--color-ink); --color-edge: var(--color-ink);
+  --color-band: var(--color-ink); --color-band-ink: var(--color-paper);
+  /* toolkit card hues: a fill/line tone and a text tone readable on the card */
+  --tone-front: var(--color-accent); --tone-front-text: oklch(50% 0.15 48);
+  --tone-back: oklch(66% 0.14 160); --tone-back-text: oklch(46% 0.11 160);
+  --tone-tool: oklch(62% 0.17 290); --tone-tool-text: oklch(47% 0.17 290);
+  --color-plate: var(--color-paper-2);
+  --tone-api: oklch(60% 0.14 250); --tone-api-text: oklch(46% 0.14 250);
+  --tone-devops: oklch(66% 0.1 205); --tone-devops-text: oklch(45% 0.09 205);
+  --tone-ai: oklch(63% 0.17 355); --tone-ai-text: oklch(48% 0.17 355);
+}
+
+/* Dark mode: derived, never inverted (dark-mode.md). The project's existing body.dark switch drives it. */
+body.dark {
+  color-scheme: dark;
+  --color-paper: oklch(16% 0.012 215); --color-paper-2: oklch(19% 0.013 215); --color-paper-3: oklch(22% 0.014 215); --color-paper-hi: oklch(20.5% 0.013 215);
+  --color-ink: oklch(94% 0.008 230); --color-ink-2: oklch(82% 0.012 235); --color-muted: oklch(70% 0.016 235);
+  --color-rule: oklch(31% 0.014 225);
+  --color-accent: oklch(74% 0.148 50); --color-accent-ink: oklch(16% 0.032 250); --color-focus: oklch(74% 0.15 48);
+  --color-dot: color-mix(in oklab, var(--color-ink) 13%, transparent); --color-mark: color-mix(in oklab, var(--color-ink) 34%, transparent);
+  --color-rule-strong: oklch(38% 0.02 230); --color-edge: oklch(60% 0.018 235);
+  --color-band: oklch(23% 0.035 250); --color-band-ink: oklch(94% 0.008 230);
+  --tone-back: oklch(70% 0.13 160); --tone-tool: oklch(66% 0.15 290);
+  --tone-front-text: oklch(80% 0.12 55); --tone-back-text: oklch(80% 0.11 160); --tone-tool-text: oklch(78% 0.12 290);
+  --color-plate: oklch(93% 0.006 230);
+  --tone-api: oklch(68% 0.13 250); --tone-api-text: oklch(80% 0.1 250);
+  --tone-devops: oklch(72% 0.09 205); --tone-devops-text: oklch(82% 0.08 205);
+  --tone-ai: oklch(70% 0.15 355); --tone-ai-text: oklch(82% 0.11 355);
+  --shadow-sheet: 0 0 0 1px var(--color-rule);
+  --grain: none;
+}

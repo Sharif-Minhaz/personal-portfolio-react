@@ -1,5 +1,7 @@
 import { testimonials } from "../constants";
 import { useActiveLink } from "../hooks/useActiveLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export interface IReview {
 	testimonial: string;
@@ -53,6 +55,7 @@ function SingleReview({ review }: { review: IReview }) {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
+					<FontAwesomeIcon icon={faLinkedin} />
 					Read it on LinkedIn
 				</a>
 			</figcaption>

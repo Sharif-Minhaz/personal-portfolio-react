@@ -1,6 +1,8 @@
 import { CSSProperties, PointerEvent, useRef, useState } from "react";
 import { useActiveLink } from "../hooks/useActiveLink";
 import { basicInfo } from "../constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 // Hedvig Letters Serif metrics, in units of 1000 (read from the font file)
 const guides = [
@@ -108,6 +110,7 @@ export default function Home() {
 					</p>
 					<div className="marquee__actions">
 						<a className="btn btn--primary" href="#contact">
+							<FontAwesomeIcon icon={faEnvelope} />
 							Hire me
 						</a>
 						<a className="btn" href="#portfolio">

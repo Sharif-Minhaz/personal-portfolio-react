@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 const initialData = { name: "", message: "", email: "" };
 
@@ -96,6 +98,7 @@ export default function ContactForm() {
 						aria-busy={loading}
 						type="submit"
 					>
+						<FontAwesomeIcon icon={faPaperPlane} />
 						{loading ? "Sending…" : "Send message"}
 					</button>
 				</div>

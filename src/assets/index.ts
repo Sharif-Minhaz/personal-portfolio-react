@@ -23,9 +23,15 @@ import hono from "./tech/hono.webp";
 import mui from "./tech/mui.webp";
 import puppeteer from "./tech/puppeteer.webp";
 import shadcn from "./tech/shadcn.webp";
+import supabase from "./tech/supabase.webp";
+import mysql from "./tech/mysql.webp";
+import linux from "./tech/linux.webp";
+import playwright from "./tech/playwright.webp";
 
 import diu from "./company/diu.webp";
 import rbs from "./company/rbs.jpg";
+import kmLatif from "./education/km-latif-institution.webp";
+import rlc from "./education/residential-laboratory-college.webp";
 
 import titan from "./projects/titan.webp";
 import mediaid from "./projects/mediaid.webp";
@@ -41,6 +47,16 @@ import salePos from "./projects/sale-pos.webp";
 import ecomPos from "./projects/e-com-pos.webp";
 import pageSentiment from "./projects/page-sentiment.webp";
 import salesMl from "./projects/sales-ml.webp";
+import salesMlOverview from "./projects/sales-ml/overview.webp";
+import salesMlOverviewThumb from "./projects/sales-ml/overview-thumb.webp";
+import salesMlForecast from "./projects/sales-ml/forecast.webp";
+import salesMlForecastThumb from "./projects/sales-ml/forecast-thumb.webp";
+import salesMlSegments from "./projects/sales-ml/segments.webp";
+import salesMlSegmentsThumb from "./projects/sales-ml/segments-thumb.webp";
+import salesMlColdStart from "./projects/sales-ml/cold-start.webp";
+import salesMlColdStartThumb from "./projects/sales-ml/cold-start-thumb.webp";
+import salesMlDark from "./projects/sales-ml/forecast-dark.webp";
+import salesMlDarkThumb from "./projects/sales-ml/forecast-dark-thumb.webp";
 
 import blog1 from "./blogs/blog1.webp";
 import blog2 from "./blogs/blog2.webp";
@@ -84,8 +100,24 @@ export {
 	bunShop,
 	nestjs,
 	electron,
+	supabase,
+	mysql,
+	linux,
+	kmLatif,
+	rlc,
+	playwright,
 	ecomPos,
 	pageSentiment,
 	salesMl,
+	salesMlOverview,
+	salesMlOverviewThumb,
+	salesMlForecast,
+	salesMlForecastThumb,
+	salesMlSegments,
+	salesMlSegmentsThumb,
+	salesMlColdStart,
+	salesMlColdStartThumb,
+	salesMlDark,
+	salesMlDarkThumb,
 	arfinHayet,
 };

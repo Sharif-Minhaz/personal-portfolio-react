@@ -17,18 +17,17 @@ const ExperienceRow = ({ experience }: { experience: IExperience }) => (
 	<li className="record__row">
 		<p className="record__date num">{experience.date.replace(" - ", " to ")}</p>
 		<div className="record__what">
+			<img
+				className="record__logo"
+				src={experience.icon}
+				alt=""
+				width={52}
+				height={52}
+				loading="lazy"
+				decoding="async"
+			/>
 			<h4>{experience.title}</h4>
-			<p className="record__where">
-				<img
-					src={experience.icon}
-					alt=""
-					width={24}
-					height={24}
-					loading="lazy"
-					decoding="async"
-				/>
-				{experience.company_name}
-			</p>
+			<p className="record__where">{experience.company_name}</p>
 		</div>
 		<ul className="record__points">
 			{experience.points.map((point: string, index: number) => (
@@ -48,7 +47,7 @@ const Experience = () => {
 					<h2>Two jobs, three schools, a toolbox</h2>
 					<div className="head__aside">
 						<a className="btn" target="_blank" href={RESUME_LINK} download>
-							View resume <FontAwesomeIcon icon={faFileContract} aria-hidden="true" />
+							<FontAwesomeIcon icon={faFileContract} aria-hidden="true" /> View resume
 						</a>
 					</div>
 				</div>

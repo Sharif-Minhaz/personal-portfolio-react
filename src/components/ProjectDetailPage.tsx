@@ -46,13 +46,13 @@ export default function ProjectDetailPage() {
 									target="_blank"
 									rel="noreferrer"
 								>
-									Visit live project{" "}
 									<FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" />
+									Visit live project
 								</a>
 							)}
 							{project.source_code_link && (
 								<a className="btn" href={project.source_code_link} target="_blank" rel="noreferrer">
-									Source on GitHub <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
+									<FontAwesomeIcon icon={faGithub} aria-hidden="true" /> Source on GitHub
 								</a>
 							)}
 						</div>

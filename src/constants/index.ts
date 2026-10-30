@@ -12,15 +12,16 @@ import {
 	faSmileBeam,
 	faBuilding,
 	faBusinessTime,
-	faObjectGroup,
-	faLaptopCode,
 	faServer,
-	faBugSlash,
-	faFileCircleCheck,
+	faDesktop,
+	faDatabase,
+	faTerminal,
+	faTabletScreenButton,
+	faCloud,
+	faBrain,
 } from "@fortawesome/free-solid-svg-icons";
 import {
 	faFacebook,
-	faFigma,
 	faGithub,
 	faLinkedin,
 	faXTwitter,
@@ -62,8 +63,24 @@ import {
 	salePos,
 	ecomPos,
 	electron,
+	supabase,
+	mysql,
+	linux,
+	kmLatif,
+	rlc,
+	playwright,
 	pageSentiment,
 	salesMl,
+	salesMlOverview,
+	salesMlOverviewThumb,
+	salesMlForecast,
+	salesMlForecastThumb,
+	salesMlSegments,
+	salesMlSegmentsThumb,
+	salesMlColdStart,
+	salesMlColdStartThumb,
+	salesMlDark,
+	salesMlDarkThumb,
 	rbs,
 	diu,
 	arfinHayet,
@@ -149,42 +166,55 @@ export const workingHistory = [
 	},
 ];
 
+export const servicesIntro = {
+	title: "Services I offer",
+	lead: "I help turn ideas into real products, from scalable web applications to desktop tools and AI integrations.",
+	aside:
+		"I focus on building practical, high-quality solutions that solve real problems, using modern tools and best practices.",
+};
+
 export const services = [
 	{
-		title: "Web Design",
-		icon: faObjectGroup,
+		title: "Web Application Development",
+		icon: faDesktop,
+		tone: "web",
 		description:
-			"A static site built from scratch in HTML, CSS and JavaScript, or in React, Next.js or Astro, with code you can customise.",
+			"Modern, responsive and scalable web applications using React, Next.js, Node.js and more.",
 	},
 	{
-		title: "Web Development",
-		icon: faLaptopCode,
-		description:
-			"Dynamic, responsive web applications built with React, Next.js, Express, MongoDB and Flask.",
-	},
-	{
-		title: "API Development",
+		title: "Backend & API Development",
 		icon: faServer,
+		tone: "api",
 		description:
-			"APIs designed and built to scale, the backbone your web and mobile apps call.",
+			"REST APIs and backend systems built with Node.js, NestJS, Express and a range of databases.",
 	},
 	{
-		title: "PSD to HTML",
-		icon: faFileCircleCheck,
+		title: "Desktop & Cross-platform Apps",
+		icon: faTabletScreenButton,
+		tone: "desktop",
 		description:
-			"Your Photoshop designs turned into pixel-perfect, working HTML pages.",
+			"Custom desktop applications with Electron.js and tools for Windows, macOS and Linux.",
 	},
 	{
-		title: "Figma to HTML",
-		icon: faFigma,
+		title: "Database Design & Optimization",
+		icon: faDatabase,
+		tone: "data",
 		description:
-			"Your Figma files translated into clean, semantic HTML that keeps the design intact.",
+			"Efficient database schema design, data modelling and performance optimization (MongoDB, MySQL, PostgreSQL, SQLite).",
 	},
 	{
-		title: "Code Review (MERN)",
-		icon: faBugSlash,
+		title: "DevOps & Deployment",
+		icon: faCloud,
+		tone: "devops",
 		description:
-			"A thorough review of your MERN codebase, with feedback you can act on.",
+			"Deploy and maintain applications on AWS, Vercel, Render, Nginx, Docker and set up CI/CD pipelines.",
+	},
+	{
+		title: "AI Integration & Automation",
+		icon: faBrain,
+		tone: "ai",
+		description:
+			"Integrate AI models (OpenAI, Ollama, LM Studio, RAG) and build automation tools to improve productivity and business workflows.",
 	},
 ];
 
@@ -192,6 +222,7 @@ export const educations = [
 	{
 		title: "FSIT",
 		institute: "Daffodil International University",
+		logo: diu,
 		timeSpan: "2020 - 2024",
 		description:
 			"Being established in 2002, Daffodil International University has become a prominent private university in Bangladesh, fostering education and innovation for more than 20000 students.",
@@ -199,6 +230,7 @@ export const educations = [
 	{
 		title: "Science",
 		institute: "Residential Laboratory College",
+		logo: rlc,
 		timeSpan: "2017 - 2019",
 		description:
 			"Residential Laboratory College, since its establishment in 2009, has been playing distinct and unique role for the dissemination of modern, dynamic and quality.",
@@ -206,6 +238,7 @@ export const educations = [
 	{
 		title: "Science",
 		institute: "K.M. Latif Institution",
+		logo: kmLatif,
 		timeSpan: "2012 - 2017",
 		description:
 			"K.M. Latif Institution is an educational establishment that is located at 22 Mathbaria Mathbaria Pirojpur. Its Educational Institute Identification Number or EIIN, is 102724. On 01 January.",
@@ -297,12 +330,36 @@ export const technologies = [
 		name: "Electron",
 		icon: electron,
 	},
+	{
+		name: "Supabase",
+		icon: supabase,
+	},
+	{
+		name: "MySQL",
+		icon: mysql,
+	},
+	{
+		name: "Linux",
+		icon: linux,
+	},
+	{
+		name: "Playwright",
+		icon: playwright,
+	},
 ];
 
 // how the technologies read on the page: grouped by what each one does
+export const toolkitIntro = {
+	title: "Technologies I work with",
+	lead: "The tools and technologies I use to build, design, and ship products.",
+};
+
 export const techGroups = [
 	{
 		title: "Front end",
+		tone: "front",
+		icon: faDesktop,
+		description: "Build modern, responsive and interactive user interfaces.",
 		tools: [
 			"HTML 5",
 			"CSS 3",
@@ -318,11 +375,35 @@ export const techGroups = [
 	},
 	{
 		title: "Back end and data",
-		tools: ["Node JS", "Express", "Nest Js", "Hono Js", "Bun Js", "Python", "Flask", "MongoDB"],
+		tone: "back",
+		icon: faDatabase,
+		description: "Build scalable APIs, handle data and integrate services.",
+		tools: [
+			"Node JS",
+			"Express",
+			"Nest Js",
+			"Hono Js",
+			"Bun Js",
+			"Python",
+			"Flask",
+			"MongoDB",
+			"Supabase",
+			"MySQL",
+		],
 	},
 	{
 		title: "Tooling and desktop",
-		tools: ["git", "Puppeteer", "Electron"],
+		tone: "tool",
+		icon: faTerminal,
+		description: "Tools for development, automation and desktop applications.",
+		tools: ["git", "Linux", "Puppeteer", "Playwright", "Electron"],
+		roles: {
+			git: "Version control",
+			Linux: "Operating system",
+			Puppeteer: "Automation",
+			Playwright: "Testing",
+			Electron: "Desktop apps",
+		} as Record<string, string>,
 	},
 ];
 
@@ -418,7 +499,8 @@ export const testimonials = [
 		company: "Noor AI",
 		relation: "Worked with Minhaz on the same team · February 9, 2026",
 		image: arfinHayet,
-		source: "https://www.linkedin.com/in/minhaz-sharif/details/recommendations/",
+		source:
+			"https://www.linkedin.com/in/minhaz-sharif/details/recommendations/",
 	},
 ];
 
@@ -466,6 +548,18 @@ export interface ProjectChallenge {
 	solution: string;
 }
 
+export interface ProjectScreen {
+	label: string;
+	caption: string;
+	image: string;
+	thumb: string;
+}
+
+export interface ProjectFigure {
+	value: string;
+	label: string;
+}
+
 export interface PortfolioProject {
 	slug: string;
 	name: string;
@@ -477,6 +571,8 @@ export interface PortfolioProject {
 	challenges?: ProjectChallenge[];
 	tags: { name: string; color: string }[];
 	image: string;
+	screens?: ProjectScreen[];
+	figures?: ProjectFigure[];
 	source_code_link?: string;
 	live_link?: string;
 }
@@ -542,6 +638,47 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.UV },
 		],
 		image: salesMl,
+		// screens and figures come from the project's README
+		screens: [
+			{
+				label: "Overview",
+				caption:
+					"KPIs, weekly revenue and the cleaning audit, data quality first",
+				image: salesMlOverview,
+				thumb: salesMlOverviewThumb,
+			},
+			{
+				label: "Forecast",
+				caption:
+					"A 12-week forecast with its 80% band and the model leaderboard",
+				image: salesMlForecast,
+				thumb: salesMlForecastThumb,
+			},
+			{
+				label: "Segments",
+				caption: "Four RFM segments, each with the action it calls for",
+				image: salesMlSegments,
+				thumb: salesMlSegmentsThumb,
+			},
+			{
+				label: "Cold start",
+				caption: "Funnel scenarios for a store with no sales history yet",
+				image: salesMlColdStart,
+				thumb: salesMlColdStartThumb,
+			},
+			{
+				label: "Dark mode",
+				caption:
+					"Separate light and dark palettes, both checked for colour-blind safety",
+				image: salesMlDark,
+				thumb: salesMlDarkThumb,
+			},
+		],
+		figures: [
+			{ value: "98,199", label: "real orders, cleaned with an audit trail" },
+			{ value: "9", label: "models compared over 21 walk-forward folds" },
+			{ value: "34%", label: "of customers bring in 61% of revenue" },
+		],
 		source_code_link: "https://github.com/Sharif-Minhaz/sales-ml",
 	},
 	{
@@ -572,7 +709,8 @@ export const projects: PortfolioProject[] = [
 		],
 		challenges: [
 			{
-				challenge: "A binary training dataset cannot directly label neutral comments.",
+				challenge:
+					"A binary training dataset cannot directly label neutral comments.",
 				solution:
 					"The prediction layer applies a documented 0.40–0.60 probability band as a calibration rule and returns neutral for predictions in that range.",
 			},
@@ -600,7 +738,8 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.FACEBOOK_GRAPH_API },
 		],
 		image: pageSentiment,
-		source_code_link: "https://github.com/Sharif-Minhaz/sentiment-analysis-fb-page",
+		source_code_link:
+			"https://github.com/Sharif-Minhaz/sentiment-analysis-fb-page",
 	},
 	{
 		slug: "ldpan",
@@ -696,7 +835,11 @@ export const projects: PortfolioProject[] = [
 			"The documented setup requires separate environment configuration for the client and server.",
 			"The README describes a review step for donation requests before they are accepted.",
 		],
-		tags: [{ ...TECH_COLORS.REACT }, { ...TECH_COLORS.REDUX }, { ...TECH_COLORS.EXPRESS }],
+		tags: [
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.REDUX },
+			{ ...TECH_COLORS.EXPRESS },
+		],
 		image: mediaid,
 		source_code_link: "https://github.com/Sharif-Minhaz/MediAid",
 		live_link: "https://mediaid-online-platform.netlify.app/",
@@ -772,7 +915,11 @@ export const projects: PortfolioProject[] = [
 			"The repository identifies the application as a MERN-stack travel project.",
 			"The public project summary links a live deployment for exploring the current application.",
 		],
-		tags: [{ ...TECH_COLORS.FIREBASE }, { ...TECH_COLORS.EXPRESS }, { ...TECH_COLORS.REACT }],
+		tags: [
+			{ ...TECH_COLORS.FIREBASE },
+			{ ...TECH_COLORS.EXPRESS },
+			{ ...TECH_COLORS.REACT },
+		],
 		image: treker,
 		source_code_link: "https://github.com/Sharif-Minhaz/Treker",
 		live_link: "https://travel-assistant-v1.netlify.app/",
@@ -810,7 +957,8 @@ export const projects: PortfolioProject[] = [
 	{
 		slug: "admin-dashboard",
 		name: "Admin Dashboard",
-		description: "A html Admin-dashboard template created with html, css. js and jquery.",
+		description:
+			"A html Admin-dashboard template created with html, css. js and jquery.",
 		overview:
 			"Admin Dashboard is a static HTML template for common administration interfaces. Its repository organizes the interface into focused areas such as dashboard, forms, charts, tables, maps, authentication, and widgets, making it a starting point for a wider admin UI rather than a single-purpose screen.",
 		features: [
@@ -856,7 +1004,8 @@ export const projects: PortfolioProject[] = [
 	{
 		slug: "e-commerce-template",
 		name: "E-Commerce Template",
-		description: "E-commerce web project for managing products orders and shopping cart.",
+		description:
+			"E-commerce web project for managing products orders and shopping cart.",
 		overview:
 			"E-Commerce Template is a front-end shopping site centered on product browsing, orders, and a shopping cart. Its public repository describes it as an HTML, CSS, and JavaScript project and links a GitHub Pages deployment. The README provides only a short product summary, so details here stay within that scope.",
 		features: [
@@ -923,7 +1072,8 @@ export const projects: PortfolioProject[] = [
 export const blogs = [
 	{
 		id: 1,
-		title: "Unleashing the Power of Progressive Web Apps: The Future of Web Development",
+		title:
+			"Unleashing the Power of Progressive Web Apps: The Future of Web Development",
 		url: "https://dev-inertia-blog.netlify.app/blog/view/unleashing-the-power-of-progressive-web-apps-the-future-of-web-development",
 		cover: blog1,
 		publishedDate: "March 27, 2024",
@@ -931,7 +1081,8 @@ export const blogs = [
 	},
 	{
 		id: 2,
-		title: "Building Robust REST APIs with Python Flask: A Guide for Developers",
+		title:
+			"Building Robust REST APIs with Python Flask: A Guide for Developers",
 		cover: blog2,
 		url: "https://dev-inertia-blog.netlify.app/blog/view/building-robust-rest-apis-with-python-flask-a-guide-for-developers",
 		publishedDate: "March 27, 2024",

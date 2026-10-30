@@ -1,0 +1,68 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "Marquee Hero",
+  "theme": "studio",
+  "axes": "light/roman-serif/warm",
+  "hero": "Poster",
+  "nav": "floating pill",
+  "footer": "colophon block",
+  "imagery": "screenshots 14 (user project images), user portrait, 2 blog covers",
+  "photos": [],
+  "entry": "name settles, guides draw in once",
+  "fingerprint": "marquee-poster-pill-colophon-studio-r2",
+  "sections": [
+   "Hero (name as a type proof, live letter measure)",
+   "Rows (services)",
+   "Lead sheet and bento (work)",
+   "Bento (about)",
+   "Rows and three specimen sheets (record, toolkit)",
+   "Band (recommendation)",
+   "Grid of two (blog)",
+   "Form on ruled proof (contact)",
+   "Colophon"
+  ],
+  "signature": "the name set as a type proof on Hedvig real metrics; the pointer measures a letter",
+  "waived": [
+   "49b",
+   "77"
+  ],
+  "prompt": "revision: more joy, less plain; dark mode rules too bright; no horizontal rail; no marquee; rethink the orange contact",
+  "date": "2026-10-30"
+ },
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "Marquee Hero",
+  "theme": "studio",
+  "axes": "light/roman-serif/warm",
+  "hero": "Poster",
+  "nav": "floating pill",
+  "footer": "colophon block",
+  "imagery": "screenshots 14 (user project images), user portrait, 2 blog covers",
+  "photos": [],
+  "entry": "guides draw in once",
+  "fingerprint": "marquee-poster-pill-colophon-studio",
+  "sections": [
+   "Hero (name as a type proof)",
+   "Rows (services)",
+   "Index with a lead sheet (work)",
+   "Bento (about, portrait, facts, figures)",
+   "Rows (record: work, study, tools)",
+   "Band ink (recommendation)",
+   "Grid of two (blog)",
+   "Form (contact)",
+   "Colophon"
+  ],
+  "signature": "the name set as a type proof on Hedvig real metrics",
+  "waived": [
+   "49b",
+   "77"
+  ],
+  "prompt": "personal portfolio of a web developer who wants clients and employers to hire him",
+  "date": "2026-10-30"
+ }
+]

@@ -66,7 +66,7 @@ export default function About() {
 						</div>
 					</dl>
 					<a className="btn" target="_blank" href={RESUME_LINK} download>
-						View resume <FontAwesomeIcon icon={faFileContract} aria-hidden="true" />
+						<FontAwesomeIcon icon={faFileContract} aria-hidden="true" /> View resume
 					</a>
 				</div>
 
