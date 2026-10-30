@@ -1,13 +1,6 @@
 import { projects } from "../constants";
-import { motion } from "framer-motion";
-import { Tilt } from "react-tilt";
-import { github, play } from "../assets";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
-import { Heading } from ".";
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 interface ITag {
@@ -19,6 +12,7 @@ interface IProject {
 	index: number;
 	slug: string;
 	name: string;
+	category?: string;
 	description: string;
 	tags: ITag[];
 	image: string;
@@ -30,6 +24,7 @@ const ProjectCard = ({
 	index,
 	slug,
 	name,
+	category,
 	description,
 	tags,
 	image,
@@ -43,106 +38,85 @@ const ProjectCard = ({
 		window.open(url, "_blank", "noopener,noreferrer");
 	};
 	const handleCardKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+		if (event.target !== event.currentTarget) return;
 		if (event.key === "Enter" || event.key === " ") {
 			event.preventDefault();
 			openProject();
 		}
 	};
+	const lead = index === 0;
 
 	return (
-		<motion.div
-			initial={{ opacity: 0, y: -150 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true }}
-			transition={{ delay: (index + 1) * 0.2 }}
+		<div
 			role="link"
 			tabIndex={0}
 			aria-label={`View ${name} project details`}
 			onClick={openProject}
 			onKeyDown={handleCardKeyDown}
-			className="project-card-navigation"
+			className={`work__item ${lead ? "work__item--lead" : ""}`}
 		>
-			<Tilt
-				options={{
-					max: 45,
-					scale: 1,
-					speed: 450,
-				}}
-				className="tilt-container"
-			>
-				<div className="tilt-body">
+			<div className={`work__shot crop ${lead ? "crop--sheet" : ""}`}>
+				<div
+					className="work__frame"
+					data-slot={`project-${slug}`}
+					data-kind="product"
+					data-alt={`${name}, a screenshot of the main screen`}
+				>
 					<img
 						src={image}
-						className="project-image"
 						alt={`${name} project screenshot`}
-						width={400}
-						height={230}
+						width={1365}
+						height={767}
 						loading="lazy"
 						decoding="async"
 					/>
+				</div>
+			</div>
 
-					{source_code_link && (
-						<div className="actions">
+			<div className="work__text">
+				<h3>{name}</h3>
+				<p className="work__meta">{category ?? "Web Development"}</p>
+				<p className="work__desc">{description}</p>
+				<p className="work__stack">{tags.map((tag: ITag) => tag.name).join(", ")}</p>
+				{(source_code_link || live_link) && (
+					<div className="work__actions">
+						{source_code_link && (
 							<button
 								type="button"
 								onClick={openExternalLink(source_code_link)}
-								className="black-gradient github"
+								className="btn btn--small"
 								aria-label={`Open ${name} source code`}
 							>
-								<img src={github} alt="source code" />
+								Source
 							</button>
-						</div>
-					)}
-
-					{live_link && (
-						<div className="actions actions-play">
+						)}
+						{live_link && (
 							<button
 								type="button"
 								onClick={openExternalLink(live_link)}
-								className="black-gradient play"
+								className="btn btn--small"
 								aria-label={`Open ${name} live project`}
 							>
-								<img
-									src={play}
-									alt=""
-									style={{ width: "35%", height: "35%", objectFit: "contain" }}
-								/>
+								Live site
 							</button>
-						</div>
-					)}
-				</div>
-
-				<div className="mt-3 tilt-text-container project-card-copy">
-					<h3
-						className="font-bold project-card-title"
-						title={name}
-						style={{ fontSize: "24px" }}
-					>
-						{name}
-					</h3>
-					<p
-						className="mt-2 line-clamp-3"
-						title={description}
-						style={{ fontSize: "14px", height: "63px" }}
-					>
-						{description}
-					</p>
-				</div>
-
-				<div className="mt-2 d-flex flex-wrap gap-2 project-card-tags">
-					{tags.map((tag: ITag) => (
-						<p
-							key={`${name}-${tag.name}`}
-							className="glass-mini mb-0"
-							style={{ fontSize: "13px", color: tag.color }}
-						>
-							#{tag.name}
-						</p>
-					))}
-				</div>
-			</Tilt>
-		</motion.div>
+						)}
+					</div>
+				)}
+			</div>
+		</div>
 	);
+};
+
+// spans on twelve columns: a wide pair first (7 and 5), then rows of three; a last pair swaps to 5 and 7
+const bentoSpan = (index: number, count: number) => {
+	if (index === 0) return 7;
+	if (index === 1) return 5;
+	const rest = count - 2;
+	const position = index - 2;
+	const tail = rest % 3;
+	if (tail === 2 && position >= rest - 2) return position === rest - 2 ? 5 : 7;
+	if (tail === 1 && position === rest - 1) return 12;
+	return 4;
 };
 
 export default function Projects() {
@@ -154,49 +128,45 @@ export default function Projects() {
 	};
 
 	return (
-		<section ref={ref} id="portfolio" className="sectionD section-part">
-			<div className="container-fluid">
-				<div className="row padding projects-section-row">
-					<Heading
-						title="My Projects"
-						baseTitle="PROJECTS"
-						action={
-							<div className="projects-index-link-wrap">
-								<Link
-									className="projects-index-link"
-									to="/projects"
-									onClick={() =>
-										sessionStorage.setItem(
-											"portfolio-scroll-before-projects",
-											String(window.scrollY),
-										)
-									}
-								>
-									Browse all projects{" "}
-									<FontAwesomeIcon icon={faArrowRight} aria-hidden="true" />
-								</Link>
-							</div>
-						}
-					/>
-					<div className="col-12 p-0">
-						<div className="row d-flex flex-wrap row-gap-4">
-							{projectData.map((project, index) => (
-								<div key={project.name} className="col-12 col-sm-6 col-md-4">
-									<ProjectCard
-										key={`project-${index}`}
-										index={index}
-										{...project}
-									/>
-								</div>
-							))}
-						</div>
+		<section ref={ref} id="portfolio" className="section section--work">
+			<div className="container">
+				<div className="head">
+					<h2>Work, from forecasting to point of sale</h2>
+					<div className="head__aside">
+						<Link
+							className="btn"
+							to="/projects"
+							onClick={() =>
+								sessionStorage.setItem(
+									"portfolio-scroll-before-projects",
+									String(window.scrollY),
+								)
+							}
+						>
+							Browse all projects
+						</Link>
 					</div>
 				</div>
+				<div className="work">
+					{projectData.slice(0, 1).map((project) => (
+						<ProjectCard key={project.slug} index={0} {...project} />
+					))}
+				</div>
+				<div className="bento">
+					{projectData.slice(1).map((project, index, rest) => (
+						<div
+							key={project.slug}
+							className="bento__tile"
+							style={{ "--span": bentoSpan(index, rest.length) } as CSSProperties}
+						>
+							<ProjectCard index={index + 1} {...project} />
+						</div>
+					))}
+				</div>
 				{projectData.length !== projects.length && (
-					<div className="downloadCv-btn2" style={{ marginTop: "20px" }}>
-						<button className="primary-btn" onClick={handleLoadMore}>
-							<span className="inline-block mr-2">Load More</span>
-							<FontAwesomeIcon icon={faGithub} />
+					<div className="work__more">
+						<button type="button" className="btn" onClick={handleLoadMore}>
+							Load more projects
 						</button>
 					</div>
 				)}

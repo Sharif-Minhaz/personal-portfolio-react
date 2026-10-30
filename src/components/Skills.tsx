@@ -1,54 +1,53 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Heading } from ".";
-import { RESUME_LINK, technologies } from "../constants";
-import { faFileContract } from "@fortawesome/free-solid-svg-icons";
-import { useActiveLink } from "../hooks/useActiveLink";
-import { motion } from "framer-motion";
+import { techGroups, technologies } from "../constants";
 
+// Rendered inside the record section (Experience.tsx), which owns #summary.
+// The toolkit as three specimen sheets, read at a glance; any tool not in a group lands in the last sheet.
 export default function Skills() {
-	const { ref } = useActiveLink("#summary");
+	const grouped = new Set(techGroups.flatMap((group) => group.tools));
+	const groups = techGroups.map((group, index) => ({
+		title: group.title,
+		tools: [
+			...group.tools.flatMap((name) => technologies.filter((tech) => tech.name === name)),
+			...(index === techGroups.length - 1
+				? technologies.filter((tech) => !grouped.has(tech.name))
+				: []),
+		],
+	}));
+
 	return (
-		<section ref={ref} id="summary" className="sectionD section-part">
-			<div className="container-fluid">
-				<section className="row padding">
-					<Heading baseTitle="SKILLS" title="Technologies" />
-					<div className="technology">
-						{technologies.map((tech, index: number) => (
-							<motion.div
-								initial={{ opacity: 0, y: -50 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								transition={{ ease: "easeOut", delay: (index + 0.1) * 0.15 }}
-								key={tech.name}
-								className="hexagon black-gradient"
-								id="hexagon"
-							>
-								<img
-									draggable={false}
-									className="body"
-									src={tech.icon}
-									alt={tech.name}
-									title={tech.name}
-									width={70}
-									height={70}
-									loading="lazy"
-									decoding="async"
-								/>
-							</motion.div>
-						))}
-					</div>
-					<div className="col-12 mt-2">
-						<div className="downloadCv-btn2">
-							<a target="_blank" href={RESUME_LINK} download>
-								<button>
-									View Resume{" "}
-									<FontAwesomeIcon className="ms-1" icon={faFileContract} />
-								</button>
-							</a>
-						</div>
-					</div>
-				</section>
+		<div className="record record--tools">
+			<h3 className="record__label">The toolkit, sorted by what each tool does</h3>
+			<div className="kit">
+				{groups.map((group) => (
+					<section
+						key={group.title}
+						className="kit__sheet crop"
+						style={{ gridColumn: `span ${group.tools.length >= 9 ? 5 : group.tools.length >= 5 ? 4 : 3}` }}
+						aria-label={group.title}
+					>
+						<header className="kit__head">
+							<h4>{group.title}</h4>
+							<span className="num">{group.tools.length}</span>
+						</header>
+						<ul className="kit__list">
+							{group.tools.map((tech) => (
+								<li key={tech.name}>
+									<img
+										draggable={false}
+										src={tech.icon}
+										alt=""
+										width={28}
+										height={28}
+										loading="lazy"
+										decoding="async"
+									/>
+									{tech.name}
+								</li>
+							))}
+						</ul>
+					</section>
+				))}
 			</div>
-		</section>
+		</div>
 	);
 }

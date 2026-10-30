@@ -2,26 +2,23 @@ import {
 	About,
 	Blogs,
 	Contact,
-	Education,
 	Experience,
 	Footer,
 	Home,
 	Projects,
 	Reviews,
 	Services,
-	Skills,
 } from "../components";
 
+// Education and Skills render inside Experience: the record is one section (#summary)
 export default function RootPage() {
 	return (
-		<main>
+		<main id="main">
 			<Home />
-			<About />
 			<Services />
-			<Education />
-			<Skills />
-			<Experience />
 			<Projects />
+			<About />
+			<Experience />
 			<Reviews />
 			<Blogs />
 			<Contact />

@@ -79,24 +79,24 @@ export const navLinks = [
 		icon: faHouseUser,
 	},
 	{
-		id: "#aboutme",
-		title: "About Me",
-		icon: faUser,
-	},
-	{
 		id: "#services",
 		title: "Services",
 		icon: faCog,
 	},
 	{
-		id: "#summary",
-		title: "Summary",
-		icon: faIdBadge,
-	},
-	{
 		id: "#portfolio",
 		title: "Portfolio",
 		icon: faBriefcase,
+	},
+	{
+		id: "#aboutme",
+		title: "About Me",
+		icon: faUser,
+	},
+	{
+		id: "#summary",
+		title: "Summary",
+		icon: faIdBadge,
 	},
 	{
 		id: "#testimonial",
@@ -120,7 +120,7 @@ export const basicInfo = {
 	address: "Pirojpur, Barishal, Bangladesh",
 	email: "smmr.career@gmail.com",
 	age: getAge("2001-10-06"),
-	moto1: "I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Next.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!",
+	moto1: "I’m a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Next.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let’s work together to bring your ideas to life!",
 	moto2: "Delivering work within time and budget which meets the client’s requirements is my moto. With attention to detail and effective communication, I strive to exceed expectations and foster long-term client satisfaction.",
 	mobile1: "+880 1308673831",
 	mobile2: "+880 1608566474",
@@ -128,7 +128,7 @@ export const basicInfo = {
 
 export const workingHistory = [
 	{
-		title: "Experience",
+		title: "Years of experience",
 		count: "2",
 		icon: faBusinessTime,
 	},
@@ -138,12 +138,12 @@ export const workingHistory = [
 		icon: faTasks,
 	},
 	{
-		title: "Satisfied Peoples",
+		title: "Satisfied people",
 		count: "10",
 		icon: faSmileBeam,
 	},
 	{
-		title: "Company",
+		title: "Companies",
 		count: "2",
 		icon: faBuilding,
 	},
@@ -154,37 +154,37 @@ export const services = [
 		title: "Web Design",
 		icon: faObjectGroup,
 		description:
-			"Get a stunning static website crafted from scratch using HTML, CSS, and Js or modern frameworks like React, Next.js, and Astro. I provide customizable and optimized codebases tailored to your unique needs.",
+			"A static site built from scratch in HTML, CSS and JavaScript, or in React, Next.js or Astro, with code you can customise.",
 	},
 	{
 		title: "Web Development",
 		icon: faLaptopCode,
 		description:
-			"Elevate your online presence with expert web development services with dynamic and responsive web applications using the latest technologies like React, Next, Express, Mongodb, Flask and best practices.",
+			"Dynamic, responsive web applications built with React, Next.js, Express, MongoDB and Flask.",
 	},
 	{
 		title: "API Development",
 		icon: faServer,
 		description:
-			"Unlock the power of data and functionality with my API development services. From designing robust APIs to implementing scalable solutions, I will help you build the backbone of your digital ecosystem.",
+			"APIs designed and built to scale, the backbone your web and mobile apps call.",
 	},
 	{
 		title: "PSD to HTML",
 		icon: faFileCircleCheck,
 		description:
-			"Transform your design concepts into pixel-perfect HTML websites. My PSD to HTML service ensures seamless conversion with attention to detail, resulting in visually appealing and functional web pages.",
+			"Your Photoshop designs turned into pixel-perfect, working HTML pages.",
 	},
 	{
 		title: "Figma to HTML",
 		icon: faFigma,
 		description:
-			"Bring your Figma designs to life with my Figma to HTML conversion service. I will meticulously translate your design files into clean, semantic HTML code, preserving design integrity and fidelity.",
+			"Your Figma files translated into clean, semantic HTML that keeps the design intact.",
 	},
 	{
 		title: "Code Review (MERN)",
 		icon: faBugSlash,
 		description:
-			"Ensure code quality and maintainability with my comprehensive code review service. I will conduct thorough evaluations of your codebase, providing actionable feedback and recommendations for improvement.",
+			"A thorough review of your MERN codebase, with feedback you can act on.",
 	},
 ];
 
@@ -296,6 +296,33 @@ export const technologies = [
 	{
 		name: "Electron",
 		icon: electron,
+	},
+];
+
+// how the technologies read on the page: grouped by what each one does
+export const techGroups = [
+	{
+		title: "Front end",
+		tools: [
+			"HTML 5",
+			"CSS 3",
+			"JavaScript",
+			"TypeScript",
+			"React JS",
+			"Next Js",
+			"Redux Toolkit",
+			"Tailwind CSS",
+			"Shadcn/ui",
+			"MUI",
+		],
+	},
+	{
+		title: "Back end and data",
+		tools: ["Node JS", "Express", "Nest Js", "Hono Js", "Bun Js", "Python", "Flask", "MongoDB"],
+	},
+	{
+		title: "Tooling and desktop",
+		tools: ["git", "Puppeteer", "Electron"],
 	},
 ];
 

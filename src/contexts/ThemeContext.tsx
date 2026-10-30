@@ -15,26 +15,24 @@ export const ThemeContext = createContext<ThemeContextProps>({
 });
 
 export const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
-	const [theme, setTheme] = useState("dark");
+	const [theme, setTheme] = useState("light");
 	const [active, setActive] = useState("#home");
 
 	useEffect(() => {
 		const savedTheme = localStorage.getItem("theme");
 
-		setTheme(savedTheme ? savedTheme : "dark");
+		setTheme(savedTheme ? savedTheme : "light");
 	}, []);
 
 	useEffect(() => {
-		localStorage.setItem("theme", theme);
-		if (theme === "dark") {
-			document.body.classList.add("dark");
-		} else {
-			document.body.classList.remove("dark");
-		}
+		document.body.classList.toggle("dark", theme === "dark");
 	}, [theme]);
 
+	// persist only on a real toggle, so a remount cannot overwrite the saved choice with the default
 	const changeTheme = () => {
-		setTheme(theme === "dark" ? "light" : "dark");
+		const next = theme === "dark" ? "light" : "dark";
+		localStorage.setItem("theme", next);
+		setTheme(next);
 	};
 
 	const handleActiveLink = (link: string) => {

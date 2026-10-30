@@ -1,105 +1,117 @@
-import { lazy, Suspense, useRef, useEffect, useState, MouseEvent } from "react";
+import { CSSProperties, PointerEvent, useRef, useState } from "react";
 import { useActiveLink } from "../hooks/useActiveLink";
 import { basicInfo } from "../constants";
 
-const HeroParticles = lazy(() => import("./HeroParticles"));
+// Hedvig Letters Serif metrics, in units of 1000 (read from the font file)
+const guides = [
+	{ name: "ascender", label: "Ascender 800" },
+	{ name: "cap", label: "Cap height 700" },
+	{ name: "x", label: "x-height 520" },
+	{ name: "baseline", label: "Baseline 0" },
+	{ name: "descender", label: "Descender −247" },
+];
+
+// the name is set with -0.03em tracking, so a glyph's box is 30 units short of its advance
+const TRACKING_UNITS = 30;
+
+interface IMeasure {
+	ch: string;
+	left: number;
+	right: number;
+	units: number;
+}
 
 export default function Home() {
-	const el = useRef(null);
-	const sectionRef = useRef<HTMLElement | null>(null);
-	const [showParticles, setShowParticles] = useState(false);
-
 	const { ref } = useActiveLink("#home");
+	const frameRef = useRef<HTMLDivElement | null>(null);
+	const [measure, setMeasure] = useState<IMeasure | null>(null);
 
-	useEffect(() => {
-		let typed: { destroy: () => void } | undefined;
-		let cancelled = false;
-
-		import("typed.js").then(({ default: Typed }) => {
-			if (cancelled || !el.current) return;
-			typed = new Typed(el.current, {
-				strings: ["Full-Stack Developer.", "Web Developer.", "Quick Learner."],
-				typeSpeed: 80,
-				backDelay: 1200,
-				backSpeed: 50,
-				cursorChar: "|",
-				loop: true,
-			});
+	// the pointer measures the letter under it, in the font's own units
+	const handleMeasure = (event: PointerEvent<HTMLSpanElement>) => {
+		if (event.pointerType !== "mouse" || !frameRef.current) return;
+		const letter = event.target as HTMLElement;
+		const ch = letter.dataset.ch;
+		if (!ch) return;
+		const box = letter.getBoundingClientRect();
+		const frame = frameRef.current.getBoundingClientRect();
+		const size = parseFloat(getComputedStyle(letter).fontSize);
+		setMeasure({
+			ch,
+			left: box.left - frame.left,
+			right: box.right - frame.left,
+			units: Math.round((box.width / size) * 1000 + TRACKING_UNITS),
 		});
-
-		return () => {
-			cancelled = true;
-			typed?.destroy();
-		};
-	}, []);
-
-	useEffect(() => {
-		const timer = window.setTimeout(() => setShowParticles(true), 1500);
-		return () => window.clearTimeout(timer);
-	}, []);
-
-	const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
-		const node = sectionRef.current;
-		if (!node) return;
-		const rect = node.getBoundingClientRect();
-		node.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-		node.style.setProperty("--my", `${e.clientY - rect.top}px`);
-	};
-
-	const setRefs = (node: HTMLElement | null) => {
-		sectionRef.current = node;
-		if (typeof ref === "function") ref(node);
 	};
 
 	return (
-		<section ref={setRefs} id="home" className="section-part" onMouseMove={handleMouseMove}>
-			<div className="container-fluid transparent-bg">
-				{showParticles && (
-					<Suspense fallback={null}>
-						<HeroParticles />
-					</Suspense>
-				)}
-				<div className="hero-spotlight" aria-hidden="true" />
-				<div className="row">
-					<div className="col-12">
-						<div className="details">
-							<div className="status-badge">
-								<span className="status-dot" />
-								<span>Available for Work</span>
-							</div>
-							<h1 className="wlc-note">
-								<span id="pin" className="text-gradient">
-									{basicInfo.name}
-								</span>
-							</h1>
-							<div className="type">
-								<h2 className="typed_js" ref={el}></h2>
-							</div>
-							<div className="location">
-								<span className="main-loc">
-									Based in Pirojpur, Barishal,{" "}
-									<span className="full-loc">Bangladesh.</span>
-									<span className="short-loc">BD.</span>
-								</span>
-							</div>
-							<div className="hero-ctas">
-								<a href="#contact">
-									<button className="btn-gradient">Hire Me</button>
-								</a>
-								<a href="#portfolio">
-									<button className="btn-ghost">View Work</button>
-								</a>
-							</div>
-						</div>
-						<a
-							href="#aboutme"
-							className="scroll-indicator"
-							aria-label="Scroll to next section"
-						>
-							<span className="scroll-mouse">
-								<span className="scroll-wheel" />
+		<section ref={ref} id="home" className="marquee">
+			<div className="container marquee__inner">
+				<div className="marquee__proof">
+					<div className="marquee__frame crop crop--sheet" ref={frameRef}>
+						{["tl", "tr", "bl", "br"].map((corner) => (
+							<span key={corner} className={`space space--${corner}`} aria-hidden="true">
+								x
 							</span>
-							<span className="scroll-text">Scroll</span>
+						))}
+						<h1 className="marquee__name" aria-label={basicInfo.name}>
+							<span
+								id="pin"
+								className="marquee__letters"
+								onPointerMove={handleMeasure}
+								onPointerLeave={() => setMeasure(null)}
+							>
+								{[...basicInfo.name].map((ch, index) =>
+									ch === " " ? (
+										" "
+									) : (
+										<span key={index} data-ch={ch}>
+											{ch}
+										</span>
+									),
+								)}
+							</span>
+						</h1>
+						<div
+							className={`measure ${measure ? "is-on" : ""}`}
+							aria-hidden="true"
+							style={
+								measure
+									? ({
+											"--l": `${measure.left}px`,
+											"--r": `${measure.right}px`,
+										} as CSSProperties)
+									: undefined
+							}
+						>
+							<span className="measure__edge measure__edge--l" />
+							<span className="measure__edge measure__edge--r" />
+							<span className="measure__read">
+								{measure ? `${measure.ch}, advance ${measure.units}` : ""}
+							</span>
+						</div>
+					</div>
+					<div className="marquee__guides" aria-hidden="true">
+						{guides.map((guide) => (
+							<div key={guide.name} className={`guide guide--${guide.name}`}>
+								<span>{guide.label}</span>
+							</div>
+						))}
+					</div>
+					<p className="marquee__label" aria-hidden="true">
+						<span>Hedvig Letters Serif, in units of 1000</span>
+						<span>Point at a letter to measure it</span>
+					</p>
+				</div>
+				<div className="marquee__foot">
+					<p className="marquee__lead">
+						Full-stack developer in Pirojpur, Bangladesh, open to new work.
+					</p>
+					<div className="marquee__actions">
+						<a className="btn btn--primary" href="#contact">
+							Hire me
+						</a>
+						<a className="btn" href="#portfolio">
+							View work
 						</a>
 					</div>
 				</div>

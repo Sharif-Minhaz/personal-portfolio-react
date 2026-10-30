@@ -1,16 +1,5 @@
-import { Heading } from ".";
 import { testimonials } from "../constants";
 import { useActiveLink } from "../hooks/useActiveLink";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-
-// Install Swiper modules
-SwiperCore.use([Navigation]);
 
 export interface IReview {
 	testimonial: string;
@@ -25,30 +14,13 @@ export interface IReview {
 export default function Reviews() {
 	const { ref } = useActiveLink("#testimonial");
 	return (
-		<section ref={ref} id="testimonial" className="sectionL section-part">
-			<div className="container-fluid">
-				<div className="row padding">
-					<Heading title="Reviews" baseTitle="REVIEWS" />
-					<div>
-						<Swiper
-							id="testimonialSlide"
-							navigation={testimonials.length > 1}
-							pagination={{ clickable: true }}
-							spaceBetween={30}
-							slidesPerView={1}
-							breakpoints={{
-								768: { slidesPerView: Math.min(2, testimonials.length) },
-							}}
-						>
-							<div>
-								{testimonials.map((review: IReview, index: number) => (
-									<SwiperSlide key={index}>
-										<SingleReview review={review} />
-									</SwiperSlide>
-								))}
-							</div>
-						</Swiper>
-					</div>
+		<section ref={ref} id="testimonial" className="section band band--ink">
+			<div className="container">
+				<h2 className="visually-hidden">Recommendation</h2>
+				<div id="testimonialSlide" className="reviews">
+					{testimonials.map((review: IReview) => (
+						<SingleReview key={review.name} review={review} />
+					))}
 				</div>
 			</div>
 		</section>
@@ -57,33 +29,33 @@ export default function Reviews() {
 
 function SingleReview({ review }: { review: IReview }) {
 	return (
-		<div className="clients-testimonial">
-			<div className="identity">
+		<figure className="review">
+			<blockquote className="review__quote">
+				<p>“{review.testimonial}”</p>
+			</blockquote>
+			<figcaption className="review__by">
 				<img
 					src={review.image}
-					alt={review.name}
-					width={65}
-					height={65}
+					alt=""
+					width={64}
+					height={64}
 					loading="lazy"
 					decoding="async"
 				/>
-				<div className="address">
-					<div className="name">{review.name}</div>
-					<div className="profession">
-						{review.designation}, {review.company}
-					</div>
-				</div>
-			</div>
-			<div className="des_client">
-				<p>{review.testimonial}</p>
-			</div>
-			<div className="rate">
-				<small>{review.relation}</small>
-				<br />
-				<a href={review.source} target="_blank" rel="noopener noreferrer">
-					<FontAwesomeIcon icon={faLinkedin} /> View on LinkedIn
+				<span className="review__name">{review.name}</span>
+				<span>
+					{review.designation}, {review.company}
+				</span>
+				<span className="review__relation">{review.relation}</span>
+				<a
+					className="link"
+					href={review.source}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Read it on LinkedIn
 				</a>
-			</div>
-		</div>
+			</figcaption>
+		</figure>
 	);
 }

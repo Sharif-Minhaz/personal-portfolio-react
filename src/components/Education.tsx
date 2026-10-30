@@ -1,7 +1,4 @@
-import { Heading } from ".";
 import { educations } from "../constants";
-import { useActiveLink } from "../hooks/useActiveLink";
-import { motion } from "framer-motion";
 
 interface IEducation {
 	title: string;
@@ -10,57 +7,23 @@ interface IEducation {
 	description: string;
 }
 
+// Rendered inside the record section (Experience.tsx), which owns #summary
 export default function Education() {
-	const { ref } = useActiveLink("#summary");
 	return (
-		<section ref={ref} id="summary" className="sectionL section-part">
-			<div className="container-fluid">
-				<div className="row padding">
-					<Heading baseTitle="SUMMARY" title="Education" />
-					<div className="col-md-6 col-12">
-						<div className="educationEx">
-							{educations.slice(0, 2).map((education: IEducation, index: number) => (
-								<motion.div
-									initial={{ opacity: 0, y: -150 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true }}
-									transition={{ delay: (index + 1) * 0.5 }}
-									key={index}
-									className="eduEx-section glass-card"
-								>
-									<div className="year">
-										<span>{education.timeSpan}</span>
-									</div>
-									<div className="subject">{education.title}</div>
-									<div className="institute">{education.institute}</div>
-									<div className="description">{education.description}</div>
-								</motion.div>
-							))}
+		<div className="record">
+			<h3 className="record__label">Where I studied, 2012 to 2024</h3>
+			<ol className="record__rows">
+				{educations.map((education: IEducation) => (
+					<li key={education.institute} className="record__row">
+						<p className="record__date num">{education.timeSpan.replace(" - ", " to ")}</p>
+						<div className="record__what">
+							<h4>{education.institute}</h4>
+							<p className="record__where">{education.title}</p>
 						</div>
-					</div>
-					<div className="col-md-6 col-12">
-						<div className="educationEx experience">
-							{educations.slice(2).map((education: IEducation, index: number) => (
-								<motion.div
-									initial={{ opacity: 0, y: -150 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true }}
-									transition={{ duration: (index + 1) * 1.2 }}
-									key={index}
-									className="eduEx-section glass-card"
-								>
-									<div className="year">
-										<span>{education.timeSpan}</span>
-									</div>
-									<div className="subject">{education.title}</div>
-									<div className="institute">{education.institute}</div>
-									<div className="description">{education.description}</div>
-								</motion.div>
-							))}
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+						<p className="record__note">{education.description}</p>
+					</li>
+				))}
+			</ol>
+		</div>
 	);
 }

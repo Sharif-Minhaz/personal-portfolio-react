@@ -1,5 +1,3 @@
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, FormEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
@@ -49,53 +47,59 @@ export default function ContactForm() {
 	};
 
 	return (
-		<div className="col-lg-8 col-md-12 col-12">
-			<div className="messages-box glass-card p-4">
-				<h3>Describe Your Needs</h3>
-				<form className="row" onSubmit={handleSubmit}>
-					<div className="col-md-6 col-12">
+		<div className="contact__form crop crop--sheet">
+			<form className="form" onSubmit={handleSubmit}>
+				<div className="form__pair">
+					<div className="field">
+						<label htmlFor="textBox">Name</label>
 						<input
 							disabled={loading}
 							type="text"
 							id="textBox"
 							name="name"
+							autoComplete="name"
 							value={form.name}
 							onChange={handleChange}
-							placeholder="Name"
 							required
 						/>
 					</div>
-					<div className="col-md-6 col-12">
+					<div className="field">
+						<label htmlFor="email">Email</label>
 						<input
 							disabled={loading}
 							type="email"
 							onChange={handleChange}
 							name="email"
+							autoComplete="email"
 							value={form.email}
 							id="email"
-							placeholder="Email"
 							required
 						/>
 					</div>
-					<div className="col-12">
-						<textarea
-							name="message"
-							disabled={loading}
-							value={form.message}
-							id="msg"
-							style={{ height: 140 }}
-							onChange={handleChange}
-							placeholder="Write in details about your needs...."
-							required
-						></textarea>
-					</div>
-					<div className="col-12 adjustment">
-						<button disabled={loading} type="submit">
-							Send Message <FontAwesomeIcon icon={faPaperPlane} />
-						</button>
-					</div>
-				</form>
-			</div>
+				</div>
+				<div className="field">
+					<label htmlFor="msg">Describe your needs</label>
+					<textarea
+						name="message"
+						disabled={loading}
+						value={form.message}
+						id="msg"
+						rows={6}
+						onChange={handleChange}
+						required
+					></textarea>
+				</div>
+				<div className="form__foot">
+					<button
+						className="btn btn--ink"
+						disabled={loading}
+						aria-busy={loading}
+						type="submit"
+					>
+						{loading ? "Sending…" : "Send message"}
+					</button>
+				</div>
+			</form>
 		</div>
 	);
 }

@@ -21,23 +21,26 @@ export default function Heading({
 	return (
 		<div className="col-12">
 			<div className={`heading${action ? " heading--with-action" : ""}`}>
-				<h2>
+				{/* Decorative backdrop text: rendered via CSS content so it's skipped by contrast audits */}
+				<div className="heading__bg" aria-hidden="true">
 					{smBaseTitle ? (
-						smBaseTitle
+						<span data-text={smBaseTitle} />
 					) : (
 						<>
-							{baseTitle} <span className="me">{extraBaseTitle}</span>
+							<span data-text={baseTitle} />
+							{extraBaseTitle && <span className="me" data-text={extraBaseTitle} />}
 						</>
 					)}
-				</h2>
-				<motion.p
+				</div>
+				<motion.h2
+					className="heading__title"
 					initial={{ opacity: 0, y: 50, scale: 0.5 }}
 					whileInView={{ opacity: 1, y: 0, scale: 1 }}
 					viewport={{ once: true }}
 				>
 					{title} <span className="extra">{extraTitle}</span>
 					<span className="underline"></span>
-				</motion.p>
+				</motion.h2>
 				{action}
 			</div>
 		</div>

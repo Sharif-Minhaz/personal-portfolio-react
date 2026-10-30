@@ -1,10 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ContactForm, Heading } from ".";
+import { ContactForm } from ".";
 import { basicInfo, socialLinks } from "../constants";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { Tilt } from "react-tilt";
 import { useActiveLink } from "../hooks/useActiveLink";
-import { motion } from "framer-motion";
 
 interface ISocial {
 	id: string;
@@ -13,70 +9,63 @@ interface ISocial {
 	icon: string;
 }
 
+const telHref = (phone: string) => `tel:${phone.replace(/\s/g, "")}`;
+
 export default function Contact() {
 	const { ref } = useActiveLink("#contact");
 
 	return (
-		<section ref={ref} id="contact" className="sectionL section-part">
-			<div className="container-fluid">
-				<div className="row padding">
-					<Heading baseTitle="CONTACT" title="Get in Touch" />
-					<div className="col-lg-4 col-md-12 col-12 h-100 mb-lg-0 mb-4">
-						<div className="contact-container glass-card p-4">
-							<h3>Address</h3>
-							<div className="address">{basicInfo.address}</div>
-							<div className="contact-info">
-								<div className="phone">
-									<span>
-										<FontAwesomeIcon icon={faPhone} />
-									</span>
-									<span>{basicInfo.mobile1}</span>
-								</div>
-								<div className="mobile">
-									<span>
-										<FontAwesomeIcon icon={faPhone} />
-									</span>
-									<span>{basicInfo.mobile2}</span>
-								</div>
-								<div className="mail">
-									<span>
-										<FontAwesomeIcon icon={faEnvelope} />
-									</span>
-									<span className="ms-1">{basicInfo.email}</span>
-								</div>
-							</div>
-							<div className="follow-me">
-								<h3>Follow me</h3>
-								<div className="social-media-2">
-									{socialLinks.map((link: ISocial, index: number) => (
-										<Tilt key={link.id}>
-											<motion.div
-												initial={{ opacity: 0, x: -30 }}
-												whileInView={{ opacity: 1, x: 0 }}
-												viewport={{ once: true }}
-												transition={{ delay: (index + 0.2) * 0.2 }}
-												onClick={() => window.open(link.link, "_blank")}
-												className="tilt-div"
-											>
-												<img
-													draggable={false}
-													src={link.icon}
-													alt={link.title}
-													width={28}
-													height={28}
-													loading="lazy"
-													decoding="async"
-												/>
-											</motion.div>
-										</Tilt>
-									))}
-								</div>
-							</div>
+		<section ref={ref} id="contact" className="section section--contact">
+			<div className="container contact">
+				<div className="contact__details">
+					<h2>Tell me what you need built</h2>
+					<dl className="facts">
+						<div>
+							<dt>Email</dt>
+							<dd>
+								<a className="link" href={`mailto:${basicInfo.email}`}>
+									{basicInfo.email}
+								</a>
+							</dd>
 						</div>
-					</div>
-					{/* -------------- contact form ------------ */}
-					<ContactForm />
+						<div>
+							<dt>Phone</dt>
+							<dd className="num">
+								<a className="link" href={telHref(basicInfo.mobile1)}>
+									{basicInfo.mobile1}
+								</a>
+								<br />
+								<a className="link" href={telHref(basicInfo.mobile2)}>
+									{basicInfo.mobile2}
+								</a>
+							</dd>
+						</div>
+						<div>
+							<dt>Address</dt>
+							<dd>{basicInfo.address}</dd>
+						</div>
+						<div>
+							<dt>Elsewhere</dt>
+							<dd>
+								<ul className="contact__socials">
+									{socialLinks.map((link: ISocial) => (
+										<li key={link.id}>
+											<a
+												className="link"
+												href={link.link}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{link.title}
+											</a>
+										</li>
+									))}
+								</ul>
+							</dd>
+						</div>
+					</dl>
 				</div>
+				<ContactForm />
 			</div>
 		</section>
 	);

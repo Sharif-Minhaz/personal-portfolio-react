@@ -1,22 +1,12 @@
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import sharifMdMinhaz from "../assets/images/sharif-md-minhaz.webp";
-import { basicInfo, navLinks, sidebarSocials } from "../constants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { navLinks } from "../constants";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
-import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
 interface ILink {
 	id: string;
 	title: string;
-	icon: IconDefinition;
-}
-
-interface ISocial {
-	id: string;
-	title: string;
-	link: string;
 	icon: IconDefinition;
 }
 
@@ -26,146 +16,66 @@ export default function Navbar() {
 	const { pathname } = useLocation();
 	const getSectionHref = (id: string) => (pathname === "/" ? id : `/${id}`);
 
+	// the wordmark carries Home and the end button carries Contact; the rest sit in the bar
+	const home = navLinks.find((link: ILink) => link.id === "#home");
+	const contact = navLinks.find((link: ILink) => link.id === "#contact");
+	const links = navLinks.filter((link: ILink) => link !== home && link !== contact);
+
 	return (
-		<>
-			<nav id="spy" className="main-nav glass-shell">
-				<div className="aside-content">
-					<div className="profile dark-theme">
-						<motion.div
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ duration: 2 }}
-							className="image"
-						>
-							<img
-								className="rounded-circle"
-								src={sharifMdMinhaz}
-								alt="Profile-picture"
-								width={180}
-								height={180}
-							/>
-						</motion.div>
-						<div className="name">{basicInfo.name}</div>
-					</div>
-					<div className="links nav-pills">
-						{navLinks.map((link: ILink, index: number) => (
-							<motion.a
-								initial={{ opacity: 0, y: -20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true }}
-								transition={{ delay: (index + 0.1) * 0.1 }}
-								key={link.id}
-								className={`nav-link u-link ${
-									active === link.id ? "active-link" : ""
-								}`}
-								href={getSectionHref(link.id)}
-							>
-								<span>
-									<FontAwesomeIcon icon={link.icon} />
-								</span>
-								{link.title}
-							</motion.a>
-						))}
-					</div>
-					<div className="social-media">
-						{sidebarSocials.map((social: ISocial, index: number) => (
-							<motion.a
-								initial={{ opacity: 0, x: -20 }}
-								whileInView={{ opacity: 1, x: 0 }}
-								viewport={{ once: true }}
-								transition={{ delay: (index + 0.1) * 0.1 }}
-								key={social.title}
-								href={social.link}
-								title={social.title}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<FontAwesomeIcon icon={social.icon} />
-							</motion.a>
-						))}
-					</div>
-				</div>
-			</nav>
-			{/* <!-- mobile-nav start --> */}
-			<nav className="secondary-nav glass-shell">
-				<div className="nav-header">
-					<div className="small-img">
-						<a href="#aboutme">
-							<img
-								src={sharifMdMinhaz}
-								className="rounded-circle"
-								width={40}
-								height={40}
-								alt="profile"
-							/>
-						</a>
-						<h3>
-							<span id="first-part-name">Sharif </span>Md. Minhaz
-						</h3>
-					</div>
-					<div className="profile-section">
-						<div className="social-media-mo">
-							{sidebarSocials.slice(0, 3).map((social: ISocial, index: number) => (
-								<motion.a
-									initial={{ opacity: 0, x: -20 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									viewport={{ once: true }}
-									transition={{ delay: (index + 0.1) * 0.1 }}
-									key={social.id}
-									id={social.id}
-									href={social.link}
-									target="_blank"
-									rel="noopener noreferrer"
+		<header className="nav">
+			<a className="skip" href="#main">
+				Skip to content
+			</a>
+			<div className="container">
+				<nav id="spy" className="nav__bar crop" aria-label="Sections">
+					<a
+						className="nav__mark"
+						href={getSectionHref(home?.id ?? "#home")}
+						aria-label="Sharif Md. Minhaz, back to the top"
+					>
+						<span id="first-part-name">Sharif </span>Md. Minhaz
+					</a>
+					<ul
+						id="select-nav"
+						className={`nav__links ${open ? "links-secondary-res" : ""}`}
+					>
+						{links.map((link: ILink) => (
+							<li key={link.id}>
+								<a
+									className={`nav__link ${active === link.id ? "active-link" : ""}`}
+									href={getSectionHref(link.id)}
+									aria-current={active === link.id ? "true" : undefined}
+									onClick={() => setOpen(false)}
 								>
-									<span>
-										<FontAwesomeIcon
-											title={social.title}
-											data-bs-toggle="tooltip"
-											data-bs-placement="bottom"
-											icon={social.icon}
-										/>
-									</span>
-								</motion.a>
-							))}
-						</div>
-						<div
-							className={`navBtn ${open ? "change" : ""}`}
+									{link.title}
+								</a>
+							</li>
+						))}
+					</ul>
+					<div className="nav__end">
+						{contact && (
+							<a
+								className={`btn btn--small btn--contact ${
+									active === contact.id ? "active-link" : ""
+								}`}
+								href={getSectionHref(contact.id)}
+							>
+								{contact.title}
+							</a>
+						)}
+						<button
+							type="button"
+							className="btn btn--small nav__toggle"
 							id="nav-expand"
+							aria-expanded={open}
+							aria-controls="select-nav"
 							onClick={() => setOpen((prev) => !prev)}
 						>
-							{["bar1", "bar2", "bar3"].map((bar: string) => (
-								<span key={bar} className={bar} />
-							))}
-						</div>
+							{open ? "Close" : "Menu"}
+						</button>
 					</div>
-				</div>
-			</nav>
-			<div className="nav-all-links">
-				<div
-					id="select-nav"
-					className={`links nav-pills links-secondary ${
-						open ? "links-secondary-res" : ""
-					}`}
-				>
-					{navLinks.map((link: ILink, index: number) => (
-						<motion.a
-							initial={{ opacity: 0, y: -20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ delay: (index + 0.1) * 0.1 }}
-							key={link.id}
-							className={`nav-link u-link ${active === link.id ? "active-link" : ""}`}
-							href={getSectionHref(link.id)}
-							onClick={() => setOpen(false)}
-						>
-							<span>
-								<FontAwesomeIcon icon={link.icon} />
-							</span>
-							<span className="dh-H">{link.title}</span>
-						</motion.a>
-					))}
-				</div>
+				</nav>
 			</div>
-		</>
+		</header>
 	);
 }

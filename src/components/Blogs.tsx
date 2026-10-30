@@ -1,10 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Heading } from ".";
 import { GITHUB_LINK, blogs } from "../constants";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { faMedium } from "@fortawesome/free-brands-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
-import { motion } from "framer-motion";
 
 interface IBlog {
 	id: number;
@@ -15,80 +10,59 @@ interface IBlog {
 	url: string;
 }
 
+// the first sentence of a post, as its standfirst
+const firstSentence = (text: string) => text.split(/(?<=\.)\s/)[0];
+
 export default function Blogs() {
 	const { ref } = useActiveLink("#blog");
 	return (
-		<section ref={ref} id="blog" className="sectionD section-part">
-			<div className="container-fluid">
-				<div className="row padding">
-					<div className="col-12">
-						<Heading baseTitle="BLOGS" title="My Blog" />
-					</div>
-					{blogs.map((blog: IBlog, index: number) => (
-						<motion.div
-							initial={{ opacity: 0, y: -150 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ duration: (index + 1) * 0.7 }}
-							key={blog.id}
-							className="col-md-6 col-12 mb-md-0 mb-4"
+		<section ref={ref} id="blog" className="section section--blog">
+			<div className="container">
+				<div className="head">
+					<h2>Notes from DEV Inertia</h2>
+					<div className="head__aside">
+						<a
+							className="btn"
+							target="_blank"
+							href="https://dev-inertia-blog.netlify.app/blog/1"
 						>
-							<div className="blog-container">
-								<div className="blog-img">
+							All articles
+						</a>
+					</div>
+				</div>
+				<div className="posts">
+					{blogs.map((blog: IBlog) => (
+						<article key={blog.id} className="post">
+							<div className="post__cover crop">
+								<div
+									className="post__frame"
+									data-slot={`blog-${blog.id}`}
+									data-alt={`Cover image for ${blog.title}`}
+								>
 									<img
 										src={blog.cover}
-										alt={`Cover image for ${blog.title}`}
-										width={600}
-										height={300}
+										alt=""
+										width={800}
+										height={419}
 										loading="lazy"
 										decoding="async"
 									/>
-									<div className="float-text">
-										<p>{blog.title}</p>
-										<a target="_blank" href={blog.url}>
-											<span>Details</span>
-										</a>
-									</div>
-								</div>
-								<div className="blog-des">
-									<div className="blog-heading">
-										<a href={blog.url}>
-											<h3 className="line-clamp-2" title={blog.title}>
-												{blog.title}
-											</h3>
-										</a>
-									</div>
-									<div className="timeAndDate">
-										<p>
-											{blog.publishedDate}{" "}
-											<span>
-												<a href={GITHUB_LINK}>Minhaz</a>
-											</span>
-										</p>
-									</div>
-									<div className="blog-txt">
-										<p>{blog.body}</p>
-										<div className="readMore">
-											<a target="_blank" href={blog.url}>
-												<span className="txt-btn" data-state="close">
-													Read more
-												</span>
-												<FontAwesomeIcon icon={faChevronRight} />
-											</a>
-										</div>
-									</div>
 								</div>
 							</div>
-						</motion.div>
+							<p className="post__meta">
+								<time>{blog.publishedDate}</time>, by{" "}
+								<a className="link" href={GITHUB_LINK}>
+									Minhaz
+								</a>
+							</p>
+							<h3>
+								<a className="post__title" target="_blank" href={blog.url}>
+									{blog.title}
+								</a>
+							</h3>
+							<p className="post__body">{firstSentence(blog.body)}</p>
+						</article>
 					))}
-				</div>
-				<div className="downloadCv-btn2" style={{ marginTop: "30px" }}>
-					<a target="_blank" href="https://dev-inertia-blog.netlify.app/blog/1">
-						<button>
-							<span className="inline-block mr-2">Read More</span>
-							<FontAwesomeIcon icon={faMedium} />
-						</button>
-					</a>
 				</div>
 			</div>
 		</section>

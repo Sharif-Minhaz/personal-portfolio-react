@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Footer, Heading } from ".";
+import { Footer } from ".";
 import { basicInfo, legalPages } from "../constants";
 
 export default function LegalPage({ page }: { page: keyof typeof legalPages }) {
@@ -24,33 +24,27 @@ export default function LegalPage({ page }: { page: keyof typeof legalPages }) {
 	}, [title, page]);
 
 	return (
-		<main className="legal-page">
-			<section className="sectionL section-part">
+		<>
+			<main id="main" className="page legal-page">
 				<div className="container">
-					<div className="row padding">
-						<div className="col-12">
-							<Link to="/" className="legal-back">
-								<FontAwesomeIcon icon={faArrowLeft} /> Back to Home
-							</Link>
-						</div>
-						<Heading baseTitle={title.toUpperCase()} title={title} />
-						<div className="col-12">
-							<div className="glass-card legal-content">
-								<p className="legal-updated">Last updated: {updated}</p>
-								{sections.map((section) => (
-									<div key={section.heading}>
-										<h3>{section.heading}</h3>
-										{section.body.map((text) => (
-											<p key={text}>{text}</p>
-										))}
-									</div>
+					<Link to="/" className="link page__back">
+						<FontAwesomeIcon icon={faArrowLeft} aria-hidden="true" /> Back to Home
+					</Link>
+					<article className="legal">
+						<h1>{title}</h1>
+						<p className="legal__updated">Last updated: {updated}</p>
+						{sections.map((section) => (
+							<section key={section.heading}>
+								<h2>{section.heading}</h2>
+								{section.body.map((text) => (
+									<p key={text}>{text}</p>
 								))}
-							</div>
-						</div>
-					</div>
+							</section>
+						))}
+					</article>
 				</div>
-			</section>
+			</main>
 			<Footer />
-		</main>
+		</>
 	);
 }
