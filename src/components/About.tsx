@@ -8,6 +8,7 @@ interface IHistory {
 	title: string;
 	count: string;
 	icon: IconDefinition;
+	tone: string;
 }
 
 export default function About() {
@@ -72,9 +73,12 @@ export default function About() {
 
 				<ul className="about__figures">
 					{workingHistory.map((history: IHistory) => (
-						<li key={history.title}>
-							<b className="num">{history.count}+</b>
-							<span>{history.title}</span>
+						<li key={history.title} className={`stat crop stat--${history.tone}`}>
+							<span className="stat__icon" aria-hidden="true">
+								<FontAwesomeIcon icon={history.icon} />
+							</span>
+							<b className="stat__count num">{history.count}+</b>
+							<span className="stat__label">{history.title}</span>
 						</li>
 					))}
 				</ul>

@@ -158,21 +158,25 @@ export const workingHistory = [
 		title: "Years of experience",
 		count: "2",
 		icon: faBusinessTime,
+		tone: "front",
 	},
 	{
 		title: "Finished projects",
 		count: "15",
 		icon: faTasks,
+		tone: "back",
 	},
 	{
 		title: "Satisfied people",
 		count: "10",
 		icon: faSmileBeam,
+		tone: "tool",
 	},
 	{
 		title: "Companies",
 		count: "2",
 		icon: faBuilding,
+		tone: "api",
 	},
 ];
 

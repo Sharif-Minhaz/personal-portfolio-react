@@ -47,17 +47,17 @@ h4 { margin: 0; font: 500 var(--text-lg)/1.3 var(--font-body); }
 .svc__card--ai { --tone: var(--tone-ai); --tone-text: var(--tone-ai-text); }
 /* services and the toolkit share one plate, printed in its own ink: a tinted sheet, an ink border,
    and the proof's dot grid fading up from the corner */
-.svc__card, .kitcard {
+.svc__card, .kitcard, .stat {
   --tint: 4%;
   position: relative; isolation: isolate;
   background: color-mix(in oklab, var(--tone) var(--tint), var(--color-paper-hi));
   border: var(--rule-hair) solid color-mix(in oklab, var(--tone) 45%, var(--color-rule)); border-radius: var(--radius-card);
   transition: border-color var(--dur-short) var(--ease-out);
 }
-body.dark .svc__card, body.dark .kitcard { --tint: 8%; }
-.svc__card:hover, .kitcard:hover { border-color: var(--tone); }
+body.dark .svc__card, body.dark .kitcard, body.dark .stat { --tint: 8%; }
+.svc__card:hover, .kitcard:hover, .stat:hover { border-color: var(--tone); }
 .svc__card { display: grid; grid-template-rows: auto auto 1fr auto auto; gap: var(--space-md); padding: var(--space-lg); min-width: 0; }
-.svc__card::after, .kitcard::after {
+.svc__card::after, .kitcard::after, .stat::after {
   content: ""; position: absolute; right: 0; bottom: 0; z-index: -1; width: 55%; height: 50%; pointer-events: none;
   background: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--tone) 60%, transparent) 1.1px, transparent 1.6px) 0 0 / 12px 12px;
   -webkit-mask-image: radial-gradient(farthest-side at 100% 100%, var(--color-ink), transparent);
@@ -65,12 +65,12 @@ body.dark .svc__card, body.dark .kitcard { --tint: 8%; }
   border-bottom-right-radius: var(--radius-card);
 }
 .svc__top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-xs); }
-.svc__icon, .kitcard__icon {
+.svc__icon, .kitcard__icon, .stat__icon {
   display: grid; place-items: center; width: 52px; height: 52px; border-radius: var(--radius-card); flex-shrink: 0;
   color: var(--tone-text); background: color-mix(in oklab, var(--tone) 16%, var(--color-paper-hi));
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tone) 40%, transparent);
 }
-.svc__icon svg, .kitcard__icon svg { width: 22px; height: 22px; }
+.svc__icon svg, .kitcard__icon svg, .stat__icon svg { width: 22px; height: 22px; }
 /* the tools, on the same round plates the toolkit uses, fanned; they spread when the card is picked up */
 .svc__logos { display: flex; padding-right: var(--space-2xs); }
 .svc__logos img {
@@ -204,7 +204,8 @@ body.dark .svc__arrow { color: var(--color-paper); }
 .bento .work__item { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; gap: var(--space-md); height: 100%; padding: 0; border: 0; }
 .bento .work__item:hover { background: none; }
 .bento .work__item:hover h3 { text-decoration-color: var(--color-accent); }
-.bento .work__shot { grid-column: 1; margin: var(--space-sm); }
+/* flush with the text below: the crop marks reach 12px into the 32px column gap */
+.bento .work__shot { grid-column: 1; margin-block: var(--space-sm); }
 .bento .work__frame { aspect-ratio: 16 / 10; box-shadow: var(--shadow-sheet); }
 .bento .work__text { grid-column: 1; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
 .bento .work__text > * { grid-column: 1; grid-row: auto; }
@@ -218,16 +219,24 @@ body.dark .svc__arrow { color: var(--color-paper); }
 
 /* ---------- about: a bento of portrait, words, facts and figures ---------- */
 .about { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); align-items: start; }
-.about__portrait { grid-column: 1 / span 4; grid-row: 1 / span 2; margin: 0; box-shadow: var(--shadow-sheet); position: sticky; top: calc(var(--nav-height) + var(--space-2xl)); }
+.about__portrait { grid-column: 1 / span 4; grid-row: 1 / span 3; margin: 0; box-shadow: var(--shadow-sheet); position: sticky; top: calc(var(--nav-height) + var(--space-2xl)); }
 .about__photo { aspect-ratio: 1 / 1; border-radius: var(--radius-card); }
 .about__text { grid-column: 6 / -1; display: grid; gap: var(--space-lg); }
 .about__text p:not(.lead) { color: var(--color-ink-2); }
-.about__facts { grid-column: 6 / span 3; display: grid; gap: var(--space-lg); justify-items: start; }
-.about__figures { grid-column: 9 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule-strong); }
-.about__figures li { display: grid; gap: var(--space-2xs); padding: var(--space-md) 0 var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); }
-.about__figures li:nth-child(even) { padding-left: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
-.about__figures b { font: 400 var(--text-3xl)/1 var(--font-display); letter-spacing: -0.02em; color: var(--color-ink); font-variant-numeric: tabular-nums; }
-.about__figures span { color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
+/* the facts span two rows (the list, then the resume); the figures share the list's row, so the cards end on its last rule */
+.about__facts { grid-column: 6 / span 3; grid-row: 2 / span 2; display: grid; grid-template-rows: subgrid; justify-items: start; }
+/* the subgrid keeps the parent's row gap (a smaller one would let the list hang into it, past the cards); the resume is drawn back up instead */
+.about__facts > .btn { margin-top: calc(var(--space-lg) - var(--space-2xl)); }
+.about__facts .facts { align-self: stretch; grid-auto-rows: 1fr; }
+.about__figures { grid-column: 9 / -1; grid-row: 2; align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: var(--space-lg); margin: 0; padding: 0; list-style: none; }
+/* the figures on the toolkit's plate, one hue each: the icon square, the count a Hedvig numeral in the tone, the label under it */
+.stat--front { --tone: var(--tone-front); --tone-text: var(--tone-front-text); }
+.stat--back { --tone: var(--tone-back); --tone-text: var(--tone-back-text); }
+.stat--tool { --tone: var(--tone-tool); --tone-text: var(--tone-tool-text); }
+.stat--api { --tone: var(--tone-api); --tone-text: var(--tone-api-text); }
+.stat { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; align-content: space-between; gap: var(--space-md); padding: var(--space-lg); min-width: 0; }
+.stat__count { justify-self: end; font: 400 var(--text-3xl)/1 var(--font-display); letter-spacing: -0.02em; color: var(--tone-text); font-variant-numeric: tabular-nums; }
+.stat__label { grid-column: 1 / -1; padding-top: var(--space-sm); border-top: var(--rule-hair) solid color-mix(in oklab, var(--tone) 30%, var(--color-rule)); color: var(--color-ink-2); font-size: var(--text-sm); font-weight: 500; }
 
 .facts { display: grid; gap: 0; margin: 0; width: 100%; border-top: var(--rule-hair) solid var(--color-rule-strong); }
 .facts > div { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-sm); border-bottom: var(--rule-hair) solid var(--color-rule); }
@@ -460,6 +469,8 @@ body.dark .svc__arrow { color: var(--color-paper); }
   .work__reel { grid-column: 1; }
   .about { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xl); }
   .about__portrait, .about__text, .about__facts, .about__figures { grid-column: 1; grid-row: auto; }
+  .about__facts { grid-template-rows: none; row-gap: var(--space-lg); }
+  .about__facts > .btn { margin-top: 0; }
   .about__portrait { position: static; width: min(calc(100% - 2 * var(--space-md)), 22rem); margin: var(--space-md); }
   .record, .record__row { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
   .record__label, .record__rows, .record__what, .record__points, .record__note { grid-column: 1; }
@@ -489,5 +500,4 @@ body.dark .svc__arrow { color: var(--color-paper); }
   .shots--phone .shots__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .shots--desktop .shots__grid { grid-template-columns: minmax(0, 1fr); }
   .facts > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xs); }
-  .about__figures li:nth-child(even) { padding-left: var(--space-md); }
 }
