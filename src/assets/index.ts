@@ -108,6 +108,31 @@ const kijijiScreens = {
 	templateEditor: kjTemplateEditor,
 };
 
+// live sites captured at tablet (834px) and phone (390px) widths, for the case study stage
+import dvAdminDashboardPhone from "./projects/devices/admin-dashboard-phone.webp";
+import dvAdminDashboardTablet from "./projects/devices/admin-dashboard-tablet.webp";
+import dvBunShopPhone from "./projects/devices/bun-shop-phone.webp";
+import dvBunShopTablet from "./projects/devices/bun-shop-tablet.webp";
+import dvDevInertiaPhone from "./projects/devices/dev-inertia-phone.webp";
+import dvDevInertiaTablet from "./projects/devices/dev-inertia-tablet.webp";
+import dvEcomGuardPhone from "./projects/devices/e-com-guard-phone.webp";
+import dvEcomGuardTablet from "./projects/devices/e-com-guard-tablet.webp";
+import dvLdpanPhone from "./projects/devices/ldpan-phone.webp";
+import dvLdpanTablet from "./projects/devices/ldpan-tablet.webp";
+import dvMediaidPhone from "./projects/devices/mediaid-phone.webp";
+import dvMediaidTablet from "./projects/devices/mediaid-tablet.webp";
+import dvTitanSettlersTablet from "./projects/devices/titan-settlers-tablet.webp";
+
+const deviceShots = {
+	adminDashboard: { phone: dvAdminDashboardPhone, tablet: dvAdminDashboardTablet },
+	bunShop: { phone: dvBunShopPhone, tablet: dvBunShopTablet },
+	devInertia: { phone: dvDevInertiaPhone, tablet: dvDevInertiaTablet },
+	ecomGuard: { phone: dvEcomGuardPhone, tablet: dvEcomGuardTablet },
+	ldpan: { phone: dvLdpanPhone, tablet: dvLdpanTablet },
+	mediaid: { phone: dvMediaidPhone, tablet: dvMediaidTablet },
+	titanSettlers: { tablet: dvTitanSettlersTablet },
+};
+
 import blog1 from "./blogs/blog1.webp";
 import blog2 from "./blogs/blog2.webp";
 
@@ -179,5 +204,6 @@ export {
 	flowcraftScreens,
 	kijijiBannerAds,
 	kijijiScreens,
+	deviceShots,
 	arfinHayet,
 };

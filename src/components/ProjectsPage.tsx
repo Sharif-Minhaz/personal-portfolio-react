@@ -118,20 +118,22 @@ export default function ProjectsPage() {
 										to={`/projects/${project.slug}`}
 										aria-label={`Open ${project.name} case study`}
 									>
-										<div
-											className="tile__frame"
-											data-slot={`tile-${project.slug}`}
-											data-kind="product"
-											data-alt={`${project.name}, a screenshot of the main screen`}
-										>
-											<img
-												src={project.image}
-												alt={`${project.name} project screenshot`}
-												width={1365}
-												height={767}
-												loading="lazy"
-												decoding="async"
-											/>
+										<div className="tile__shot crop">
+											<div
+												className="tile__frame"
+												data-slot={`tile-${project.slug}`}
+												data-kind="product"
+												data-alt={`${project.name}, a screenshot of the main screen`}
+											>
+												<img
+													src={project.image}
+													alt={`${project.name} project screenshot`}
+													width={1365}
+													height={767}
+													loading="lazy"
+													decoding="async"
+												/>
+											</div>
 										</div>
 										<h2>{project.name}</h2>
 										<p className="tile__meta">{project.category ?? "Web Development"}</p>

@@ -22,6 +22,34 @@ const groupScreens = (screens: ProjectScreen[]) =>
 		return groups;
 	}, []);
 
+interface DeviceScreenProps {
+	kind: "tablet" | "phone";
+	name: string;
+	slug: string;
+	shot?: string;
+	fallback: string;
+}
+
+// a real capture when there is one, otherwise a crop of the main screen (decorative, so no alt)
+const DeviceScreen = ({ kind, name, slug, shot, fallback }: DeviceScreenProps) => (
+	<div className={`device device--${kind}`}>
+		<div
+			className={`device__screen ${shot ? "" : "device__screen--crop"}`}
+			data-slot={`case-${slug}-${kind}`}
+			data-kind="product"
+			data-alt={`${name} on a ${kind}`}
+		>
+			<img
+				src={shot ?? fallback}
+				alt={shot ? `${name} on a ${kind}` : ""}
+				width={kind === "phone" ? 390 : 834}
+				height={kind === "phone" ? 844 : 1112}
+				decoding="async"
+			/>
+		</div>
+	</div>
+);
+
 export default function ProjectDetailPage() {
 	const { slug } = useParams();
 	const project = projects.find((item) => item.slug === slug);
@@ -36,6 +64,9 @@ export default function ProjectDetailPage() {
 	}, [slug]);
 
 	if (!project) return <Navigate to="/projects" replace />;
+
+	const { devices } = project;
+	const desktopShot = devices?.desktop ?? project.image;
 
 	return (
 		<>
@@ -76,22 +107,33 @@ export default function ProjectDetailPage() {
 					</header>
 
 					<figure className="case__figure">
-						<div className="case__sheet crop crop--sheet">
-							<div
-								className="case__frame"
-								data-slot={`case-${project.slug}`}
-								data-kind="product"
-								data-alt={`${project.name}, its main screen`}
-							>
-								<img
-									src={project.image}
-									alt={`${project.name} application screenshot`}
-									width={1365}
-									height={767}
-									// React 18.2 has no fetchPriority prop; the lowercase attribute reaches the DOM as is
-									{...{ fetchpriority: "high" }}
-								/>
+						<div className="devices">
+							<div className="device device--laptop">
+								<div className="device__lid">
+									<div
+										className="device__screen"
+										data-slot={`case-${project.slug}`}
+										data-kind="product"
+										data-alt={`${project.name}, its main screen`}
+									>
+										<img
+											src={desktopShot}
+											alt={`${project.name} on a laptop`}
+											width={1365}
+											height={767}
+											// React 18.2 has no fetchPriority prop; the lowercase attribute reaches the DOM as is
+											{...{ fetchpriority: "high" }}
+										/>
+									</div>
+								</div>
+								<div className="device__deck" />
 							</div>
+							{!project.laptopOnly && (
+								<>
+									<DeviceScreen kind="tablet" name={project.name} slug={project.slug} shot={devices?.tablet} fallback={desktopShot} />
+									<DeviceScreen kind="phone" name={project.name} slug={project.slug} shot={devices?.phone} fallback={desktopShot} />
+								</>
+							)}
 						</div>
 						<figcaption>The {project.name} interface.</figcaption>
 					</figure>
@@ -175,6 +217,7 @@ export default function ProjectDetailPage() {
 
 					<footer className="case__foot">
 						<Link className="btn" to="/projects">
+							<FontAwesomeIcon icon={faArrowLeft} aria-hidden="true" />
 							Back to all projects
 						</Link>
 						<Link className="btn btn--ink" to="/#contact">

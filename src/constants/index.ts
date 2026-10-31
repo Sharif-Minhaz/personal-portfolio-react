@@ -91,6 +91,7 @@ import {
 	flowcraftScreens,
 	kijijiBannerAds,
 	kijijiScreens,
+	deviceShots,
 	rbs,
 	diu,
 	arfinHayet,
@@ -633,6 +634,14 @@ export interface ProjectFigure {
 	label: string;
 }
 
+// real captures at other widths for the case study device frames; a missing one crops the main screen
+export interface ProjectDevices {
+	// replaces image on the case study when the cover is already a composite
+	desktop?: string;
+	tablet?: string;
+	phone?: string;
+}
+
 export interface PortfolioProject {
 	slug: string;
 	name: string;
@@ -645,6 +654,9 @@ export interface PortfolioProject {
 	tags: { name: string; color: string }[];
 	image: string;
 	screens?: ProjectScreen[];
+	devices?: ProjectDevices;
+	// the case study cover shows the laptop alone, without the tablet and phone
+	laptopOnly?: boolean;
 	figures?: ProjectFigure[];
 	source_code_link?: string;
 	live_link?: string;
@@ -819,6 +831,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.PRIMEREACT },
 		],
 		image: flowcraft,
+		devices: { desktop: flowcraftScreens.cmsDashboard, phone: flowcraftScreens.mobileToday },
 		// reconstructed screens with sample data; see the overview
 		screens: [
 			{
@@ -1119,6 +1132,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.MONGODB },
 		],
 		image: ldpan,
+		devices: deviceShots.ldpan,
 		source_code_link:
 			"https://github.com/Sharif-Minhaz/Localized-Disaster-Preparedness-and-Assistance-Network",
 		live_link: "https://ldpan-v4.vercel.app/",
@@ -1149,6 +1163,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.TAILWIND },
 		],
 		image: titan,
+		devices: deviceShots.titanSettlers,
 		source_code_link: "https://github.com/Sharif-Minhaz/Titan-Settlers",
 		live_link: "https://titan-settlers.vercel.app/",
 	},
@@ -1177,6 +1192,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.EXPRESS },
 		],
 		image: mediaid,
+		devices: deviceShots.mediaid,
 		source_code_link: "https://github.com/Sharif-Minhaz/MediAid",
 		live_link: "https://mediaid-online-platform.netlify.app/",
 	},
@@ -1235,6 +1251,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.TYPESCRIPT },
 		],
 		image: devInertia,
+		devices: deviceShots.devInertia,
 		source_code_link: "https://github.com/Sharif-Minhaz/DevInertia-Blog",
 		live_link: "https://dev-inertia-blog.netlify.app/",
 	},
@@ -1287,6 +1304,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.BUN },
 		],
 		image: bunShop,
+		devices: deviceShots.bunShop,
 		source_code_link: "https://github.com/Sharif-Minhaz/next-bun-shop-frontend",
 		live_link: "https://next-bun-shop-frontend.vercel.app",
 	},
@@ -1311,6 +1329,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.BOOTSTRAP },
 		],
 		image: admin,
+		devices: deviceShots.adminDashboard,
 		source_code_link: "https://github.com/Sharif-Minhaz/Admin-Dashboard",
 		live_link: "https://sharif-minhaz.github.io/Admin-Dashboard/",
 	},
@@ -1383,6 +1402,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.TYPESCRIPT },
 		],
 		image: ecomGuard,
+		devices: deviceShots.ecomGuard,
 		source_code_link: "https://github.com/Sharif-Minhaz/ecom-guard",
 		live_link: "https://ecom-guard.vercel.app/",
 	},
@@ -1407,6 +1427,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.ELECTRON_FORGE },
 		],
 		image: salePos,
+		laptopOnly: true,
 	},
 ];
 

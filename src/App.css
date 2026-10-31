@@ -383,7 +383,9 @@ body.dark .svc__arrow { color: var(--color-paper); }
 
 .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); padding-block: var(--space-2xl); }
 .tile { display: grid; gap: var(--space-sm); align-content: start; color: inherit; text-decoration: none; }
-.tile__frame { aspect-ratio: 16 / 10; margin-bottom: var(--space-sm); border-radius: var(--radius-card); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
+/* same framing as the home bento: crop marks on the wrapper, the sheet shadow on the frame */
+.tile__shot { margin-block: var(--space-sm); }
+.tile__frame { aspect-ratio: 16 / 10; border-radius: var(--radius-card); box-shadow: var(--shadow-sheet); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
 .tile__frame > img { object-position: top center; }
 .tile h2 { font-size: var(--text-title); max-width: none; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 0.18em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
 .tile:hover h2 { text-decoration-color: var(--color-accent); }
@@ -401,9 +403,27 @@ body.dark .svc__arrow { color: var(--color-paper); }
 .case__stack { grid-column: 1 / span 9; color: var(--color-muted); font-size: var(--text-sm); }
 .case__actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--space-sm); }
 .case__figure { margin: 0 0 var(--section-gap-s); }
-.case__sheet { box-shadow: var(--shadow-sheet); border-radius: var(--radius-card); }
-.case__frame { aspect-ratio: 16 / 9; border-radius: var(--radius-card); }
-.case__frame > img { object-position: top center; }
+/* the case study cover: the main screen on a laptop, a tablet and a phone standing on one baseline.
+   sizes are in cqw of the stage, so the bezels scale with it */
+.devices { container-type: inline-size; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; padding-bottom: 1.6cqw; }
+.device { grid-row: 1; min-width: 0; }
+.device__screen { background: var(--color-device-glass); }
+.device__screen > img { object-position: top center; }
+.device__screen--crop > img { object-position: left top; }
+.device--laptop { grid-column: 2 / span 10; filter: drop-shadow(0 2cqw 2.4cqw var(--color-device-shadow)); }
+.device__lid { position: relative; margin-inline: 6%; padding: 1.1cqw 1.1cqw 1.5cqw; background: var(--color-device); border-radius: 1.4cqw 1.4cqw 0.3cqw 0.3cqw; box-shadow: inset 0 0 0 1px var(--color-device-edge); }
+.device__lid::before { content: ""; position: absolute; top: 0.38cqw; left: 50%; width: 0.4cqw; aspect-ratio: 1; border-radius: 50%; background: var(--color-device-edge); transform: translateX(-50%); }
+.device--laptop .device__screen { aspect-ratio: 16 / 9; border-radius: 0.25cqw; }
+/* covers run 1.6 to 2.2 wide: pin the top left so the brand and nav always show */
+.device--laptop .device__screen > img { object-position: left top; }
+.device__deck { position: relative; height: 1.3cqw; background: linear-gradient(var(--color-device-metal), var(--color-device-metal-2)); border-radius: 0.2cqw 0.2cqw 1.8cqw 1.8cqw / 0.2cqw 0.2cqw 1.3cqw 1.3cqw; }
+.device__deck::before { content: ""; position: absolute; top: 0; left: 50%; width: 12%; height: 0.45cqw; background: var(--color-device-metal-2); border-radius: 0 0 0.8cqw 0.8cqw; transform: translateX(-50%); }
+.device--tablet, .device--phone { position: relative; z-index: var(--z-raised); background: var(--color-device); box-shadow: inset 0 0 0 1px var(--color-device-edge), var(--shadow-device); transform: translateY(1.6cqw); }
+.device--tablet { grid-column: 1 / span 3; padding: 0.9cqw; border-radius: 1.8cqw; }
+.device--tablet .device__screen { aspect-ratio: 834 / 1112; border-radius: 0.8cqw; }
+.device--phone { grid-column: 11 / span 2; padding: 0.5cqw; border-radius: 2.3cqw; }
+.device--phone .device__screen { aspect-ratio: 390 / 844; border-radius: 1.8cqw; }
+.device--phone::before { content: ""; position: absolute; z-index: 2; top: 1.05cqw; left: 50%; width: 3.6cqw; height: 1cqw; border-radius: 1cqw; background: var(--color-device-glass); transform: translateX(-50%); }
 .case__figure figcaption { margin-top: var(--space-lg); color: var(--color-muted); font-size: var(--text-sm); }
 .case__section { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); padding-block: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule-strong); }
 .case__section h2 { grid-column: 1 / span 4; font-size: var(--text-3xl); }
