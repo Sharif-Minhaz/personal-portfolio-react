@@ -30,11 +30,12 @@ interface DeviceScreenProps {
 	fallback: string;
 }
 
-// a real capture when there is one, otherwise a crop of the main screen (decorative, so no alt)
+// a real capture when there is one; otherwise the main screen on the device turned
+// landscape, where a desktop shot sits naturally (decorative, so no alt)
 const DeviceScreen = ({ kind, name, slug, shot, fallback }: DeviceScreenProps) => (
-	<div className={`device device--${kind}`}>
+	<div className={`device device--${kind} ${shot ? "" : "device--landscape"}`}>
 		<div
-			className={`device__screen ${shot ? "" : "device__screen--crop"}`}
+			className="device__screen"
 			data-slot={`case-${slug}-${kind}`}
 			data-kind="product"
 			data-alt={`${name} on a ${kind}`}
@@ -42,8 +43,8 @@ const DeviceScreen = ({ kind, name, slug, shot, fallback }: DeviceScreenProps) =
 			<img
 				src={shot ?? fallback}
 				alt={shot ? `${name} on a ${kind}` : ""}
-				width={kind === "phone" ? 390 : 834}
-				height={kind === "phone" ? 844 : 1112}
+				width={shot ? (kind === "phone" ? 390 : 834) : 1440}
+				height={shot ? (kind === "phone" ? 844 : 1112) : 900}
 				decoding="async"
 			/>
 		</div>

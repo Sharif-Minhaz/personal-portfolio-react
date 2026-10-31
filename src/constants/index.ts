@@ -723,6 +723,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.UV },
 		],
 		image: salesMl,
+		devices: deviceShots.salesMl,
 		// screens and figures come from the project's README
 		screens: [
 			{
@@ -1087,6 +1088,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.FACEBOOK_GRAPH_API },
 		],
 		image: pageSentiment,
+		devices: deviceShots.pageSentiment,
 		source_code_link:
 			"https://github.com/Sharif-Minhaz/sentiment-analysis-fb-page",
 	},
@@ -1223,6 +1225,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.SCSS },
 		],
 		image: coffee,
+		devices: deviceShots.cafeVista,
 		source_code_link: "https://github.com/Sharif-Minhaz/Cafe-Vista",
 		live_link: "https://coffee-shop-xrhs.onrender.com/",
 	},
@@ -1274,6 +1277,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.REACT },
 		],
 		image: treker,
+		devices: deviceShots.treker,
 		source_code_link: "https://github.com/Sharif-Minhaz/Treker",
 		live_link: "https://travel-assistant-v1.netlify.app/",
 	},
@@ -1376,6 +1380,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.BOOTSTRAP },
 		],
 		image: eCom,
+		devices: deviceShots.ecomTemplate,
 		source_code_link: "https://github.com/Sharif-Minhaz/E-Commerce-website",
 		live_link: "https://sharif-minhaz.github.io/E-Commerce-website/",
 	},

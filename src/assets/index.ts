@@ -108,7 +108,7 @@ const kijijiScreens = {
 	templateEditor: kjTemplateEditor,
 };
 
-// live sites captured at tablet (834px) and phone (390px) widths, for the case study stage
+// live sites (and local runs) captured at tablet (834px) and phone (390px) widths, for the case study stage
 import dvAdminDashboardPhone from "./projects/devices/admin-dashboard-phone.webp";
 import dvAdminDashboardTablet from "./projects/devices/admin-dashboard-tablet.webp";
 import dvBunShopPhone from "./projects/devices/bun-shop-phone.webp";
@@ -121,7 +121,19 @@ import dvLdpanPhone from "./projects/devices/ldpan-phone.webp";
 import dvLdpanTablet from "./projects/devices/ldpan-tablet.webp";
 import dvMediaidPhone from "./projects/devices/mediaid-phone.webp";
 import dvMediaidTablet from "./projects/devices/mediaid-tablet.webp";
+import dvTitanSettlersPhone from "./projects/devices/titan-settlers-phone.webp";
+import dvEcomTemplatePhone from "./projects/devices/e-commerce-template-phone.webp";
+import dvEcomTemplateTablet from "./projects/devices/e-commerce-template-tablet.webp";
+import dvTrekerPhone from "./projects/devices/treker-phone.webp";
+import dvTrekerTablet from "./projects/devices/treker-tablet.webp";
 import dvTitanSettlersTablet from "./projects/devices/titan-settlers-tablet.webp";
+
+import dvPageSentimentPhone from "./projects/devices/page-sentiment-phone.webp";
+import dvPageSentimentTablet from "./projects/devices/page-sentiment-tablet.webp";
+import dvSalesMlPhone from "./projects/devices/sales-ml-phone.webp";
+import dvSalesMlTablet from "./projects/devices/sales-ml-tablet.webp";
+import dvCafeVistaPhone from "./projects/devices/cafe-vista-phone.webp";
+import dvCafeVistaTablet from "./projects/devices/cafe-vista-tablet.webp";
 
 const deviceShots = {
 	adminDashboard: { phone: dvAdminDashboardPhone, tablet: dvAdminDashboardTablet },
@@ -130,7 +142,12 @@ const deviceShots = {
 	ecomGuard: { phone: dvEcomGuardPhone, tablet: dvEcomGuardTablet },
 	ldpan: { phone: dvLdpanPhone, tablet: dvLdpanTablet },
 	mediaid: { phone: dvMediaidPhone, tablet: dvMediaidTablet },
-	titanSettlers: { tablet: dvTitanSettlersTablet },
+	titanSettlers: { phone: dvTitanSettlersPhone, tablet: dvTitanSettlersTablet },
+	treker: { phone: dvTrekerPhone, tablet: dvTrekerTablet },
+	ecomTemplate: { phone: dvEcomTemplatePhone, tablet: dvEcomTemplateTablet },
+	pageSentiment: { phone: dvPageSentimentPhone, tablet: dvPageSentimentTablet },
+	salesMl: { phone: dvSalesMlPhone, tablet: dvSalesMlTablet },
+	cafeVista: { phone: dvCafeVistaPhone, tablet: dvCafeVistaTablet },
 };
 
 import blog1 from "./blogs/blog1.webp";
