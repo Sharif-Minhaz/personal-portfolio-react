@@ -160,7 +160,7 @@ export const workingHistory = [
 		icon: faBusinessTime,
 	},
 	{
-		title: "Finished Projects",
+		title: "Finished projects",
 		count: "15",
 		icon: faTasks,
 	},
@@ -604,6 +604,9 @@ export const TECH_COLORS = {
 	STRIPE: { name: "stripe", color: "#635bff" },
 	GOOGLE_AD_MANAGER: { name: "google ad manager", color: "#4285f4" },
 } as const;
+
+// tags shown first and filled in a project's stack: the languages, ahead of frameworks and tools
+export const languageTags: string[] = ["python", "typescript", "js", "html", "css", "scss"];
 
 export interface ProjectChallenge {
 	challenge: string;

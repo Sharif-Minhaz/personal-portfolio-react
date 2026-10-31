@@ -16,6 +16,7 @@ import Blogs from "./Blogs";
 import Contact from "./Contact";
 import ContactForm from "./ContactForm";
 import LegalPage from "./LegalPage";
+import StackTags from "./StackTags";
 
 export {
 	Routers,
@@ -36,4 +37,5 @@ export {
 	Contact,
 	ContactForm,
 	LegalPage,
+	StackTags,
 };

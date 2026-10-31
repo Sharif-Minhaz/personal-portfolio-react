@@ -4,7 +4,7 @@ import { faArrowLeft, faArrowUpRightFromSquare } from "@fortawesome/free-solid-s
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ProjectScreen, basicInfo, projects } from "../constants";
-import { Footer } from ".";
+import { Footer, StackTags } from ".";
 import useSeoMetadata from "../hooks/useSeoMetadata";
 
 interface ScreenGroup {
@@ -49,10 +49,12 @@ export default function ProjectDetailPage() {
 					<header className="case__head">
 						<h1>{project.name}</h1>
 						<p className="lead">{project.description}</p>
-						<p className="case__stack">
-							{project.category ?? "Web Development"}. Built with{" "}
-							{project.tags.map((tag) => tag.name).join(", ")}.
-						</p>
+						<p className="case__stack">{project.category ?? "Web Development"}</p>
+						<StackTags
+							tags={project.tags}
+							label={`Built with, for ${project.name}`}
+							className="case__stack"
+						/>
 						<div className="case__actions">
 							{project.live_link && (
 								<a

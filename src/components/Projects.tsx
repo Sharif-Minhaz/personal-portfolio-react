@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useActiveLink } from "../hooks/useActiveLink";
+import StackTags from "./StackTags";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -150,9 +151,7 @@ const ProjectCard = ({
 						))}
 					</dl>
 				)}
-				<p className="work__stack">
-					{tags.map((tag: ITag) => tag.name).join(", ")}
-				</p>
+				<StackTags tags={tags} label={`Built with, for ${name}`} className="work__stack" />
 				{(source_code_link || live_link) && (
 					<div className="work__actions">
 						{source_code_link && (

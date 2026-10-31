@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { projects } from "../constants";
-import { Footer } from ".";
+import { Footer, StackTags } from ".";
 import useSeoMetadata from "../hooks/useSeoMetadata";
 
 const PAGE_TITLE = "Selected Projects | Sharif Md. Minhaz";
@@ -136,7 +136,11 @@ export default function ProjectsPage() {
 										<h2>{project.name}</h2>
 										<p className="tile__meta">{project.category ?? "Web Development"}</p>
 										<p>{project.description}</p>
-										<p className="tile__stack">{project.tags.map((tag) => tag.name).join(", ")}</p>
+										<StackTags
+											tags={project.tags}
+											label={`Built with, for ${project.name}`}
+											className="tile__stack"
+										/>
 									</Link>
 								))}
 							</div>

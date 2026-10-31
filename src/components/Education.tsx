@@ -16,7 +16,6 @@ export default function Education() {
 			<ol className="record__rows">
 				{educations.map((education: IEducation) => (
 					<li key={education.institute} className="record__row">
-						<p className="record__date num">{education.timeSpan.replace(" - ", " to ")}</p>
 						<div className="record__what">
 							<img
 								className="record__logo"
@@ -29,6 +28,7 @@ export default function Education() {
 							/>
 							<h4>{education.institute}</h4>
 							<p className="record__where">{education.title}</p>
+							<p className="record__date num">{education.timeSpan.replace(" - ", " to ")}</p>
 						</div>
 						<p className="record__note">{education.description}</p>
 					</li>

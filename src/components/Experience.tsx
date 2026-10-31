@@ -15,7 +15,6 @@ interface IExperience {
 
 const ExperienceRow = ({ experience }: { experience: IExperience }) => (
 	<li className="record__row">
-		<p className="record__date num">{experience.date.replace(" - ", " to ")}</p>
 		<div className="record__what">
 			<img
 				className="record__logo"
@@ -28,6 +27,7 @@ const ExperienceRow = ({ experience }: { experience: IExperience }) => (
 			/>
 			<h4>{experience.title}</h4>
 			<p className="record__where">{experience.company_name}</p>
+			<p className="record__date num">{experience.date.replace(" - ", " to ")}</p>
 		</div>
 		<ul className="record__points">
 			{experience.points.map((point: string, index: number) => (
