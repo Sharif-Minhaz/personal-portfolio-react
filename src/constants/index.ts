@@ -832,7 +832,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.PRIMEREACT },
 		],
 		image: flowcraft,
-		devices: { desktop: flowcraftScreens.cmsDashboard, phone: flowcraftScreens.mobileToday },
+		devices: { ...deviceShots.flowcraft, desktop: flowcraftScreens.cmsDashboard, phone: flowcraftScreens.mobileToday },
 		// reconstructed screens with sample data; see the overview
 		screens: [
 			{
@@ -971,6 +971,7 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.GOOGLE_AD_MANAGER },
 		],
 		image: kijijiBannerAds,
+		devices: deviceShots.kijiji,
 		// real frontends on sample data; see the overview
 		screens: [
 			{
