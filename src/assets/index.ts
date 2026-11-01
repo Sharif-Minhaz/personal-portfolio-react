@@ -64,6 +64,7 @@ import salesMlColdStartThumb from "./projects/sales-ml/cold-start-thumb.webp";
 import salesMlDark from "./projects/sales-ml/forecast-dark.webp";
 import salesMlDarkThumb from "./projects/sales-ml/forecast-dark-thumb.webp";
 import flowcraft from "./projects/flowcraft.webp";
+import toolforge from "./projects/toolforge.webp";
 import fcCmsDashboard from "./projects/flowcraft/cms-dashboard.webp";
 import fcCmsGallery from "./projects/flowcraft/cms-gallery.webp";
 import fcCmsMeditation from "./projects/flowcraft/cms-meditation.webp";
@@ -137,6 +138,8 @@ import dvCafeVistaTablet from "./projects/devices/cafe-vista-tablet.webp";
 import dvKijijiPhone from "./projects/devices/kijiji-banner-ads-phone.webp";
 import dvKijijiTablet from "./projects/devices/kijiji-banner-ads-tablet.webp";
 import dvFlowcraftTablet from "./projects/devices/flowcraft-tablet.webp";
+import dvToolforgePhone from "./projects/devices/toolforge-phone.webp";
+import dvToolforgeTablet from "./projects/devices/toolforge-tablet.webp";
 
 const deviceShots = {
 	adminDashboard: { phone: dvAdminDashboardPhone, tablet: dvAdminDashboardTablet },
@@ -153,6 +156,7 @@ const deviceShots = {
 	cafeVista: { phone: dvCafeVistaPhone, tablet: dvCafeVistaTablet },
 	kijiji: { phone: dvKijijiPhone, tablet: dvKijijiTablet },
 	flowcraft: { tablet: dvFlowcraftTablet },
+	toolforge: { phone: dvToolforgePhone, tablet: dvToolforgeTablet },
 };
 
 import blog1 from "./blogs/blog1.webp";
@@ -223,6 +227,7 @@ export {
 	salesMlDark,
 	salesMlDarkThumb,
 	flowcraft,
+	toolforge,
 	flowcraftScreens,
 	kijijiBannerAds,
 	kijijiScreens,

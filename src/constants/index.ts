@@ -92,6 +92,7 @@ import {
 	kijijiBannerAds,
 	kijijiScreens,
 	deviceShots,
+	toolforge,
 	rbs,
 	diu,
 	arfinHayet,
@@ -619,6 +620,10 @@ export const TECH_COLORS = {
 	NODEMAILER: { name: "nodemailer", color: "#22a2c9" },
 	PAGEFIND: { name: "Pagefind", color: "#f7b32b" },
 	IMAGEBB: { name: "ImageBB", color: "#1d8acb" },
+	PRISMA: { name: "Prisma", color: "#5a67d8" },
+	ZOD: { name: "Zod", color: "#3e67b1" },
+	NEXT_INTL: { name: "next-intl", color: "#00a67d" },
+	SUPABASE: { name: "Supabase", color: "#3ecf8e" },
 } as const;
 
 // tags shown first and filled in a project's stack: the languages, ahead of frameworks and tools
@@ -674,6 +679,66 @@ export interface PortfolioProject {
 }
 
 export const projects: PortfolioProject[] = [
+	{
+		slug: "toolforge",
+		name: "ToolForge",
+		category: "Developer Tools",
+		description:
+			"A privacy-first developer toolbox with 47 utilities for encoding, data formats, images, and everyday engineering tasks.",
+		overview:
+			"ToolForge brings a broad collection of developer utilities into one bilingual, browser-first workspace. Most tools process data locally, while the few that need server access disclose that clearly. The live project reports 47 available tools, with 29 running in the browser, alongside English and Bangla interfaces, light and dark themes, and keyboard-accessible controls.",
+		features: [
+			"Offers 47 utilities spanning generators, encoders, data and file converters, image tools, and developer service simulators.",
+			"Runs 29 of its tools entirely in the browser, keeping their input on the user's device.",
+			"Clearly explains when a utility needs server access instead of presenting every operation as local.",
+			"Supports English and Bangla, including Bengali numerals where numbers appear in prose.",
+			"Includes separately tuned light and dark themes and keyboard-accessible controls.",
+			"Provides an optional MCP server for using selected utilities from compatible AI assistants.",
+			"Page-view analytics are opt-in and do not track the contents people process with tools.",
+		],
+		engineeringHighlights: [
+			"Built with Next.js 16, React 19, strict TypeScript, Tailwind CSS v4, and Bun.",
+			"Separates browser-side conversion and generation into a framework-free domain layer.",
+			"Uses Prisma with PostgreSQL and Supabase for authentication and storage where server state is required.",
+			"The README documents verification scripts and tests alongside the feature-specific modules.",
+		],
+		challenges: [
+			{
+				challenge:
+					"A single toolbox includes both operations that can run locally and tools that require server access.",
+				solution:
+					"ToolForge keeps local processing in a pure domain layer and discloses the few server-backed operations at the point of use.",
+			},
+			{
+				challenge:
+					"Making the same dense utility interface usable across languages, themes, and input methods.",
+				solution:
+					"The application provides English and Bangla, distinct light and dark palettes, and visible keyboard focus for interactive controls.",
+			},
+		],
+		tags: [
+			{ ...TECH_COLORS.NEXTJS },
+			{ ...TECH_COLORS.REACT },
+			{ ...TECH_COLORS.TYPESCRIPT },
+			{ ...TECH_COLORS.TAILWIND },
+			{ ...TECH_COLORS.SHADCN },
+			{ ...TECH_COLORS.NEXT_INTL },
+			{ ...TECH_COLORS.ZOD },
+			{ ...TECH_COLORS.PRISMA },
+			{ ...TECH_COLORS.POSTGRESQL },
+			{ ...TECH_COLORS.SUPABASE },
+			{ ...TECH_COLORS.BUN },
+		],
+		image: toolforge,
+		devices: deviceShots.toolforge,
+		figures: [
+			{ value: "47", label: "Tools available" },
+			{ value: "29/47", label: "Run in browser" },
+			{ value: "2", label: "Languages" },
+		],
+		source_code_link: "https://github.com/Sharif-Minhaz/toolforge",
+		live_link: "https://toolforge.minhaz.bond",
+	},
 	{
 		slug: "sales-ml",
 		name: "SalesML",
