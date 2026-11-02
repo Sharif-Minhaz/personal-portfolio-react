@@ -135,6 +135,8 @@ import dvSalesMlPhone from "./projects/devices/sales-ml-phone.webp";
 import dvSalesMlTablet from "./projects/devices/sales-ml-tablet.webp";
 import dvCafeVistaPhone from "./projects/devices/cafe-vista-phone.webp";
 import dvCafeVistaTablet from "./projects/devices/cafe-vista-tablet.webp";
+import dvChatVersePhone from "./projects/devices/chatverse.webp";
+import dvChatVerseTablet from "./projects/devices/chatverse.webp";
 import dvKijijiPhone from "./projects/devices/kijiji-banner-ads-phone.webp";
 import dvKijijiTablet from "./projects/devices/kijiji-banner-ads-tablet.webp";
 import dvFlowcraftTablet from "./projects/devices/flowcraft-tablet.webp";
@@ -154,6 +156,7 @@ const deviceShots = {
 	pageSentiment: { phone: dvPageSentimentPhone, tablet: dvPageSentimentTablet },
 	salesMl: { phone: dvSalesMlPhone, tablet: dvSalesMlTablet },
 	cafeVista: { phone: dvCafeVistaPhone, tablet: dvCafeVistaTablet },
+	chatVerse: { phone: dvChatVersePhone, tablet: dvChatVerseTablet },
 	kijiji: { phone: dvKijijiPhone, tablet: dvKijijiTablet },
 	flowcraft: { tablet: dvFlowcraftTablet },
 	toolforge: { phone: dvToolforgePhone, tablet: dvToolforgeTablet },

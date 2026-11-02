@@ -20,12 +20,7 @@ import {
 	faCloud,
 	faBrain,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-	faFacebook,
-	faGithub,
-	faLinkedin,
-	faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGithub, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import {
 	css,
@@ -185,8 +180,7 @@ export const workingHistory = [
 export const servicesIntro = {
 	title: "Services I offer",
 	lead: "I help turn ideas into real products, from scalable web applications to desktop tools and AI integrations.",
-	aside:
-		"I focus on building practical, high-quality solutions that solve real problems, using modern tools and best practices.",
+	aside: "I focus on building practical, high-quality solutions that solve real problems, using modern tools and best practices.",
 };
 
 // tags name the tools each service is built with; logos fan out in the card's corner
@@ -557,8 +551,7 @@ export const testimonials = [
 		company: "Noor AI",
 		relation: "Worked with Minhaz on the same team · February 9, 2026",
 		image: arfinHayet,
-		source:
-			"https://www.linkedin.com/in/minhaz-sharif/details/recommendations/",
+		source: "https://www.linkedin.com/in/minhaz-sharif/details/recommendations/",
 	},
 ];
 
@@ -744,15 +737,13 @@ export const projects: PortfolioProject[] = [
 		screens: [
 			{
 				label: "Overview",
-				caption:
-					"KPIs, weekly revenue and the cleaning audit, data quality first",
+				caption: "KPIs, weekly revenue and the cleaning audit, data quality first",
 				image: salesMlOverview,
 				thumb: salesMlOverviewThumb,
 			},
 			{
 				label: "Forecast",
-				caption:
-					"A 12-week forecast with its 80% band and the model leaderboard",
+				caption: "A 12-week forecast with its 80% band and the model leaderboard",
 				image: salesMlForecast,
 				thumb: salesMlForecastThumb,
 			},
@@ -770,8 +761,7 @@ export const projects: PortfolioProject[] = [
 			},
 			{
 				label: "Dark mode",
-				caption:
-					"Separate light and dark palettes, both checked for colour-blind safety",
+				caption: "Separate light and dark palettes, both checked for colour-blind safety",
 				image: salesMlDark,
 				thumb: salesMlDarkThumb,
 			},
@@ -852,7 +842,7 @@ export const projects: PortfolioProject[] = [
 		overview:
 			"Flowcraft is a self-guided mindfulness and personal-development platform for GSI Solutions, built in two connected parts. The mobile app, built with Expo and React Native, takes users through programs of daily meditations, short articles and journaling prompts, and keeps working offline. The CMS is a Node.js API on AWS Lambda with a React admin panel: editors manage programs, modules, content, meditations and images, and the API syncs that content to the app and checks App Store subscriptions. The backend credentials for the original setup have expired, so the screens shown here are reconstructions with sample data. The CMS screens run the real admin code against a local mock API. The mobile screens are mockups built from the app's own styles, layout code and assets.",
 		features: [
-			"Today screen shows the active program, a meditation carousel (\"Meditation N of M\"), the day's quote and theme, and a Morning Pause → Midday Observe → Evening Reflection timeline.",
+			'Today screen shows the active program, a meditation carousel ("Meditation N of M"), the day\'s quote and theme, and a Morning Pause → Midday Observe → Evening Reflection timeline.',
 			"Each meditation section plays a short full-screen video, fades in a self-inquiry prompt near the end, then opens the linked article.",
 			"Programs, modules and articles unlock in order: the next meditation unlocks the following day, and only after every section of the current one is done.",
 			"Program and module pages track progress, with start, resume and restart, and a confirmation sheet before switching programs.",
@@ -908,12 +898,17 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.PRIMEREACT },
 		],
 		image: flowcraft,
-		devices: { ...deviceShots.flowcraft, desktop: flowcraftScreens.cmsDashboard, phone: flowcraftScreens.mobileToday },
+		devices: {
+			...deviceShots.flowcraft,
+			desktop: flowcraftScreens.cmsDashboard,
+			phone: flowcraftScreens.mobileToday,
+		},
 		// reconstructed screens with sample data; see the overview
 		screens: [
 			{
 				label: "Today",
-				caption: "The active program, the day's quote and theme, and the meditation for today",
+				caption:
+					"The active program, the day's quote and theme, and the meditation for today",
 				group: "Mobile app",
 				device: "phone",
 				image: flowcraftScreens.mobileToday,
@@ -962,14 +957,16 @@ export const projects: PortfolioProject[] = [
 			},
 			{
 				label: "Program edit",
-				caption: "Rich-text fields and image pickers, with the program's modules and meditations beside the form",
+				caption:
+					"Rich-text fields and image pickers, with the program's modules and meditations beside the form",
 				group: "CMS admin",
 				device: "desktop",
 				image: flowcraftScreens.cmsProgramEdit,
 			},
 			{
 				label: "Meditation",
-				caption: "A meditation's koan and theme, its three sections, and its journal prompts",
+				caption:
+					"A meditation's koan and theme, its three sections, and its journal prompts",
 				group: "CMS admin",
 				device: "desktop",
 				image: flowcraftScreens.cmsMeditation,
@@ -1052,14 +1049,16 @@ export const projects: PortfolioProject[] = [
 		screens: [
 			{
 				label: "Template editor",
-				caption: "A template customised in a live editor that previews every banner size at once",
+				caption:
+					"A template customised in a live editor that previews every banner size at once",
 				group: "Advertiser portal",
 				device: "desktop",
 				image: kijijiScreens.templateEditor,
 			},
 			{
 				label: "Targeting",
-				caption: "Budget or views, location and category trees, click-through URL and a discount code",
+				caption:
+					"Budget or views, location and category trees, click-through URL and a discount code",
 				group: "Advertiser portal",
 				device: "desktop",
 				image: kijijiScreens.targeting,
@@ -1073,14 +1072,16 @@ export const projects: PortfolioProject[] = [
 			},
 			{
 				label: "Campaign",
-				caption: "An active campaign: buyer details, targeting, flight dates and its creatives",
+				caption:
+					"An active campaign: buyer details, targeting, flight dates and its creatives",
 				group: "Advertiser portal",
 				device: "desktop",
 				image: kijijiScreens.campaignDetail,
 			},
 			{
 				label: "Moderation",
-				caption: "A pending campaign reviewed against the Google Ad Manager forecast, then approved or rejected",
+				caption:
+					"A pending campaign reviewed against the Google Ad Manager forecast, then approved or rejected",
 				group: "Admin console",
 				device: "desktop",
 				image: kijijiScreens.adminReview,
@@ -1094,14 +1095,16 @@ export const projects: PortfolioProject[] = [
 			},
 			{
 				label: "Generation history",
-				caption: "Each banner generation run, with its robot, template, duration and result",
+				caption:
+					"Each banner generation run, with its robot, template, duration and result",
 				group: "Dynamic ads",
 				device: "desktop",
 				image: kijijiScreens.generationHistory,
 			},
 			{
 				label: "Robot builder",
-				caption: "Mapping a dealer page's inventory fields by clicking them, before the robot is created",
+				caption:
+					"Mapping a dealer page's inventory fields by clicking them, before the robot is created",
 				group: "Dynamic ads",
 				device: "desktop",
 				image: kijijiScreens.robotBuilder,
@@ -1136,8 +1139,7 @@ export const projects: PortfolioProject[] = [
 		],
 		challenges: [
 			{
-				challenge:
-					"A binary training dataset cannot directly label neutral comments.",
+				challenge: "A binary training dataset cannot directly label neutral comments.",
 				solution:
 					"The prediction layer applies a documented 0.40–0.60 probability band as a calibration rule and returns neutral for predictions in that range.",
 			},
@@ -1166,8 +1168,7 @@ export const projects: PortfolioProject[] = [
 		],
 		image: pageSentiment,
 		devices: deviceShots.pageSentiment,
-		source_code_link:
-			"https://github.com/Sharif-Minhaz/sentiment-analysis-fb-page",
+		source_code_link: "https://github.com/Sharif-Minhaz/sentiment-analysis-fb-page",
 	},
 	{
 		slug: "ldpan",
@@ -1403,8 +1404,7 @@ export const projects: PortfolioProject[] = [
 	{
 		slug: "admin-dashboard",
 		name: "Admin Dashboard",
-		description:
-			"A html Admin-dashboard template created with html, css. js and jquery.",
+		description: "A html Admin-dashboard template created with html, css. js and jquery.",
 		overview:
 			"Admin Dashboard is a static HTML template for common administration interfaces. Its repository organizes the interface into focused areas such as dashboard, forms, charts, tables, maps, authentication, and widgets, making it a starting point for a wider admin UI rather than a single-purpose screen.",
 		features: [
@@ -1445,14 +1445,14 @@ export const projects: PortfolioProject[] = [
 			{ ...TECH_COLORS.MONGODB },
 		],
 		image: chatVerse,
+		devices: deviceShots.chatVerse,
 		source_code_link: "https://github.com/Sharif-Minhaz/ChatVerse",
 		live_link: "https://chatverse-9vo5.onrender.com",
 	},
 	{
 		slug: "e-commerce-template",
 		name: "E-Commerce Template",
-		description:
-			"E-commerce web project for managing products orders and shopping cart.",
+		description: "E-commerce web project for managing products orders and shopping cart.",
 		overview:
 			"E-Commerce Template is a front-end shopping site centered on product browsing, orders, and a shopping cart. Its public repository describes it as an HTML, CSS, and JavaScript project and links a GitHub Pages deployment. The README provides only a short product summary, so details here stay within that scope.",
 		features: [
@@ -1527,8 +1527,7 @@ export const projects: PortfolioProject[] = [
 export const blogs = [
 	{
 		id: 1,
-		title:
-			"Unleashing the Power of Progressive Web Apps: The Future of Web Development",
+		title: "Unleashing the Power of Progressive Web Apps: The Future of Web Development",
 		url: "https://dev-inertia-blog.netlify.app/blog/view/unleashing-the-power-of-progressive-web-apps-the-future-of-web-development",
 		cover: blog1,
 		publishedDate: "March 27, 2024",
@@ -1536,8 +1535,7 @@ export const blogs = [
 	},
 	{
 		id: 2,
-		title:
-			"Building Robust REST APIs with Python Flask: A Guide for Developers",
+		title: "Building Robust REST APIs with Python Flask: A Guide for Developers",
 		cover: blog2,
 		url: "https://dev-inertia-blog.netlify.app/blog/view/building-robust-rest-apis-with-python-flask-a-guide-for-developers",
 		publishedDate: "March 27, 2024",
